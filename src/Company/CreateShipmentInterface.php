@@ -2,6 +2,6 @@
 
 namespace Teknomavi\Kargo\Company;
 
-interface CompanyInterface
+interface CreateShipmentInterface
 {
 }
