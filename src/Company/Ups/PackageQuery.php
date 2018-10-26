@@ -14,7 +14,7 @@ class PackageQuery extends PackageQueryAbstract implements PackageQueryInterface
      *
      * @return PackageInfo
      */
-    public function getPackageInfoByTrackingNumber($trackingNumber): PackageInfo
+    public function getPackageInfoByTrackingNumber(string $trackingNumber): PackageInfo
     {
         return new PackageInfo();
     }
@@ -24,7 +24,7 @@ class PackageQuery extends PackageQueryAbstract implements PackageQueryInterface
      *
      * @return PackageInfo
      */
-    public function getPackageInfoByReferenceNumber($trackingNumber): PackageInfo
+    public function getPackageInfoByReferenceNumber(string $trackingNumber): PackageInfo
     {
         return new PackageInfo();
     }
@@ -34,7 +34,7 @@ class PackageQuery extends PackageQueryAbstract implements PackageQueryInterface
      *
      * @return PackageStatus
      */
-    public function getPackageStatusByTrackingNumber($trackingNumber): PackageStatus
+    public function getPackageStatusByTrackingNumber(string $trackingNumber): PackageStatus
     {
 
         return new PackageStatus();
@@ -45,7 +45,7 @@ class PackageQuery extends PackageQueryAbstract implements PackageQueryInterface
      *
      * @return PackageStatus
      */
-    public function getPackageStatusByReferenceNumber($referenceNumber): PackageStatus
+    public function getPackageStatusByReferenceNumber(string $referenceNumber): PackageStatus
     {
         return new PackageStatus();
     }

@@ -12,28 +12,28 @@ interface PackageQueryInterface
      *
      * @return PackageInfo
      */
-    public function getPackageInfoByTrackingNumber($trackingNumber): PackageInfo;
+    public function getPackageInfoByTrackingNumber(string $trackingNumber): PackageInfo;
 
     /**
      * @param string $referenceNumber
      *
      * @return PackageInfo
      */
-    public function getPackageInfoByReferenceNumber($referenceNumber): PackageInfo;
+    public function getPackageInfoByReferenceNumber(string $referenceNumber): PackageInfo;
 
     /**
      * @param string $trackingNumber
      *
      * @return PackageStatus
      */
-    public function getPackageStatusByTrackingNumber($trackingNumber): PackageStatus;
+    public function getPackageStatusByTrackingNumber(string $trackingNumber): PackageStatus;
 
     /**
      * @param string $referenceNumber
      *
      * @return PackageStatus
      */
-    public function getPackageStatusByReferenceNumber($referenceNumber): PackageStatus;
+    public function getPackageStatusByReferenceNumber(string $referenceNumber): PackageStatus;
 
     /**
      * @param string[] $list

@@ -14,7 +14,7 @@ abstract class PackageQueryAbstract extends ServiceAbstract
      * @return PackageInfo
      * @throws MethodNotSupported
      */
-    public function getPackageInfoByTrackingNumber($trackingNumber): PackageInfo
+    public function getPackageInfoByTrackingNumber(string $trackingNumber): PackageInfo
     {
         throw new MethodNotSupported();
     }
@@ -25,7 +25,7 @@ abstract class PackageQueryAbstract extends ServiceAbstract
      * @return PackageInfo
      * @throws MethodNotSupported
      */
-    public function getPackageInfoByReferenceNumber($trackingNumber): PackageInfo
+    public function getPackageInfoByReferenceNumber(string $trackingNumber): PackageInfo
     {
         throw new MethodNotSupported();
     }
@@ -36,7 +36,7 @@ abstract class PackageQueryAbstract extends ServiceAbstract
      * @return PackageStatus
      * @throws MethodNotSupported
      */
-    public function getPackageStatusByTrackingNumber($trackingNumber): PackageStatus
+    public function getPackageStatusByTrackingNumber(string $trackingNumber): PackageStatus
     {
         throw new MethodNotSupported();
     }
@@ -47,7 +47,7 @@ abstract class PackageQueryAbstract extends ServiceAbstract
      * @return PackageStatus
      * @throws MethodNotSupported
      */
-    public function getPackageStatusByReferenceNumber($referenceNumber): PackageStatus
+    public function getPackageStatusByReferenceNumber(string $referenceNumber): PackageStatus
     {
         throw new MethodNotSupported();
     }
