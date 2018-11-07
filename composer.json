@@ -10,10 +10,8 @@
     "ups",
     "aras",
     "yurtiçi",
-    "yurtici",
     "mng",
-    "sürat",
-    "surat"
+    "sürat"
   ],
   "require": {
     "php": ">= 7.0",
