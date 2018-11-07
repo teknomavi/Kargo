@@ -3,9 +3,9 @@
 namespace Teknomavi\Kargo\Company;
 
 use Teknomavi\Kargo\Response\PackageInfo;
-use Teknomavi\Kargo\Response\PackageStatus;
+use Teknomavi\Kargo\Response\ShipmentStatus;
 
-interface PackageQueryInterface
+interface ServiceInterface
 {
     /**
      * @param string $trackingNumber
@@ -24,42 +24,42 @@ interface PackageQueryInterface
     /**
      * @param string $trackingNumber
      *
-     * @return PackageStatus
+     * @return ShipmentStatus
      */
-    public function getPackageStatusByTrackingNumber(string $trackingNumber): PackageStatus;
+    public function getShipmentStatusByTrackingNumber(string $trackingNumber): ShipmentStatus;
 
     /**
      * @param string $referenceNumber
      *
-     * @return PackageStatus
+     * @return ShipmentStatus
      */
-    public function getPackageStatusByReferenceNumber(string $referenceNumber): PackageStatus;
+    public function getShipmentStatusByReferenceNumber(string $referenceNumber): ShipmentStatus;
 
     /**
      * @param string[] $list
      *
-     * @return PackageStatus[]
+     * @return ShipmentStatus[]
      */
-    public function getPackageStatusesByTrackingNumberList(array $list): array;
+    public function getShipmentStatusByTrackingNumberList(array $list): array;
 
     /**
      * @param string[] $list
      *
-     * @return PackageStatus[]
+     * @return ShipmentStatus[]
      */
-    public function getPackageStatusesByReferenceNumberList(array $list): array;
+    public function getShipmentStatusByReferenceNumberList(array $list): array;
 
     /**
      * @param \DateTime $date
      *
-     * @return PackageStatus[]
+     * @return ShipmentStatus[]
      */
-    public function getPackageStatusByPickupDate(\DateTime $date): array;
+    public function getShipmentStatusByPickupDate(\DateTime $date): array;
 
     /**
      * @param \DateTime $date
      *
-     * @return PackageStatus[]
+     * @return ShipmentStatus[]
      */
-    public function getPackageStatusByDeliveryDate(\DateTime $date): array;
+    public function getShipmentStatusByDeliveryDate(\DateTime $date): array;
 }

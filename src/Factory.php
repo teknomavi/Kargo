@@ -3,7 +3,7 @@
 namespace Teknomavi\Kargo;
 
 use Teknomavi\Kargo\Company\CreateShipmentInterface;
-use Teknomavi\Kargo\Company\PackageQueryInterface;
+use Teknomavi\Kargo\Company\ServiceInterface;
 use Teknomavi\Kargo\Exception\InvalidProvider;
 
 class Factory
@@ -29,12 +29,12 @@ class Factory
      * @param string $providerName
      * @param array  $options
      *
-     * @return PackageQueryInterface
+     * @return ServiceInterface
      * @throws InvalidProvider
      */
-    public static function initPackageQueryService(string $providerName, array $options = []): PackageQueryInterface
+    public static function initPackageQueryService(string $providerName, array $options = []): ServiceInterface
     {
-        /** @var PackageQueryInterface $provider */
+        /** @var ServiceInterface $provider */
         $provider = 'Teknomavi\\Kargo\\Company\\' . $providerName . '\\PackageQuery';
         if (!class_exists($provider)) {
             throw new InvalidProvider($providerName . ' isimli kargo firması için Paket Sorgulama Servisi bulunamadı');

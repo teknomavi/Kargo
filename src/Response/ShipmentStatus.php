@@ -2,6 +2,6 @@
 
 namespace Teknomavi\Kargo\Response;
 
-class PackageStatus
+class ShipmentStatus
 {
 }
