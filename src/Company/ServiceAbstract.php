@@ -4,6 +4,7 @@ namespace Teknomavi\Kargo\Company;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Teknomavi\Kargo\Exception\MethodNotSupported;
+use Teknomavi\Kargo\Exception\UndefinedStatusCode;
 use Teknomavi\Kargo\Response\PackageInfo;
 use Teknomavi\Kargo\Response\ShipmentStatus;
 
@@ -13,6 +14,10 @@ abstract class ServiceAbstract
      * @var array
      */
     protected $options;
+    /**
+     * @var array
+     */
+    protected $statusMap = [];
 
     public function __construct(array $options = [])
     {
@@ -21,12 +26,29 @@ abstract class ServiceAbstract
         $this->options = $resolver->resolve($options);
     }
 
+    /**
+     * @param OptionsResolver $resolver
+     */
     protected function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'username' => '',
             'password' => '',
         ));
+    }
+
+    /**
+     * @param $originalStatus
+     *
+     * @return mixed
+     * @throws UndefinedStatusCode
+     */
+    public function mapStatus(string $originalStatus): string
+    {
+        if (!isset($this->statusMap[$originalStatus])) {
+            throw new UndefinedStatusCode("Durum kodu '{$originalStatus}' eşleştirilmemiş.");
+        }
+        return $this->statusMap[$originalStatus];
     }
 
     /*

@@ -8,6 +8,7 @@ use Teknomavi\Kargo\Company\ServiceInterface;
 use Teknomavi\Kargo\Company\Ups\Helper\CreateShipment\CreateShipment;
 use Teknomavi\Kargo\Company\Ups\Helper\CreateShipment\Login_Type1;
 use Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo\GetTransactionsByPackagePickupDate_V1;
+use Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo\PackageTransactionwithDeliveryDetail;
 use Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo\QueryPackageInfo;
 use Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo\TransactionTypes;
 use Teknomavi\Kargo\Response\PackageInfo;
@@ -27,14 +28,44 @@ class Service extends ServiceAbstract implements ServiceInterface
      * @var string
      */
     private $sessionId = null;
+    const STATUS_PACKAGE_SCANNED = 'Scanned';
+    const STATUS_DELIVERED = 'Delivered';
+    const STATUS_EXCEPTION = 'Exception';
+    const STATUS_ON_DISTRIBUTION = 'OnDistribution';
+    const STATUS_ON_BRANCH = 'OnBranch';
+    const STATUS_RETURN_BACK = 'ReturningBack';
+    protected $statusMap = [
+        1  => ShipmentStatus::STATUS_PACKAGE_SCANNED, #GİRİŞ SCAN EDİLDİ
+        2  => ShipmentStatus::STATUS_DELIVERED, #ALICIYA TESLİM EDİLDİ
+        3  => ShipmentStatus::STATUS_EXCEPTION, #ÖZEL DURUM OLUŞTU
+        4  => ShipmentStatus::STATUS_ON_DISTRIBUTION, #KURYE DAĞITMAK ÜZERE ÇIKARDI
+        5  => ShipmentStatus::STATUS_ON_BRANCH, #KURYE GERİ GETİRDİ
+        6  => ShipmentStatus::STATUS_ON_BRANCH, #ŞUBEYE GÖNDERİLDİ
+        7  => ShipmentStatus::STATUS_ON_BRANCH, #ŞUBEDEN GELDİ
+        12 => ShipmentStatus::STATUS_ON_BRANCH, #K. KONTEYNERE KONDU
+        15 => ShipmentStatus::STATUS_ON_BRANCH, #MANİFESTO FAZLASI
+        16 => ShipmentStatus::STATUS_ON_BRANCH, #K. KONTEYNERDEN ÇIKTI
+        17 => ShipmentStatus::STATUS_RETURN_BACK, #GÖNDERENE İADE AMAÇLI ÇIKIŞ
+        18 => ShipmentStatus::STATUS_PACKAGE_SCANNED, #MÜŞTERİ TOPLU GİRİŞ
+        19 => ShipmentStatus::STATUS_ON_BRANCH, #ŞUBEDE BEKLEYEN
+        30 => ShipmentStatus::STATUS_ON_BRANCH, #KONSOLOSLUKTAN TESLİM ALINDI
+        31 => ShipmentStatus::STATUS_PACKAGE_SCANNED, #ÇAĞRI SONUCU ALINDI
+        32 => ShipmentStatus::STATUS_ON_BRANCH, #DEPOYA GİRDİ
+        33 => ShipmentStatus::STATUS_ON_BRANCH, #DEPODAN ÇIKTI
+        34 => ShipmentStatus::STATUS_ON_BRANCH, #EDI BİLGİ TRANSFER
+        35 => ShipmentStatus::STATUS_PACKAGE_SCANNED, #MÜŞTERİ DEPODA OKUNDU
+        36 => ShipmentStatus::STATUS_ON_DISTRIBUTION, #TOPLU DAĞITIMA ÇIKIŞ
+        37 => ShipmentStatus::STATUS_ON_BRANCH, #TRANSİT KARŞILAMA
+        38 => ShipmentStatus::STATUS_ON_BRANCH, #TRANSİT ÇIKIŞ
+    ];
 
     protected function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'customer_code' => '',
             'username'      => '',
             'password'      => '',
-        ));
+        ]);
     }
 
     private function initShipmentService(): CreateShipment
@@ -172,8 +203,9 @@ class Service extends ServiceAbstract implements ServiceInterface
         );
         $response = [];
         foreach ($resultWebService->getGetTransactionsByPackagePickupDate_V1Result() as $item) {
+            $response[$item->getTrackingNumber()] = $this->populateShipmentStatusFromItem($item);
+            echo '<xmp>' . print_r($response[$item->getTrackingNumber()], 1) . '</xmp>';
             echo '<xmp>' . print_r($item, 1) . '</xmp>';
-            $response[$item->getTrackingNumber()] = $item;
             die();
         }
         return $response;
@@ -190,8 +222,22 @@ class Service extends ServiceAbstract implements ServiceInterface
         return [];
     }
 
-    private function populateStatusObjectFromItem($item): ShipmentStatus
+    /**
+     * @param PackageTransactionwithDeliveryDetail $item
+     *
+     * @return ShipmentStatus
+     */
+    private function populateShipmentStatusFromItem($item): ShipmentStatus
     {
-        return new ShipmentStatus();
+        $shipmentStatus = new ShipmentStatus();
+        $shipmentStatus->setTrackingNumber($item->getTrackingNumber())
+            ->setReferenceNumber($item->getCustomerReferanceNumber())
+            ->setStatusCode($this->mapStatus($item->getStatusCode()))
+            ->setOriginalStatus($item->getStatusCode())
+            ->setStatusDetails($item->getProcessDescription2())
+            ->setUpdateTime(\DateTime::createFromFormat('Ymd-His', $item->getProcessTimeStamp()))
+            ->setErrorCode($item->getErrorCode())
+            ->setErrorMessage($item->getErrorDefinition());
+        return $shipmentStatus;
     }
 }

@@ -7,6 +7,11 @@ use Teknomavi\Kargo\Exception\InvalidProvider;
 
 class CargoFactory
 {
+    const PROVIDER_ARAS = 'Aras';
+    const PROVIDER_MNG = 'Mng';
+    const PROVIDER_UPS = 'Ups';
+    const PROVIDER_SURAT = 'Surat';
+    const PROVIDER_YURTICI = 'Yurtici';
     /**
      * @param string $providerName
      * @param array  $options
