@@ -203,10 +203,8 @@ class Service extends ServiceAbstract implements ServiceInterface
         );
         $response = [];
         foreach ($resultWebService->getGetTransactionsByPackagePickupDate_V1Result() as $item) {
-            $response[$item->getTrackingNumber()] = $this->populateShipmentStatusFromItem($item);
-            echo '<xmp>' . print_r($response[$item->getTrackingNumber()], 1) . '</xmp>';
-            echo '<xmp>' . print_r($item, 1) . '</xmp>';
-            die();
+            $shipmentStatus = $this->populateShipmentStatusFromItem($item);
+            $response[$shipmentStatus->getTrackingNumber()] = $shipmentStatus;
         }
         return $response;
     }
