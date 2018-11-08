@@ -2,6 +2,6 @@
 
 namespace Teknomavi\Kargo\Exception;
 
-class UndefinedStatusCode extends \Exception
+class InvalidParameterValue extends \Exception
 {
 }

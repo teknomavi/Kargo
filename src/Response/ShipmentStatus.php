@@ -59,7 +59,7 @@ class ShipmentStatus
      */
     public function setTrackingNumber(string $trackingNumber): ShipmentStatus
     {
-        $this->trackingNumber = $trackingNumber;
+        $this->trackingNumber = trim($trackingNumber);
         return $this;
     }
 
@@ -78,7 +78,7 @@ class ShipmentStatus
      */
     public function setReferenceNumber(string $referenceNumber): ShipmentStatus
     {
-        $this->referenceNumber = $referenceNumber;
+        $this->referenceNumber = trim($referenceNumber);
         return $this;
     }
 
@@ -116,7 +116,7 @@ class ShipmentStatus
      */
     public function setOriginalStatus(string $originalStatus): ShipmentStatus
     {
-        $this->originalStatus = $originalStatus;
+        $this->originalStatus = trim($originalStatus);
         return $this;
     }
 
@@ -135,7 +135,7 @@ class ShipmentStatus
      */
     public function setStatusDetails(string $statusDetails): ShipmentStatus
     {
-        $this->statusDetails = $statusDetails;
+        $this->statusDetails = trim($statusDetails);
         return $this;
     }
 
@@ -154,7 +154,7 @@ class ShipmentStatus
      */
     public function setErrorCode(string $errorCode): ShipmentStatus
     {
-        $this->errorCode = $errorCode;
+        $this->errorCode = trim($errorCode);
         return $this;
     }
 
@@ -173,7 +173,7 @@ class ShipmentStatus
      */
     public function setErrorMessage(string $errorMessage): ShipmentStatus
     {
-        $this->errorMessage = $errorMessage;
+        $this->errorMessage = trim($errorMessage);
         return $this;
     }
 

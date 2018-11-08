@@ -3,8 +3,8 @@
 namespace Teknomavi\Kargo\Company;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Teknomavi\Kargo\Exception\InvalidParameterValue;
 use Teknomavi\Kargo\Exception\MethodNotSupported;
-use Teknomavi\Kargo\Exception\UndefinedStatusCode;
 use Teknomavi\Kargo\Response\PackageInfo;
 use Teknomavi\Kargo\Response\ShipmentStatus;
 
@@ -17,7 +17,19 @@ abstract class ServiceAbstract
     /**
      * @var array
      */
-    protected $statusMap = [];
+    protected $statusMapping = [];
+    /**
+     * @var array
+     */
+    protected $packageTypeMapping = [];
+    /**
+     * @var array
+     */
+    protected $shipmentTypeMapping = [];
+    /**
+     * @var array
+     */
+    protected $paymentTypeMapping = [];
 
     public function __construct(array $options = [])
     {
@@ -40,15 +52,57 @@ abstract class ServiceAbstract
     /**
      * @param $originalStatus
      *
-     * @return mixed
-     * @throws UndefinedStatusCode
+     * @return string
+     * @throws InvalidParameterValue
      */
     public function mapStatus(string $originalStatus): string
     {
-        if (!isset($this->statusMap[$originalStatus])) {
-            throw new UndefinedStatusCode("Durum kodu '{$originalStatus}' eşleştirilmemiş.");
+        if (!isset($this->statusMapping[$originalStatus])) {
+            throw new InvalidParameterValue("Eşleştirilmemiş Durum Kodu: '{$originalStatus}'");
         }
-        return $this->statusMap[$originalStatus];
+        return $this->statusMapping[$originalStatus];
+    }
+
+    /**
+     * @param $packageType
+     *
+     * @return string
+     * @throws InvalidParameterValue
+     */
+    public function mapPackageType(string $packageType): string
+    {
+        if (!isset($this->packageTypeMapping[$packageType])) {
+            throw new InvalidParameterValue("Eşleştirilmemiş Paket Tipi: '{$packageType}'");
+        }
+        return $this->packageTypeMapping[$packageType];
+    }
+
+    /**
+     * @param $shipmentType
+     *
+     * @return string
+     * @throws InvalidParameterValue
+     */
+    public function mapShipmentType(string $shipmentType): string
+    {
+        if (!isset($this->shipmentTypeMapping[$shipmentType])) {
+            throw new InvalidParameterValue("Eşleştirilmemiş Gönderi Tipi: '{$shipmentType}'");
+        }
+        return $this->shipmentTypeMapping[$shipmentType];
+    }
+
+    /**
+     * @param $paymentType
+     *
+     * @return string
+     * @throws InvalidParameterValue
+     */
+    public function mapPaymentType(string $paymentType): string
+    {
+        if (!isset($this->paymentTypeMapping[$paymentType])) {
+            throw new InvalidParameterValue("Eşleştirilmemiş Ödeme Tipi: '{$paymentType}'");
+        }
+        return $this->paymentTypeMapping[$paymentType];
     }
 
     /*
