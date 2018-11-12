@@ -4,6 +4,7 @@ namespace Teknomavi\Kargo\Response;
 
 class ShipmentStatus
 {
+    const STATUS_NOT_FOUND = 'NotFound';
     const STATUS_PACKAGE_SCANNED = 'Scanned';
     const STATUS_DELIVERED = 'Delivered';
     const STATUS_EXCEPTION = 'Exception';

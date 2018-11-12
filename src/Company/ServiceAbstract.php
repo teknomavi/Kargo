@@ -201,4 +201,12 @@ abstract class ServiceAbstract
     {
         throw new MethodNotSupported();
     }
+
+    protected function shipmentStatusNotFound(){
+        $shipmentStatus = new ShipmentStatus();
+        $shipmentStatus->setStatusCode(ShipmentStatus::STATUS_NOT_FOUND)
+            ->setStatusDetails('Not Found')
+            ->setOriginalStatus(0);
+        return $shipmentStatus;
+    }
 }

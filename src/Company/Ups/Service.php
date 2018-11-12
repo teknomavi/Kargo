@@ -199,7 +199,10 @@ class Service extends ServiceAbstract implements ServiceInterface
     public function getShipmentStatusByTrackingNumber(string $trackingNumber): ShipmentStatus
     {
         $response = $this->getShipmentStatusByTrackingNumberList([$trackingNumber]);
-        return current($response);
+        if (count($response)) {
+            return current($response);
+        }
+        return $this->shipmentStatusNotFound()->setTrackingNumber($trackingNumber);
     }
 
     /**
@@ -210,7 +213,10 @@ class Service extends ServiceAbstract implements ServiceInterface
     public function getShipmentStatusByReferenceNumber(string $referenceNumber): ShipmentStatus
     {
         $response = $this->getShipmentStatusByReferenceNumberList([$referenceNumber]);
-        return current($response);
+        if (count($response)) {
+            return current($response);
+        }
+        return $this->shipmentStatusNotFound()->setReferenceNumber($referenceNumber);
     }
 
     /**
@@ -237,7 +243,7 @@ class Service extends ServiceAbstract implements ServiceInterface
                 $trnType)
         );
         $response = [];
-        foreach ($resultWebService->getGetTransactionsByList_V1Result() as $item) {
+        foreach ((array)$resultWebService->getGetTransactionsByList_V1Result()->getPackageTransactionwithDeliveryDetail() as $item) {
             if ($item instanceof PackageTransactionwithDeliveryDetail) {
                 $shipmentStatus = $this->populateShipmentStatusFromItem($item);
                 $response[$shipmentStatus->getTrackingNumber()] = $shipmentStatus;
@@ -271,7 +277,7 @@ class Service extends ServiceAbstract implements ServiceInterface
             )
         );
         $response = [];
-        foreach ($resultWebService->getGetTransactionsByList_V1Result() as $item) {
+        foreach ((array)$resultWebService->getGetTransactionsByList_V1Result()->getPackageTransactionwithDeliveryDetail() as $item) {
             if ($item instanceof PackageTransactionwithDeliveryDetail) {
                 $shipmentStatus = $this->populateShipmentStatusFromItem($item);
                 $response[$shipmentStatus->getReferenceNumber()] = $shipmentStatus;
