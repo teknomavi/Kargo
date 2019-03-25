@@ -627,7 +627,7 @@ class Package
     /**
      * @return float
      */
-    public function getInsuranceValue(): float
+    public function getInsuranceValue(): ?float
     {
         return $this->insuranceValue;
     }

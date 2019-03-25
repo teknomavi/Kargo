@@ -2,6 +2,7 @@
 
 namespace Teknomavi\Kargo\Company\Ups;
 
+use Couchbase\ViewQuery;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Teknomavi\Kargo\Company\ServiceAbstract;
 use Teknomavi\Kargo\Company\ServiceInterface;
@@ -116,7 +117,14 @@ class Service extends ServiceAbstract implements ServiceInterface
             ->setConsigneeCityCode($consigneeCityCode)
             ->setConsigneePhoneNumber($package->getConsigneeMobilPhone())
             ->setCustomerReferance($package->getReferenceNo())
-            ->setCustomerInvoiceNumber($package->getInvoiceNo());
+            ->setCustomerInvoiceNumber($package->getInvoiceNo())
+            ->setInsuranceValue(0)
+            ->setValueOfGoods(0)
+            ->setValueOfGoodsCurrency('TL')
+            ->setInsuranceValue(0)
+            ->setInsuranceValueCurrency('TL');
+
+        $shipmentType->setValueOfGoodsPaymentType(0);
 
         if ($package->getPaymentType() == Package::PAYMENT_TYPE_SHIPPER_PAY) {
             $shipmentType->setPaymentType(2);
@@ -130,9 +138,9 @@ class Service extends ServiceAbstract implements ServiceInterface
         }
 
         if ($package->getPackageType() == Package::PACKAGE_TYPE_BOX) {
-            $shipmentType->setPaymentType('K');
+            $shipmentType->setPackageType('K');
         } else {
-            $shipmentType->setPaymentType('L');
+            $shipmentType->setPackageType('L');
         }
 
         if (!$package->getShipmentType() == Package::SHIPMENT_TYPE_PREPAID) {
@@ -149,12 +157,33 @@ class Service extends ServiceAbstract implements ServiceInterface
 
     function sendPackages()
     {
+        echo "<pre>";
+        $response = ['added' => [], 'notAdded' => []];
         $service = $this->initShipmentService();
         foreach ($this->packages as $package) {
-            $obj = new CreateShipment_Type2($this->getSessionId(),$package,true,true);
-            $result  = $service->CreateShipment_Type2($obj);
+            /** @var ShipmentInfo_Type2 $package */
+            $obj = new CreateShipment_Type2($this->getSessionId(), $package, true, true);
+            print_r($obj);
+            try {
+                $result = $service->CreateShipment_Type2($obj);
 
+            } catch (\Exception $exception) {
+                var_dump($service->__getLastRequest());
+                var_dump($service->__getLastResponse());
+                var_dump($exception->getMessage());
+                die();
+            }
+
+            print_r($result);
+            die();
+            $trackingNumber = $result->getCreateShipment_Type2Result()->getShipmentNo();
+            if (!empty($trackingNumber)) {
+
+            } else {
+                $response['notAdded'][] = $package->getCustomerReferance();
+            }
         }
+        return $response;
     }
 
     /**
@@ -216,6 +245,8 @@ class Service extends ServiceAbstract implements ServiceInterface
     {
         if (!$this->shipmentService) {
             $this->shipmentService = new CreateShipment([
+                'trace' => 1,
+                'connection_timeout' => 60,
                 "features" => SOAP_SINGLE_ELEMENT_ARRAYS,
             ]);
         }
@@ -445,7 +476,7 @@ class Service extends ServiceAbstract implements ServiceInterface
     protected function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'customer_code' => '',
+            'customerCode' => '',
             'username' => '',
             'password' => '',
         ]);
