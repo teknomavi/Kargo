@@ -194,20 +194,20 @@ class ShipmentListInfo_Type1
     protected $returnShipmentInfo = null;
 
     /**
-     * @param int $ShipperCityCode
-     * @param int $ShipperAreaCode
-     * @param int $ConsigneeCityCode
-     * @param int $ConsigneeAreaCode
-     * @param int $ServiceLevel
-     * @param int $PaymentType
-     * @param int $NumberOfPackages
-     * @param int $IdControlFlag
-     * @param int $PhonePrealertFlag
-     * @param int $SmsToShipper
-     * @param int $SmsToConsignee
+     * @param int   $ShipperCityCode
+     * @param int   $ShipperAreaCode
+     * @param int   $ConsigneeCityCode
+     * @param int   $ConsigneeAreaCode
+     * @param int   $ServiceLevel
+     * @param int   $PaymentType
+     * @param int   $NumberOfPackages
+     * @param int   $IdControlFlag
+     * @param int   $PhonePrealertFlag
+     * @param int   $SmsToShipper
+     * @param int   $SmsToConsignee
      * @param float $InsuranceValue
      * @param float $ValueOfGoods
-     * @param int $ValueOfGoodsPaymentType
+     * @param int   $ValueOfGoodsPaymentType
      */
     public function __construct(
         $ShipperCityCode,

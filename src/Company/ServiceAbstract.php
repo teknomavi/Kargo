@@ -5,6 +5,7 @@ namespace Teknomavi\Kargo\Company;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Teknomavi\Kargo\Exception\InvalidParameterValue;
 use Teknomavi\Kargo\Exception\MethodNotSupported;
+use Teknomavi\Kargo\Model\Package;
 use Teknomavi\Kargo\Response\PackageInfo;
 use Teknomavi\Kargo\Response\ShipmentStatus;
 
@@ -30,6 +31,10 @@ abstract class ServiceAbstract
      * @var array
      */
     protected $paymentTypeMapping = [];
+    /**
+     * @var array
+     */
+    protected $packages = [];
 
     public function __construct(array $options = [])
     {
@@ -43,11 +48,15 @@ abstract class ServiceAbstract
      */
     protected function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $resolver->setDefaults([
             'username' => '',
             'password' => '',
-        ));
+        ]);
     }
+
+    abstract function sendPackages();
+
+    abstract function addPackage(Package $package);
 
     /**
      * @param $originalStatus
@@ -202,7 +211,8 @@ abstract class ServiceAbstract
         throw new MethodNotSupported();
     }
 
-    protected function shipmentStatusNotFound(){
+    protected function shipmentStatusNotFound()
+    {
         $shipmentStatus = new ShipmentStatus();
         $shipmentStatus->setStatusCode(ShipmentStatus::STATUS_NOT_FOUND)
             ->setStatusDetails('Not Found')

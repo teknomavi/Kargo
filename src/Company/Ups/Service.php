@@ -6,7 +6,9 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Teknomavi\Kargo\Company\ServiceAbstract;
 use Teknomavi\Kargo\Company\ServiceInterface;
 use Teknomavi\Kargo\Company\Ups\Helper\CreateShipment\CreateShipment;
+use Teknomavi\Kargo\Company\Ups\Helper\CreateShipment\CreateShipment_Type2;
 use Teknomavi\Kargo\Company\Ups\Helper\CreateShipment\Login_Type1;
+use Teknomavi\Kargo\Company\Ups\Helper\CreateShipment\ShipmentInfo_Type2;
 use Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo\ArrayOfString;
 use Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo\GetPackageInfoByReferance_V1;
 use Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo\GetPackageInfoByTrackingNumber_V1;
@@ -20,34 +22,23 @@ use Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo\QueryPackageInfo;
 use Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo\ReferansTypes;
 use Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo\TransactionTypes;
 use Teknomavi\Kargo\Exception\MethodNotSupported;
+use Teknomavi\Kargo\Model\Package;
 use Teknomavi\Kargo\Response\PackageInfo;
 use Teknomavi\Kargo\Response\ShipmentStatus;
 
 class Service extends ServiceAbstract implements ServiceInterface
 {
     /**
-     * @var CreateShipment
-     */
-    private $shipmentService = null;
-    /**
-     * @var QueryPackageInfo
-     */
-    private $queryService = null;
-    /**
-     * @var string
-     */
-    private $sessionId = null;
-    /**
      * @var array
      */
     protected $statusMapping = [
-        1  => ShipmentStatus::STATUS_PACKAGE_SCANNED, #GİRİŞ SCAN EDİLDİ
-        2  => ShipmentStatus::STATUS_DELIVERED, #ALICIYA TESLİM EDİLDİ
-        3  => ShipmentStatus::STATUS_EXCEPTION, #ÖZEL DURUM OLUŞTU
-        4  => ShipmentStatus::STATUS_ON_DISTRIBUTION, #KURYE DAĞITMAK ÜZERE ÇIKARDI
-        5  => ShipmentStatus::STATUS_ON_BRANCH, #KURYE GERİ GETİRDİ
-        6  => ShipmentStatus::STATUS_ON_BRANCH, #ŞUBEYE GÖNDERİLDİ
-        7  => ShipmentStatus::STATUS_ON_BRANCH, #ŞUBEDEN GELDİ
+        1 => ShipmentStatus::STATUS_PACKAGE_SCANNED, #GİRİŞ SCAN EDİLDİ
+        2 => ShipmentStatus::STATUS_DELIVERED, #ALICIYA TESLİM EDİLDİ
+        3 => ShipmentStatus::STATUS_EXCEPTION, #ÖZEL DURUM OLUŞTU
+        4 => ShipmentStatus::STATUS_ON_DISTRIBUTION, #KURYE DAĞITMAK ÜZERE ÇIKARDI
+        5 => ShipmentStatus::STATUS_ON_BRANCH, #KURYE GERİ GETİRDİ
+        6 => ShipmentStatus::STATUS_ON_BRANCH, #ŞUBEYE GÖNDERİLDİ
+        7 => ShipmentStatus::STATUS_ON_BRANCH, #ŞUBEDEN GELDİ
         12 => ShipmentStatus::STATUS_ON_BRANCH, #K. KONTEYNERE KONDU
         15 => ShipmentStatus::STATUS_ON_BRANCH, #MANİFESTO FAZLASI
         16 => ShipmentStatus::STATUS_ON_BRANCH, #K. KONTEYNERDEN ÇIKTI
@@ -75,7 +66,7 @@ class Service extends ServiceAbstract implements ServiceInterface
      * @var array
      */
     protected $shipmentTypeMapping = [
-        'NORMAL'  => PackageInfo::SHIPMENT_TYPE_NORMAL,
+        'NORMAL' => PackageInfo::SHIPMENT_TYPE_NORMAL,
         'EXPRESS' => PackageInfo::SHIPMENT_TYPE_EXPRESS,
     ];
     /**
@@ -84,62 +75,93 @@ class Service extends ServiceAbstract implements ServiceInterface
     protected $paymentTypeMapping = [
         'GÖNDEREN ÖDEMELİ-PP' => PackageInfo::PAYMENT_TYPE_SENDER,
     ];
-
-    protected function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults([
-            'customer_code' => '',
-            'username'      => '',
-            'password'      => '',
-        ]);
-    }
-
-    private function initShipmentService(): CreateShipment
-    {
-        if (!$this->shipmentService) {
-            $this->shipmentService = new CreateShipment([
-                "features" => SOAP_SINGLE_ELEMENT_ARRAYS,
-            ]);
-        }
-        return $this->shipmentService;
-    }
-
-    private function initQueryService(): QueryPackageInfo
-    {
-        if (!$this->queryService) {
-            $this->queryService = new QueryPackageInfo([
-                "features" => SOAP_SINGLE_ELEMENT_ARRAYS,
-            ]);
-        }
-        return $this->queryService;
-    }
-
     /**
-     * @return string
-     * @throws \Exception
+     * @var CreateShipment
      */
-    private function getSessionId()
+    private $shipmentService = null;
+    /**
+     * @var QueryPackageInfo
+     */
+    private $queryService = null;
+    /**
+     * @var string
+     */
+    private $sessionId = null;
+
+    public function addPackage(Package $package)
     {
-        if (is_null($this->sessionId)) {
-            $result = $this->initShipmentService()->Login_Type1(new Login_Type1($this->options['customer_code'], $this->options['username'], $this->options['password']));
-            if ($result->getLogin_Type1Result()->getErrorCode() != 0) {
-                throw new \Exception($result->getLogin_Type1Result()->getErrorDefinition(), 'UPS-' . $result->getLogin_Type1Result()->getErrorCode());
-            }
-            $this->sessionId = $result->getLogin_Type1Result()->getSessionID();
+        $shipperCityCode = 11; // TODO:
+        $shipperTownCode = 12; // TODO:
+
+        $consigneeCityCode = 11; // TODO:
+        $consigneeTownCode = 12; // TODO:
+
+        $shipmentType = new ShipmentInfo_Type2();
+        $shipmentType
+            ->setServiceLevel(3)
+            ->setIdControlFlag(0)
+            ->setPhonePrealertFlag(0)
+            ->setSmsToConsignee(0)
+            ->setSmsToShipper(0)
+            ->setNumberOfPackages($package->getNumberOfPackages())
+            ->setShipperAreaCode($shipperTownCode)
+            ->setShipperCityCode($shipperCityCode)
+            ->setShipperAddress($package->getShipperAddress())
+            ->setShipperName($package->getShipperName())
+            ->setShipperAccountNumber($package->getShipperAccountNumber())
+            ->setConsigneeName($package->getConsigneeName())
+            ->setConsigneePostalCode($package->getConsigneePostalCode())
+            ->setConsigneeAddress($package->getConsigneeAddress())
+            ->setConsigneeAreaCode($consigneeTownCode)
+            ->setConsigneeCityCode($consigneeCityCode)
+            ->setConsigneePhoneNumber($package->getConsigneeMobilPhone())
+            ->setCustomerReferance($package->getReferenceNo())
+            ->setCustomerInvoiceNumber($package->getInvoiceNo());
+
+        if ($package->getPaymentType() == Package::PAYMENT_TYPE_SHIPPER_PAY) {
+            $shipmentType->setPaymentType(2);
+        } else {
+            $shipmentType->setPaymentType(1);
         }
-        return $this->sessionId;
+
+        if ($package->getInsuranceValue() > 0) {
+            $shipmentType->setInsuranceValue($package->getInsuranceValue());
+            $shipmentType->setInsuranceValueCurrency('TL');
+        }
+
+        if ($package->getPackageType() == Package::PACKAGE_TYPE_BOX) {
+            $shipmentType->setPaymentType('K');
+        } else {
+            $shipmentType->setPaymentType('L');
+        }
+
+        if (!$package->getShipmentType() == Package::SHIPMENT_TYPE_PREPAID) {
+            $shipmentType->setValueOfGoods($package->getValueOfGoods());
+            $shipmentType->setValueOfGoodsCurrency($package->getValueOfGoodsCurrency());
+            if ($package->getShipmentType() == Package::SHIPMENT_TYPE_CARD_ON_DELIVERY) {
+                $shipmentType->setValueOfGoodsPaymentType(2);
+            } elseif ($package->getShipmentType() == Package::SHIPMENT_TYPE_CASH_ON_DELIVERY) {
+                $shipmentType->setValueOfGoodsPaymentType(1);
+            }
+        }
+        $this->packages[] = $shipmentType;
     }
 
-    /*
-     * Courier
-     */
-    /*
-     * Package Management
-     */
+    function sendPackages()
+    {
+        $service = $this->initShipmentService();
+        foreach ($this->packages as $package) {
+            $obj = new CreateShipment_Type2($this->getSessionId(),$package,true,true);
+            $result  = $service->CreateShipment_Type2($obj);
+
+        }
+    }
+
     /**
      * @param string $trackingNumber
      *
      * @return PackageInfo
+     * @throws \Exception
      */
     public function getPackageInfoByTrackingNumber(string $trackingNumber): PackageInfo
     {
@@ -160,6 +182,79 @@ class Service extends ServiceAbstract implements ServiceInterface
             }
         }
         return current($response);
+    }
+
+    private function initQueryService(): QueryPackageInfo
+    {
+        if (!$this->queryService) {
+            $this->queryService = new QueryPackageInfo([
+                "features" => SOAP_SINGLE_ELEMENT_ARRAYS,
+            ]);
+        }
+        return $this->queryService;
+    }
+
+    /**
+     * @return string
+     * @throws \Exception
+     */
+    private function getSessionId()
+    {
+        if (is_null($this->sessionId)) {
+            $result = $this->initShipmentService()->Login_Type1(new Login_Type1($this->options['customerCode'],
+                $this->options['username'], $this->options['password']));
+            if ($result->getLogin_Type1Result()->getErrorCode() != 0) {
+                throw new \Exception($result->getLogin_Type1Result()->getErrorDefinition(),
+                    'UPS-' . $result->getLogin_Type1Result()->getErrorCode());
+            }
+            $this->sessionId = $result->getLogin_Type1Result()->getSessionID();
+        }
+        return $this->sessionId;
+    }
+
+    private function initShipmentService(): CreateShipment
+    {
+        if (!$this->shipmentService) {
+            $this->shipmentService = new CreateShipment([
+                "features" => SOAP_SINGLE_ELEMENT_ARRAYS,
+            ]);
+        }
+        return $this->shipmentService;
+    }
+
+    /*
+     * Courier
+     */
+    /*
+     * Package Management
+     */
+
+    /**
+     * @param PackageInformation $item
+     *
+     * @return PackageInfo
+     */
+    private function populatePackageInfoFromItem($item): PackageInfo
+    {
+        $packageInfo = new PackageInfo();
+        $packageInfo->setTrackingNumber($item->getTrackingNumber())
+            ->setReferenceNumber($item->getCustomerReferance())
+            ->setPackageType($this->mapPackageType($item->getPackageType()))
+            ->setShipmentType($this->mapShipmentType($item->getShipmentType()))
+            ->setPaymentType($this->mapPaymentType($item->getPaymentType()))
+            ->setNumberOfPackages($item->getNumberOfPackages())
+            ->setWeight($item->getActualWeight())
+            ->setDesi($item->getVolumeWeight())
+            ->setShipmentCost($item->getFreight())
+            ->setShipmentCostCurrency($item->getFreightCurrency())
+            ->setInsuranceValue($item->getInsuranceValue())
+            ->setInsuranceValueCurrency($item->getInsuranceValueCurrency())
+            ->setValueOfGoods($item->getValueOfGoods())
+            ->setValueOfGoodsCurrency($item->getValueOfGoodsCurrency())
+            ->setCreateTime(\DateTime::createFromFormat('Ymd-His', $item->getCreationTimeStamp()))
+            ->setErrorCode($item->getErrorCode())
+            ->setErrorMessage($item->getErrorDefinition());
+        return $packageInfo;
     }
 
     /**
@@ -206,20 +301,6 @@ class Service extends ServiceAbstract implements ServiceInterface
     }
 
     /**
-     * @param string $referenceNumber
-     *
-     * @return ShipmentStatus
-     */
-    public function getShipmentStatusByReferenceNumber(string $referenceNumber): ShipmentStatus
-    {
-        $response = $this->getShipmentStatusByReferenceNumberList([$referenceNumber]);
-        if (count($response)) {
-            return current($response);
-        }
-        return $this->shipmentStatusNotFound()->setReferenceNumber($referenceNumber);
-    }
-
-    /**
      * @param string[] $list
      *
      * @return ShipmentStatus[]
@@ -250,6 +331,41 @@ class Service extends ServiceAbstract implements ServiceInterface
             }
         }
         return $response;
+    }
+
+    /**
+     * @param PackageTransactionwithDeliveryDetail|PackageTransaction $item
+     *
+     * @return ShipmentStatus
+     */
+    private function populateShipmentStatusFromItem($item): ShipmentStatus
+    {
+        $shipmentStatus = new ShipmentStatus();
+        $shipmentStatus->setTrackingNumber($item->getTrackingNumber())
+            ->setStatusCode($this->mapStatus($item->getStatusCode()))
+            ->setOriginalStatus($item->getStatusCode())
+            ->setStatusDetails($item->getProcessDescription2())
+            ->setUpdateTime(\DateTime::createFromFormat('Ymd-His', $item->getProcessTimeStamp()))
+            ->setErrorCode($item->getErrorCode())
+            ->setErrorMessage($item->getErrorDefinition());
+        if ($item instanceof PackageTransactionwithDeliveryDetail) {
+            $shipmentStatus->setReferenceNumber($item->getCustomerReferanceNumber());
+        }
+        return $shipmentStatus;
+    }
+
+    /**
+     * @param string $referenceNumber
+     *
+     * @return ShipmentStatus
+     */
+    public function getShipmentStatusByReferenceNumber(string $referenceNumber): ShipmentStatus
+    {
+        $response = $this->getShipmentStatusByReferenceNumberList([$referenceNumber]);
+        if (count($response)) {
+            return current($response);
+        }
+        return $this->shipmentStatusNotFound()->setReferenceNumber($referenceNumber);
     }
 
     /**
@@ -326,52 +442,13 @@ class Service extends ServiceAbstract implements ServiceInterface
         throw new MethodNotSupported();
     }
 
-    /**
-     * @param PackageTransactionwithDeliveryDetail|PackageTransaction $item
-     *
-     * @return ShipmentStatus
-     */
-    private function populateShipmentStatusFromItem($item): ShipmentStatus
+    protected function configureOptions(OptionsResolver $resolver)
     {
-        $shipmentStatus = new ShipmentStatus();
-        $shipmentStatus->setTrackingNumber($item->getTrackingNumber())
-            ->setStatusCode($this->mapStatus($item->getStatusCode()))
-            ->setOriginalStatus($item->getStatusCode())
-            ->setStatusDetails($item->getProcessDescription2())
-            ->setUpdateTime(\DateTime::createFromFormat('Ymd-His', $item->getProcessTimeStamp()))
-            ->setErrorCode($item->getErrorCode())
-            ->setErrorMessage($item->getErrorDefinition());
-        if ($item instanceof PackageTransactionwithDeliveryDetail) {
-            $shipmentStatus->setReferenceNumber($item->getCustomerReferanceNumber());
-        }
-        return $shipmentStatus;
+        $resolver->setDefaults([
+            'customer_code' => '',
+            'username' => '',
+            'password' => '',
+        ]);
     }
 
-    /**
-     * @param PackageInformation $item
-     *
-     * @return PackageInfo
-     */
-    private function populatePackageInfoFromItem($item): PackageInfo
-    {
-        $packageInfo = new PackageInfo();
-        $packageInfo->setTrackingNumber($item->getTrackingNumber())
-            ->setReferenceNumber($item->getCustomerReferance())
-            ->setPackageType($this->mapPackageType($item->getPackageType()))
-            ->setShipmentType($this->mapShipmentType($item->getShipmentType()))
-            ->setPaymentType($this->mapPaymentType($item->getPaymentType()))
-            ->setNumberOfPackages($item->getNumberOfPackages())
-            ->setWeight($item->getActualWeight())
-            ->setDesi($item->getVolumeWeight())
-            ->setShipmentCost($item->getFreight())
-            ->setShipmentCostCurrency($item->getFreightCurrency())
-            ->setInsuranceValue($item->getInsuranceValue())
-            ->setInsuranceValueCurrency($item->getInsuranceValueCurrency())
-            ->setValueOfGoods($item->getValueOfGoods())
-            ->setValueOfGoodsCurrency($item->getValueOfGoodsCurrency())
-            ->setCreateTime(\DateTime::createFromFormat('Ymd-His', $item->getCreationTimeStamp()))
-            ->setErrorCode($item->getErrorCode())
-            ->setErrorMessage($item->getErrorDefinition());
-        return $packageInfo;
-    }
 }

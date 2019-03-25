@@ -109,21 +109,21 @@ class ArrayOfWaybillList implements \ArrayAccess, \Iterator, \Countable
     /**
      * Iterator implementation
      *
-     * @return string|null Return the key of the current element or null
-     */
-    public function key()
-    {
-        return key($this->WaybillList);
-    }
-
-    /**
-     * Iterator implementation
-     *
      * @return boolean Return the validity of the current position
      */
     public function valid()
     {
         return $this->key() !== null;
+    }
+
+    /**
+     * Iterator implementation
+     *
+     * @return string|null Return the key of the current element or null
+     */
+    public function key()
+    {
+        return key($this->WaybillList);
     }
 
     /**

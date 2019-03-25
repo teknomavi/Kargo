@@ -178,54 +178,6 @@ class ShipmentInfo_Type2
     protected $ThirdPartyExpenseCode = null;
 
     /**
-     * @param int $ShipperCityCode
-     * @param int $ShipperAreaCode
-     * @param int $ConsigneeCityCode
-     * @param int $ConsigneeAreaCode
-     * @param int $ServiceLevel
-     * @param int $PaymentType
-     * @param int $NumberOfPackages
-     * @param int $IdControlFlag
-     * @param int $PhonePrealertFlag
-     * @param int $SmsToShipper
-     * @param int $SmsToConsignee
-     * @param float $InsuranceValue
-     * @param float $ValueOfGoods
-     * @param int $ValueOfGoodsPaymentType
-     */
-    public function __construct(
-        $ShipperCityCode,
-        $ShipperAreaCode,
-        $ConsigneeCityCode,
-        $ConsigneeAreaCode,
-        $ServiceLevel,
-        $PaymentType,
-        $NumberOfPackages,
-        $IdControlFlag,
-        $PhonePrealertFlag,
-        $SmsToShipper,
-        $SmsToConsignee,
-        $InsuranceValue,
-        $ValueOfGoods,
-        $ValueOfGoodsPaymentType
-    ) {
-        $this->ShipperCityCode = $ShipperCityCode;
-        $this->ShipperAreaCode = $ShipperAreaCode;
-        $this->ConsigneeCityCode = $ConsigneeCityCode;
-        $this->ConsigneeAreaCode = $ConsigneeAreaCode;
-        $this->ServiceLevel = $ServiceLevel;
-        $this->PaymentType = $PaymentType;
-        $this->NumberOfPackages = $NumberOfPackages;
-        $this->IdControlFlag = $IdControlFlag;
-        $this->PhonePrealertFlag = $PhonePrealertFlag;
-        $this->SmsToShipper = $SmsToShipper;
-        $this->SmsToConsignee = $SmsToConsignee;
-        $this->InsuranceValue = $InsuranceValue;
-        $this->ValueOfGoods = $ValueOfGoods;
-        $this->ValueOfGoodsPaymentType = $ValueOfGoodsPaymentType;
-    }
-
-    /**
      * @return string
      */
     public function getShipperAccountNumber()
