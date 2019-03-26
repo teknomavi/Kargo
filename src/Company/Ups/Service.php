@@ -2,7 +2,6 @@
 
 namespace Teknomavi\Kargo\Company\Ups;
 
-use Couchbase\ViewQuery;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Teknomavi\Kargo\Company\ServiceAbstract;
 use Teknomavi\Kargo\Company\ServiceInterface;
@@ -10,6 +9,7 @@ use Teknomavi\Kargo\Company\Ups\Helper\CreateShipment\CreateShipment;
 use Teknomavi\Kargo\Company\Ups\Helper\CreateShipment\CreateShipment_Type2;
 use Teknomavi\Kargo\Company\Ups\Helper\CreateShipment\Login_Type1;
 use Teknomavi\Kargo\Company\Ups\Helper\CreateShipment\ShipmentInfo_Type2;
+use Teknomavi\Kargo\Company\Ups\Helper\Mapper;
 use Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo\ArrayOfString;
 use Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo\GetPackageInfoByReferance_V1;
 use Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo\GetPackageInfoByTrackingNumber_V1;
@@ -91,11 +91,12 @@ class Service extends ServiceAbstract implements ServiceInterface
 
     public function addPackage(Package $package)
     {
-        $shipperCityCode = 11; // TODO:
-        $shipperTownCode = 12; // TODO:
+        $shipperCityCode = Mapper::getCityCode($package->getShipperCity());
+        $shipperTownCode = Mapper::getAreaCode($shipperCityCode, $package->getShipperTown());
 
-        $consigneeCityCode = 11; // TODO:
-        $consigneeTownCode = 12; // TODO:
+
+        $consigneeCityCode = Mapper::getCityCode($package->getConsigneeCity());
+        $consigneeTownCode = Mapper::getAreaCode($consigneeCityCode, $package->getConsigneeTown());
 
         $shipmentType = new ShipmentInfo_Type2();
         $shipmentType
@@ -157,31 +158,39 @@ class Service extends ServiceAbstract implements ServiceInterface
 
     function sendPackages()
     {
-        echo "<pre>";
-        $response = ['added' => [], 'notAdded' => []];
+        $response = [];
         $service = $this->initShipmentService();
         foreach ($this->packages as $package) {
+            $createShipmentResponse = new \Teknomavi\Kargo\Response\CreateShipment();
+            $createShipmentResponse->setReferenceNumber($package->getCustomerReferance());
             /** @var ShipmentInfo_Type2 $package */
             $obj = new CreateShipment_Type2($this->getSessionId(), $package, true, true);
-            print_r($obj);
             try {
                 $result = $service->CreateShipment_Type2($obj);
 
+
+                $result = $result->getCreateShipment_Type2Result();
+
+                $trackingNumber = $result->getShipmentNo();
+                if (!empty($trackingNumber)) {
+                    $createShipmentResponse
+                        ->setTrackingNumber($trackingNumber)
+                        ->setSuccess(true)
+                        ->setLabelLinks([$result->getLinkForLabelPrinting()])
+                        ->setLabelStrings($result->getBarkodArrayPng()->getString());
+                } else {
+                    $createShipmentResponse
+                        ->setErrorCode($result->getErrorCode())
+                        ->setErrorDescription($result->getErrorDefinition())
+                        ->setSuccess(false);
+                }
             } catch (\Exception $exception) {
-                var_dump($service->__getLastRequest());
-                var_dump($service->__getLastResponse());
-                var_dump($exception->getMessage());
-                die();
+                $createShipmentResponse
+                    ->setErrorCode('SOAP' . $exception->getCode())
+                    ->setErrorDescription($exception->getMessage())
+                    ->setSuccess(false);
             }
-
-            print_r($result);
-            die();
-            $trackingNumber = $result->getCreateShipment_Type2Result()->getShipmentNo();
-            if (!empty($trackingNumber)) {
-
-            } else {
-                $response['notAdded'][] = $package->getCustomerReferance();
-            }
+            $response[$package->getCustomerReferance()] = $createShipmentResponse;
         }
         return $response;
     }
@@ -203,7 +212,6 @@ class Service extends ServiceAbstract implements ServiceInterface
             )
         );
         $response = [];
-        //echo '<xmp>' . print_r($resultWebService, 1) . '</xmp>';
         foreach ($resultWebService->getGetPackageInfoByTrackingNumber_V1Result() as $item) {
             if ($item instanceof PackageInformation) {
                 $packageInfo = $this->populatePackageInfoFromItem($item);
@@ -229,12 +237,16 @@ class Service extends ServiceAbstract implements ServiceInterface
      */
     private function getSessionId()
     {
+
         if (is_null($this->sessionId)) {
-            $result = $this->initShipmentService()->Login_Type1(new Login_Type1($this->options['customerCode'],
-                $this->options['username'], $this->options['password']));
+            $result = $this->initShipmentService()->Login_Type1(
+                new Login_Type1($this->options['customerCode'], $this->options['username'], $this->options['password'])
+            );
             if ($result->getLogin_Type1Result()->getErrorCode() != 0) {
-                throw new \Exception($result->getLogin_Type1Result()->getErrorDefinition(),
-                    'UPS-' . $result->getLogin_Type1Result()->getErrorCode());
+                throw new \Exception(
+                    $result->getLogin_Type1Result()->getErrorDefinition(),
+                    'UPS-' . $result->getLogin_Type1Result()->getErrorCode()
+                );
             }
             $this->sessionId = $result->getLogin_Type1Result()->getSessionID();
         }
@@ -264,6 +276,7 @@ class Service extends ServiceAbstract implements ServiceInterface
      * @param PackageInformation $item
      *
      * @return PackageInfo
+     * @throws \Teknomavi\Kargo\Exception\InvalidParameterValue
      */
     private function populatePackageInfoFromItem($item): PackageInfo
     {
@@ -292,6 +305,7 @@ class Service extends ServiceAbstract implements ServiceInterface
      * @param string $referenceNumber
      *
      * @return PackageInfo
+     * @throws \Exception
      */
     public function getPackageInfoByReferenceNumber(string $referenceNumber): PackageInfo
     {
@@ -304,7 +318,6 @@ class Service extends ServiceAbstract implements ServiceInterface
             )
         );
         $response = [];
-        //echo '<xmp>' . print_r($resultWebService, 1) . '</xmp>';
         foreach ($resultWebService->getGetPackageInfoByReferance_V1Result() as $item) {
             if ($item instanceof PackageInformation) {
                 $packageInfo = $this->populatePackageInfoFromItem($item);
@@ -321,6 +334,7 @@ class Service extends ServiceAbstract implements ServiceInterface
      * @param string $trackingNumber
      *
      * @return ShipmentStatus
+     * @throws \Teknomavi\Kargo\Exception\InvalidParameterValue
      */
     public function getShipmentStatusByTrackingNumber(string $trackingNumber): ShipmentStatus
     {
@@ -335,6 +349,7 @@ class Service extends ServiceAbstract implements ServiceInterface
      * @param string[] $list
      *
      * @return ShipmentStatus[]
+     * @throws \Teknomavi\Kargo\Exception\InvalidParameterValue
      */
     public function getShipmentStatusByTrackingNumberList(array $list): array
     {
@@ -368,6 +383,7 @@ class Service extends ServiceAbstract implements ServiceInterface
      * @param PackageTransactionwithDeliveryDetail|PackageTransaction $item
      *
      * @return ShipmentStatus
+     * @throws \Teknomavi\Kargo\Exception\InvalidParameterValue
      */
     private function populateShipmentStatusFromItem($item): ShipmentStatus
     {
@@ -389,6 +405,7 @@ class Service extends ServiceAbstract implements ServiceInterface
      * @param string $referenceNumber
      *
      * @return ShipmentStatus
+     * @throws \Exception
      */
     public function getShipmentStatusByReferenceNumber(string $referenceNumber): ShipmentStatus
     {
@@ -403,6 +420,7 @@ class Service extends ServiceAbstract implements ServiceInterface
      * @param string[] $list
      *
      * @return ShipmentStatus[]
+     * @throws \Exception
      */
     public function getShipmentStatusByReferenceNumberList(array $list): array
     {
@@ -437,6 +455,7 @@ class Service extends ServiceAbstract implements ServiceInterface
      * @param \DateTime $date
      *
      * @return ShipmentStatus[]
+     * @throws \Exception
      */
     public function getShipmentStatusByPickupDate(\DateTime $date): array
     {
