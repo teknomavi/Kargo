@@ -2,13 +2,9 @@
 
 namespace Teknomavi\Kargo\Company\Surat\Helper\Gonderi;
 
-/**
- * Class GonderiyiKargoyaGonderResponse
- *
- * @package Teknomavi\Kargo\Company\Surat\Helper\Gonderi
- */
 class GonderiyiKargoyaGonderResponse
 {
+
     /**
      * @var string $GonderiyiKargoyaGonderResult
      */
@@ -31,13 +27,14 @@ class GonderiyiKargoyaGonderResponse
     }
 
     /**
-     * @param $GonderiyiKargoyaGonderResult
+     * @param string $GonderiyiKargoyaGonderResult
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\GonderiyiKargoyaGonderResponse
      */
     public function setGonderiyiKargoyaGonderResult($GonderiyiKargoyaGonderResult)
     {
         $this->GonderiyiKargoyaGonderResult = $GonderiyiKargoyaGonderResult;
         return $this;
     }
+
 }

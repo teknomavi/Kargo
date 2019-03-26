@@ -2,150 +2,186 @@
 
 namespace Teknomavi\Kargo\Company\Surat\Helper\Gonderi;
 
-/**
- * Class Gonderi
- *
- * @package Teknomavi\Kargo\Company\Surat\Helper\Gonderi
- */
 class Gonderi
 {
+
     /**
      * @var string $KisiKurum
      */
-    protected $KisiKurum = '';
+    protected $KisiKurum = null;
+
     /**
      * @var string $SahisBirim
      */
-    protected $SahisBirim = '';
+    protected $SahisBirim = null;
+
     /**
      * @var string $AliciAdresi
      */
-    protected $AliciAdresi = '';
+    protected $AliciAdresi = null;
+
     /**
      * @var string $Il
      */
-    protected $Il = '';
+    protected $Il = null;
+
     /**
      * @var string $Ilce
      */
-    protected $Ilce = '';
+    protected $Ilce = null;
+
     /**
      * @var string $TelefonEv
      */
-    protected $TelefonEv = '';
+    protected $TelefonEv = null;
+
     /**
      * @var string $TelefonIs
      */
-    protected $TelefonIs = '';
+    protected $TelefonIs = null;
+
     /**
      * @var string $TelefonCep
      */
-    protected $TelefonCep = '';
+    protected $TelefonCep = null;
+
     /**
      * @var string $Email
      */
-    protected $Email = '';
+    protected $Email = null;
+
     /**
      * @var string $AliciKodu
      */
-    protected $AliciKodu = '';
+    protected $AliciKodu = null;
+
     /**
      * @var int $KargoTuru
      */
-    protected $KargoTuru = 0;
+    protected $KargoTuru = null;
+
     /**
      * @var int $Odemetipi
      */
-    protected $Odemetipi = 0;
+    protected $Odemetipi = null;
+
     /**
      * @var string $IrsaliyeSeriNo
      */
-    protected $IrsaliyeSeriNo = '';
+    protected $IrsaliyeSeriNo = null;
+
     /**
      * @var string $IrsaliyeSiraNo
      */
-    protected $IrsaliyeSiraNo = '';
+    protected $IrsaliyeSiraNo = null;
+
     /**
      * @var string $ReferansNo
      */
-    protected $ReferansNo = '';
+    protected $ReferansNo = null;
+
     /**
      * @var string $OzelKargoTakipNo
      */
-    protected $OzelKargoTakipNo = '';
+    protected $OzelKargoTakipNo = null;
+
     /**
      * @var int $Adet
      */
-    protected $Adet = 0;
+    protected $Adet = null;
+
     /**
      * @var float $BirimDesi
      */
-    protected $BirimDesi = 0.0;
+    protected $BirimDesi = 0;
+
     /**
      * @var float $BirimKg
      */
-    protected $BirimKg = 0.0;
+    protected $BirimKg = 0;
+
     /**
      * @var string $KargoIcerigi
      */
-    protected $KargoIcerigi = '';
+    protected $KargoIcerigi = null;
+
     /**
      * @var int $KapidanOdemeTahsilatTipi
      */
-    protected $KapidanOdemeTahsilatTipi = 1;
+    protected $KapidanOdemeTahsilatTipi = 0;
+
     /**
      * @var float $KapidanOdemeTutari
      */
-    protected $KapidanOdemeTutari = 0.0;
+    protected $KapidanOdemeTutari = 0;
+
     /**
      * @var string $EkHizmetler
      */
-    protected $EkHizmetler = '';
+    protected $EkHizmetler = null;
+
     /**
      * @var string $SevkAdresiAdi
      */
-    protected $SevkAdresiAdi = '';
+    protected $SevkAdresiAdi = null;
+
     /**
      * @var int $TeslimSekli
      */
-    protected $TeslimSekli = '';
+    protected $TeslimSekli = 0;
+
     /**
      * @var int $TasimaSekli
      */
-    protected $TasimaSekli = '';
+    protected $TasimaSekli = 0;
+
     /**
      * @var string $BayiNo
      */
-    protected $BayiNo = '';
+    protected $BayiNo = null;
+
     /**
      * @var string $EntegrasyonId
      */
-    protected $EntegrasyonId = '';
+    protected $EntegrasyonId = null;
+
     /**
      * @var string $EntegrasyonHesaplamaTuru
      */
-    protected $EntegrasyonHesaplamaTuru = '';
-
-    /**
-     * @param int   $KargoTuru
-     * @param int   $Odemetipi
-     * @param int   $Adet
-     * @param float $BirimDesi
-     * @param float $BirimKg
-     * @param int   $KapidanOdemeTahsilatTipi
-     * @param float $KapidanOdemeTutari
-     * @param int   $TeslimSekli
-     * @param int   $TasimaSekli
-     */
-    public function __construct($KargoTuru, $Odemetipi, $Adet, $BirimDesi, $TeslimSekli, $TasimaSekli)
-    {
-        $this->KargoTuru = $KargoTuru;
-        $this->Odemetipi = $Odemetipi;
-        $this->Adet = $Adet;
-        $this->BirimDesi = $BirimDesi;
-        $this->TeslimSekli = $TeslimSekli;
-        $this->TasimaSekli = $TasimaSekli;
-    }
+    protected $EntegrasyonHesaplamaTuru = null;
+//
+//    /**
+//     * @param int $KargoTuru
+//     * @param int $Odemetipi
+//     * @param int $Adet
+//     * @param float $BirimDesi
+//     * @param float $BirimKg
+//     * @param int $KapidanOdemeTahsilatTipi
+//     * @param float $KapidanOdemeTutari
+//     * @param int $TeslimSekli
+//     * @param int $TasimaSekli
+//     */
+//    public function __construct(
+//        $KargoTuru,
+//        $Odemetipi,
+//        $Adet,
+//        $BirimDesi,
+//        $BirimKg,
+//        $KapidanOdemeTahsilatTipi,
+//        $KapidanOdemeTutari,
+//        $TeslimSekli,
+//        $TasimaSekli
+//    ) {
+//        $this->KargoTuru = $KargoTuru;
+//        $this->Odemetipi = $Odemetipi;
+//        $this->Adet = $Adet;
+//        $this->BirimDesi = $BirimDesi;
+//        $this->BirimKg = $BirimKg;
+//        $this->KapidanOdemeTahsilatTipi = $KapidanOdemeTahsilatTipi;
+//        $this->KapidanOdemeTutari = $KapidanOdemeTutari;
+//        $this->TeslimSekli = $TeslimSekli;
+//        $this->TasimaSekli = $TasimaSekli;
+//    }
 
     /**
      * @return string
@@ -158,7 +194,7 @@ class Gonderi
     /**
      * @param string $KisiKurum
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setKisiKurum($KisiKurum)
     {
@@ -177,7 +213,7 @@ class Gonderi
     /**
      * @param string $SahisBirim
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setSahisBirim($SahisBirim)
     {
@@ -196,7 +232,7 @@ class Gonderi
     /**
      * @param string $AliciAdresi
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setAliciAdresi($AliciAdresi)
     {
@@ -215,7 +251,7 @@ class Gonderi
     /**
      * @param string $Il
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setIl($Il)
     {
@@ -234,7 +270,7 @@ class Gonderi
     /**
      * @param string $Ilce
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setIlce($Ilce)
     {
@@ -253,7 +289,7 @@ class Gonderi
     /**
      * @param string $TelefonEv
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setTelefonEv($TelefonEv)
     {
@@ -272,7 +308,7 @@ class Gonderi
     /**
      * @param string $TelefonIs
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setTelefonIs($TelefonIs)
     {
@@ -291,7 +327,7 @@ class Gonderi
     /**
      * @param string $TelefonCep
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setTelefonCep($TelefonCep)
     {
@@ -310,7 +346,7 @@ class Gonderi
     /**
      * @param string $Email
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setEmail($Email)
     {
@@ -329,7 +365,7 @@ class Gonderi
     /**
      * @param string $AliciKodu
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setAliciKodu($AliciKodu)
     {
@@ -348,7 +384,7 @@ class Gonderi
     /**
      * @param int $KargoTuru
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setKargoTuru($KargoTuru)
     {
@@ -367,7 +403,7 @@ class Gonderi
     /**
      * @param int $Odemetipi
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setOdemetipi($Odemetipi)
     {
@@ -386,7 +422,7 @@ class Gonderi
     /**
      * @param string $IrsaliyeSeriNo
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setIrsaliyeSeriNo($IrsaliyeSeriNo)
     {
@@ -405,7 +441,7 @@ class Gonderi
     /**
      * @param string $IrsaliyeSiraNo
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setIrsaliyeSiraNo($IrsaliyeSiraNo)
     {
@@ -424,7 +460,7 @@ class Gonderi
     /**
      * @param string $ReferansNo
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setReferansNo($ReferansNo)
     {
@@ -443,7 +479,7 @@ class Gonderi
     /**
      * @param string $OzelKargoTakipNo
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setOzelKargoTakipNo($OzelKargoTakipNo)
     {
@@ -462,7 +498,7 @@ class Gonderi
     /**
      * @param int $Adet
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setAdet($Adet)
     {
@@ -481,7 +517,7 @@ class Gonderi
     /**
      * @param float $BirimDesi
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setBirimDesi($BirimDesi)
     {
@@ -500,7 +536,7 @@ class Gonderi
     /**
      * @param float $BirimKg
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setBirimKg($BirimKg)
     {
@@ -519,7 +555,7 @@ class Gonderi
     /**
      * @param string $KargoIcerigi
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setKargoIcerigi($KargoIcerigi)
     {
@@ -538,7 +574,7 @@ class Gonderi
     /**
      * @param int $KapidanOdemeTahsilatTipi
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setKapidanOdemeTahsilatTipi($KapidanOdemeTahsilatTipi)
     {
@@ -557,7 +593,7 @@ class Gonderi
     /**
      * @param float $KapidanOdemeTutari
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setKapidanOdemeTutari($KapidanOdemeTutari)
     {
@@ -576,7 +612,7 @@ class Gonderi
     /**
      * @param string $EkHizmetler
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setEkHizmetler($EkHizmetler)
     {
@@ -595,7 +631,7 @@ class Gonderi
     /**
      * @param string $SevkAdresiAdi
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setSevkAdresiAdi($SevkAdresiAdi)
     {
@@ -614,7 +650,7 @@ class Gonderi
     /**
      * @param int $TeslimSekli
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setTeslimSekli($TeslimSekli)
     {
@@ -633,7 +669,7 @@ class Gonderi
     /**
      * @param int $TasimaSekli
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setTasimaSekli($TasimaSekli)
     {
@@ -652,7 +688,7 @@ class Gonderi
     /**
      * @param string $BayiNo
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setBayiNo($BayiNo)
     {
@@ -671,7 +707,7 @@ class Gonderi
     /**
      * @param string $EntegrasyonId
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setEntegrasyonId($EntegrasyonId)
     {
@@ -690,11 +726,12 @@ class Gonderi
     /**
      * @param string $EntegrasyonHesaplamaTuru
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\Gonderi
      */
     public function setEntegrasyonHesaplamaTuru($EntegrasyonHesaplamaTuru)
     {
         $this->EntegrasyonHesaplamaTuru = $EntegrasyonHesaplamaTuru;
         return $this;
     }
+
 }

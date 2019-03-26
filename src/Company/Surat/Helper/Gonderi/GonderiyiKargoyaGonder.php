@@ -2,29 +2,27 @@
 
 namespace Teknomavi\Kargo\Company\Surat\Helper\Gonderi;
 
-/**
- * Class GonderiyiKargoyaGonder
- *
- * @package Teknomavi\Kargo\Company\Surat\Helper\Gonderi
- */
 class GonderiyiKargoyaGonder
 {
+
     /**
      * @var string $KullaniciAdi
      */
     protected $KullaniciAdi = null;
+
     /**
      * @var string $Sifre
      */
     protected $Sifre = null;
+
     /**
      * @var Gonderi $Gonderi
      */
     protected $Gonderi = null;
 
     /**
-     * @param string  $KullaniciAdi
-     * @param string  $Sifre
+     * @param string $KullaniciAdi
+     * @param string $Sifre
      * @param Gonderi $Gonderi
      */
     public function __construct($KullaniciAdi, $Sifre, $Gonderi)
@@ -43,9 +41,9 @@ class GonderiyiKargoyaGonder
     }
 
     /**
-     * @param $KullaniciAdi
+     * @param string $KullaniciAdi
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\GonderiyiKargoyaGonder
      */
     public function setKullaniciAdi($KullaniciAdi)
     {
@@ -62,9 +60,9 @@ class GonderiyiKargoyaGonder
     }
 
     /**
-     * @param $Sifre
+     * @param string $Sifre
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\GonderiyiKargoyaGonder
      */
     public function setSifre($Sifre)
     {
@@ -81,13 +79,14 @@ class GonderiyiKargoyaGonder
     }
 
     /**
-     * @param $Gonderi
+     * @param Gonderi $Gonderi
      *
-     * @return $this
+     * @return \Teknomavi\Kargo\Company\Surat\Helper\Gonderi\GonderiyiKargoyaGonder
      */
     public function setGonderi($Gonderi)
     {
         $this->Gonderi = $Gonderi;
         return $this;
     }
+
 }

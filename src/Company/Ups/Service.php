@@ -166,11 +166,7 @@ class Service extends ServiceAbstract implements ServiceInterface
             /** @var ShipmentInfo_Type2 $package */
             $obj = new CreateShipment_Type2($this->getSessionId(), $package, true, true);
             try {
-                $result = $service->CreateShipment_Type2($obj);
-
-
-                $result = $result->getCreateShipment_Type2Result();
-
+                $result = $service->CreateShipment_Type2($obj)->getCreateShipment_Type2Result();
                 $trackingNumber = $result->getShipmentNo();
                 if (!empty($trackingNumber)) {
                     $createShipmentResponse
