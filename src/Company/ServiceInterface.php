@@ -2,11 +2,23 @@
 
 namespace Teknomavi\Kargo\Company;
 
+use Teknomavi\Kargo\Model\Package;
 use Teknomavi\Kargo\Response\PackageInfo;
 use Teknomavi\Kargo\Response\ShipmentStatus;
 
 interface ServiceInterface
 {
+
+
+    public function sendPackages();
+
+    /**
+     * @param Package $package
+     *
+     * @return mixed
+     */
+    public function addPackage(Package $package);
+
     /**
      * @param string $trackingNumber
      *

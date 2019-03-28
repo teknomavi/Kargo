@@ -214,24 +214,24 @@ class ShipmentInfo_TypeAll
     protected $ThirdPartyAccountId = null;
 
     /**
-     * @param int $ShipperCityCode
-     * @param int $ShipperAreaCode
-     * @param int $ConsigneeCityCode
-     * @param int $ConsigneeAreaCode
-     * @param int $ServiceLevel
-     * @param int $PaymentType
-     * @param int $NumberOfPackages
-     * @param int $IdControlFlag
-     * @param int $PhonePrealertFlag
-     * @param int $SmsToShipper
-     * @param int $SmsToConsignee
+     * @param int   $ShipperCityCode
+     * @param int   $ShipperAreaCode
+     * @param int   $ConsigneeCityCode
+     * @param int   $ConsigneeAreaCode
+     * @param int   $ServiceLevel
+     * @param int   $PaymentType
+     * @param int   $NumberOfPackages
+     * @param int   $IdControlFlag
+     * @param int   $PhonePrealertFlag
+     * @param int   $SmsToShipper
+     * @param int   $SmsToConsignee
      * @param float $InsuranceValue
      * @param float $ValueOfGoods
-     * @param int $ValueOfGoodsPaymentType
-     * @param int $DeliveryByTally
-     * @param int $ShipperAccountId
-     * @param int $ConsigneeAccountId
-     * @param int $ThirdPartyAccountId
+     * @param int   $ValueOfGoodsPaymentType
+     * @param int   $DeliveryByTally
+     * @param int   $ShipperAccountId
+     * @param int   $ConsigneeAccountId
+     * @param int   $ThirdPartyAccountId
      */
     public function __construct(
         $ShipperCityCode,
