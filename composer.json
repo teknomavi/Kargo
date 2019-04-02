@@ -17,7 +17,8 @@
     "php": ">= 7.1",
     "ext-soap": "*",
     "symfony/options-resolver": "^3.4",
-    "teknomavi/common": "~2.2"
+    "teknomavi/common": "~2.2",
+    "picqer/php-barcode-generator": "^0.3"
   },
   "require-dev": {
     "phpunit/phpunit": "~7.4.0",

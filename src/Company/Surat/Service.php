@@ -94,13 +94,23 @@ class Service extends ServiceAbstract implements ServiceInterface
         $response = [];
         $service = $this->initShipmentService();
         foreach ($this->packages as $package) {
-            $gonder = new GonderiyiKargoyaGonder($this->options['KullaniciAdi'], $this->options['Sifre'], $package);
+            /**
+             * @var Gonderi $package
+             */
+
             $createShipmentResponse = new \Teknomavi\Kargo\Response\CreateShipment();
             $createShipmentResponse->setReferenceNumber($package->getOzelKargoTakipNo());
+
+            $gonder = new GonderiyiKargoyaGonder($this->options['KullaniciAdi'], $this->options['Sifre'], $package);
             try {
                 $result = $service->GonderiyiKargoyaGonder($gonder);
                 if ($result->getGonderiyiKargoyaGonderResult() == 'Tamam') {
+
+                    $generator = new \Picqer\Barcode\BarcodeGeneratorPNG();
+                    $png = $generator->getBarcode($package->getOzelKargoTakipNo(), $generator::TYPE_CODE_128, 2, 90);
+                    $base64 =  base64_encode($png);
                     $createShipmentResponse->setSuccess(true);
+                    $createShipmentResponse->setLabelStrings([$base64]);
                 } else {
                     $createShipmentResponse
                         ->setErrorCode('SURAT')
