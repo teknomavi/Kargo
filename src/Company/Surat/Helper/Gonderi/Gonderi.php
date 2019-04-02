@@ -128,12 +128,12 @@ class Gonderi
     /**
      * @var int $TeslimSekli
      */
-    protected $TeslimSekli = 0;
+    protected $TeslimSekli = 1;
 
     /**
      * @var int $TasimaSekli
      */
-    protected $TasimaSekli = 0;
+    protected $TasimaSekli = 1; // 1: Adrese Teslim, 2: Şubeden Teslim
 
     /**
      * @var string $BayiNo
@@ -149,39 +149,6 @@ class Gonderi
      * @var string $EntegrasyonHesaplamaTuru
      */
     protected $EntegrasyonHesaplamaTuru = null;
-//
-//    /**
-//     * @param int $KargoTuru
-//     * @param int $Odemetipi
-//     * @param int $Adet
-//     * @param float $BirimDesi
-//     * @param float $BirimKg
-//     * @param int $KapidanOdemeTahsilatTipi
-//     * @param float $KapidanOdemeTutari
-//     * @param int $TeslimSekli
-//     * @param int $TasimaSekli
-//     */
-//    public function __construct(
-//        $KargoTuru,
-//        $Odemetipi,
-//        $Adet,
-//        $BirimDesi,
-//        $BirimKg,
-//        $KapidanOdemeTahsilatTipi,
-//        $KapidanOdemeTutari,
-//        $TeslimSekli,
-//        $TasimaSekli
-//    ) {
-//        $this->KargoTuru = $KargoTuru;
-//        $this->Odemetipi = $Odemetipi;
-//        $this->Adet = $Adet;
-//        $this->BirimDesi = $BirimDesi;
-//        $this->BirimKg = $BirimKg;
-//        $this->KapidanOdemeTahsilatTipi = $KapidanOdemeTahsilatTipi;
-//        $this->KapidanOdemeTutari = $KapidanOdemeTutari;
-//        $this->TeslimSekli = $TeslimSekli;
-//        $this->TasimaSekli = $TasimaSekli;
-//    }
 
     /**
      * @return string

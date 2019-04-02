@@ -48,7 +48,7 @@ class ShipmentStatus
     /**
      * @return string
      */
-    public function getTrackingNumber(): string
+    public function getTrackingNumber(): ?string
     {
         return $this->trackingNumber;
     }
