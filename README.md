@@ -1,9 +1,11 @@
 # Teknomavi/Kargo
 Türkiye'deki Kargo Firmaları için Merkezi Entegrasyon Kütüphanesi
 
-İlk aşamada proje bünyesinde desteklenmesi planlanan kargo firmaları:
+Hali hazırda entegrasyonu yapılmış olan kargo firmaları:
 - UPS Kargo
+- Sürat Kargo
+
+Proje bünyesinde desteklenmesi planlanan kargo firmaları:
 - Aras Kargo
 - Yurtiçi Kargo
 - MNG Kargo
-- Sürat Kargo
