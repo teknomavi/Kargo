@@ -16,7 +16,7 @@
   "require": {
     "php": ">= 7.1",
     "ext-soap": "*",
-    "symfony/options-resolver": "^3.4",
+    "symfony/options-resolver": "<6.0",
     "teknomavi/common": "~2.2",
     "picqer/php-barcode-generator": "^0.3"
   },
