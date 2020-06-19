@@ -37,7 +37,6 @@ class Service extends ServiceAbstract implements ServiceInterface
                 "","","",
                 $package->getNumberOfPackages()
             );
-            print_r($res);
             
             $response = new CreateShipment();
             if($res->ShippingOrderResultVO->outFlag == 0){
