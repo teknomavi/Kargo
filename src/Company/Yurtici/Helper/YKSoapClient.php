@@ -4,16 +4,21 @@ namespace Teknomavi\Kargo\Company\Yurtici\Helper;
 
 class YKSoapClient{
 
-    private static $username = "";
-    private static $password = "";
+    private $username = "";
+    private $password = "";
     private static $language = "TR";
 
+    public function __construct($options)
+    {
+        $this->username = $options["username"];
+        $this->password = $options["password"];
+    }
     /**
      * @param string $params 
      * 
      * Gönderici Ödemeli, Normal Gönderi 
      */
-    public static function createShipment(
+    public function createShipment(
         $cargoKey,
         $invoiceKey, 
         $receiverCustName, 
@@ -29,7 +34,7 @@ class YKSoapClient{
         $taxOfficeName = "", // Daha sonra kargo sayisi ile de ilgilenilebilir 
         $cargoCount = 1
         ){
-        $credentials = array("wsUserName" => self::$username, "wsPassword" => self::$password, "userLanguage" => self::$language );
+        $credentials = array("wsUserName" => $this->username, "wsPassword" => $this->password, "userLanguage" => self::$language );
         $params = array(
             "cargoKey" => $cargoKey,
             "invoiceKey" => $invoiceKey,

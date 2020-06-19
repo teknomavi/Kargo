@@ -14,14 +14,16 @@ use Teknomavi\Kargo\Model\Package;
 class Service extends ServiceAbstract implements ServiceInterface
 {
     private $packageToBeSend;
+    private $YKClient;
 
-    function __construct() {
+    function __construct($options) {
+        $this->YKClient = new YKSoapClient($options);
         $this->packageList = array();
     }
 
     public function sendPackages(){
         $package = $this->packageToBeSend; // will be converted to for loop
-        $res = YKSoapClient::createShipment(
+        $res = $this->YKClient->createShipment(
             $package->getReferenceNo(),
             $package->getInvoiceNo(),
             $package->getConsigneeName(),    //Consigliere to Michael: 
@@ -34,7 +36,7 @@ class Service extends ServiceAbstract implements ServiceInterface
             "","","",
             $package->getNumberOfPackages()
         );
-        print_r($res);
+        //print_r($res);
         $response = new CreateShipment();
         if($res->ShippingOrderResultVO->outFlag == 0){
             $response = $response->setSuccess(true);

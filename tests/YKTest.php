@@ -4,7 +4,11 @@ require __DIR__.'/../vendor/autoload.php';
 use Teknomavi\Kargo\CargoFactory;
 use Teknomavi\Kargo\Model\Package;
 
-$provider = CargoFactory::initServiceProvider("Yurtici");
+$options = array( 
+    "username" => "",
+    "password" => ""
+);
+$provider = CargoFactory::initServiceProvider("Yurtici",$options);
 $package = new Package();
 $package->setPaymentType(Package::PAYMENT_TYPE_SHIPPER_PAY);
 $package->setNumberOfPackages(1); // Daha sonra toplu da denenecek
@@ -21,4 +25,5 @@ $package->setReferenceNo("999999691");// cargo Key I suppose
 $package->setPackageType(Package::PACKAGE_TYPE_BOX);
 $package->setShipmentType(Package::SHIPMENT_TYPE_PREPAID);
 $provider->addPackage($package);
-$provider->sendPackages();
+$res = $provider->sendPackages();
+print_r($res);
