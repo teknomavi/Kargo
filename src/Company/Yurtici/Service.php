@@ -27,10 +27,10 @@ class Service extends ServiceAbstract implements ServiceInterface
             $res = $this->YKClient->createShipment(
                 $package->getReferenceNo(),
                 $package->getInvoiceNo(),
-                $package->getConsigneeName(),    //Consigliere to Michael: 
-                $package->getConsigneeAddress(), // Even the shooting of your father
-                $package->getConsigneeCity(),    // was business, not personal. 
-                $package->getConsigneeTown(),    // You should know that by now
+                $package->getConsigneeName(),   
+                $package->getConsigneeAddress(), 
+                $package->getConsigneeCity(),    
+                $package->getConsigneeTown(),   
                 $package->getConsigneeMobilPhone(),
                 "","",
                 $package->getConsigneeEmail(),
