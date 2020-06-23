@@ -1,13 +1,27 @@
 <?php
-require __DIR__.'/../vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use Teknomavi\Kargo\CargoFactory;
 use Teknomavi\Kargo\Model\Package;
 
-$options = array( 
-    "username" => "",
-    "password" => ""
-);
+class TestFunctions
+{
+    public static $options = array(
+        "username" => "",
+        "password" => ""
+    );
+
+    public static function TestQuerry($cargoKey)
+    {
+        $provider = CargoFactory::initServiceProvider("Yurtici", self::$options);
+        $packageInfo = $provider->getPackageInfoByReferenceNumber($cargoKey);
+        print_r($packageInfo);
+    }
+}
+
+TestFunctions::TestQuerry("");
+
+/*
 $provider = CargoFactory::initServiceProvider("Yurtici",$options);
 $package = new Package();
 $package->setPaymentType(Package::PAYMENT_TYPE_SHIPPER_PAY);
@@ -43,3 +57,4 @@ $package2->setShipmentType(Package::SHIPMENT_TYPE_PREPAID);
 $provider->addPackage($package2);
 $res = $provider->sendPackages();
 print_r($res);
+*/

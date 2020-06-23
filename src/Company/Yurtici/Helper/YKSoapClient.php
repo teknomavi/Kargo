@@ -2,7 +2,8 @@
 
 namespace Teknomavi\Kargo\Company\Yurtici\Helper;
 
-class YKSoapClient{
+class YKSoapClient
+{
 
     private $username = "";
     private $password = "";
@@ -20,21 +21,21 @@ class YKSoapClient{
      */
     public function createShipment(
         $cargoKey,
-        $invoiceKey, 
-        $receiverCustName, 
-        $receiverAddress, 
-        $cityName, 
-        $townName, 
-        $receiverPhone1, 
-        $receiverPhone2 = "", 
+        $invoiceKey,
+        $receiverCustName,
+        $receiverAddress,
+        $cityName,
+        $townName,
+        $receiverPhone1,
+        $receiverPhone2 = "",
         $receiverPhone3 = "",
-        $emailAddress ="",
+        $emailAddress = "",
         $taxOfficeId = "",
         $taxNumber = "",
         $taxOfficeName = "", // Daha sonra kargo sayisi ile de ilgilenilebilir 
         $cargoCount = 1
-        ){
-        $credentials = array("wsUserName" => $this->username, "wsPassword" => $this->password, "userLanguage" => self::$language );
+    ) {
+        $credentials = array("wsUserName" => $this->username, "wsPassword" => $this->password, "userLanguage" => self::$language);
         $params = array(
             "cargoKey" => $cargoKey,
             "invoiceKey" => $invoiceKey,
@@ -49,26 +50,41 @@ class YKSoapClient{
             "taxOfficeId" => $taxOfficeId,
             "taxNumber" => $taxNumber,
             "taxOfficeName" => $taxOfficeName,
-            'cargoCount'=>  $cargoCount,
-            'waybillNo'=>"",
-            'specialField1'=>"",
-            'specialField2'=>"",
-            'specialField3'=>"",
-            'ttInvoiceAmount'=>"",
-            'ttDocumentId'=>'',
-            'ttCollectionType'=>"",
-            'ttDocumentSaveType'=>"",
-            'dcSelectedCredit'=>"",
-            'dcCreditRule'=>'',
-            'description'=>"",
-            'orgGeoCode'=>"",
-            'privilegeOrder'=>"",
-            'custProdId'=>"",
-            'orgReceiverCustId'=>"",
-            );
+            'cargoCount' =>  $cargoCount,
+            'waybillNo' => "",
+            'specialField1' => "",
+            'specialField2' => "",
+            'specialField3' => "",
+            'ttInvoiceAmount' => "",
+            'ttDocumentId' => '',
+            'ttCollectionType' => "",
+            'ttDocumentSaveType' => "",
+            'dcSelectedCredit' => "",
+            'dcCreditRule' => '',
+            'description' => "",
+            'orgGeoCode' => "",
+            'privilegeOrder' => "",
+            'custProdId' => "",
+            'orgReceiverCustId' => "",
+        );
         $body = array("ShippingOrderVO" => $params);
         $data = array_merge($credentials, $body);
-        $_sclient = new \SoapClient("http://webservices.yurticikargo.com:8080/KOPSWebServices/ShippingOrderDispatcherServices?wsdl");                
+        $_sclient = new \SoapClient("http://webservices.yurticikargo.com:8080/KOPSWebServices/ShippingOrderDispatcherServices?wsdl");
         return $_sclient->createShipment($data);
+    }
+
+    public function querryShipment($cargoKey)
+    {
+        $params = array(
+            "wsUserName" => $this->username,
+            "wsPassword" => $this->password,
+            "wsLanguage" => self::$language,
+            "keys" => $cargoKey,
+            "keyType" => 0, // Fatura/Irsaliye anahtari ile de gonderilebilir fakat referans numarasi baz alindi
+            "addHistoricalData" => false,
+            "onlyTracking" => false
+        );
+        $_sclient = new \SoapClient("http://webservices.yurticikargo.com:8080/KOPSWebServices/ShippingOrderDispatcherServices?wsdl");
+        return $_sclient->queryShipment($params);
     }
 }
