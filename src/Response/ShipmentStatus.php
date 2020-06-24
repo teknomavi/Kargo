@@ -11,6 +11,7 @@ class ShipmentStatus
     const STATUS_ON_DISTRIBUTION = 'OnDistribution';
     const STATUS_ON_BRANCH = 'OnBranch';
     const STATUS_RETURN_BACK = 'ReturningBack';
+    const STATUS_NOT_PROCESSED = 'NotProcessed';
 
     /**
      * @var string
