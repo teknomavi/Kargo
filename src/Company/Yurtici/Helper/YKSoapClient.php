@@ -73,7 +73,7 @@ class YKSoapClient
         return $_sclient->createShipment($data);
     }
 
-    public function querryShipment($cargoKey)
+    public function queryShipment($cargoKey)
     {
         $params = array(
             "wsUserName" => $this->username,

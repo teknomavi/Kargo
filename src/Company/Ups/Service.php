@@ -363,10 +363,11 @@ class Service extends ServiceAbstract implements ServiceInterface
                 $this->getSessionId(),
                 1,
                 $referenceList,
-                $trnType)
+                $trnType
+            )
         );
         $response = [];
-        foreach ((array)$resultWebService->getGetTransactionsByList_V1Result()->getPackageTransactionwithDeliveryDetail() as $item) {
+        foreach ((array) $resultWebService->getGetTransactionsByList_V1Result()->getPackageTransactionwithDeliveryDetail() as $item) {
             if ($item instanceof PackageTransactionwithDeliveryDetail) {
                 $shipmentStatus = $this->populateShipmentStatusFromItem($item);
                 $response[$shipmentStatus->getTrackingNumber()] = $shipmentStatus;
@@ -438,7 +439,7 @@ class Service extends ServiceAbstract implements ServiceInterface
             )
         );
         $response = [];
-        foreach ((array)$resultWebService->getGetTransactionsByList_V1Result()->getPackageTransactionwithDeliveryDetail() as $item) {
+        foreach ((array) $resultWebService->getGetTransactionsByList_V1Result()->getPackageTransactionwithDeliveryDetail() as $item) {
             if ($item instanceof PackageTransactionwithDeliveryDetail) {
                 $shipmentStatus = $this->populateShipmentStatusFromItem($item);
                 $response[$shipmentStatus->getReferenceNumber()] = $shipmentStatus;
@@ -496,5 +497,4 @@ class Service extends ServiceAbstract implements ServiceInterface
             'password' => '',
         ]);
     }
-
 }

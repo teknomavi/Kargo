@@ -6,6 +6,7 @@ namespace Teknomavi\Kargo\Company\Yurtici;
 use Teknomavi\Kargo\Company\Yurtici\Helper\YKSoapClient;
 use Teknomavi\Kargo\Company\ServiceAbstract;
 use Teknomavi\Kargo\Company\ServiceInterface;
+use Teknomavi\Kargo\Company\Yurtici\Helper\ShipmentInfo;
 use Teknomavi\Kargo\Response\CreateShipment;
 use Teknomavi\Kargo\Model\Package;
 use Teknomavi\Kargo\Response\PackageInfo;
@@ -22,12 +23,21 @@ class Service extends ServiceAbstract implements ServiceInterface
     function __construct($options)
     {
         $this->YKClient = new YKSoapClient($options);
+        $this->statusMapping = array(
+            "0" => ShipmentStatus::STATUS_NOT_PROCESSED,
+            "1" => ShipmentStatus::STATUS_ON_DISTRIBUTION,
+            "2" => ShipmentStatus::STATUS_PACKAGE_SCANNED,
+            "3" => ShipmentStatus::STATUS_EXCEPTION,
+            "4" => ShipmentStatus::STATUS_RETURN_BACK,
+            "5" => ShipmentStatus::STATUS_DELIVERED,
+        );
     }
 
     public function sendPackages()
     {
         $responses = array();
         foreach ($this->packages as $package) {
+            $package = ShipmentInfo::generatePackage($package);
             $res = $this->YKClient->createShipment(
                 $package->getReferenceNo(),
                 $package->getInvoiceNo(),
@@ -61,6 +71,7 @@ class Service extends ServiceAbstract implements ServiceInterface
 
     public function addPackage(Package $package)
     {
+        $package = ShipmentInfo::generateFromPackage($package);
         array_push($this->packages, $package);
     }
 
@@ -74,31 +85,15 @@ class Service extends ServiceAbstract implements ServiceInterface
         $packageInfo = new PackageInfo();
         $packageInfo->setReferenceNumber($referenceNumber);
         $packageInfo->setPaymentType(PackageInfo::PAYMENT_TYPE_SENDER);
-        $res = $this->YKClient->querryShipment($referenceNumber);
-        // 1st check if outResult == "Basarili"
-        print_r($res);
-        if ($res->ShippingDeliveryVO->outResult != "Başarılı") {
-            // error
-            $packageInfo->setErrorMessage($res->ShippingDeliveryVO->outResult);
-            $packageInfo->setErrorCode($res->ShippingDeliveryVO->errCode);
-            return $packageInfo;
+        $res = $this->YKClient->queryShipment($referenceNumber);
+        // 1st check if there is an error
+        $statusArray = $this->isErrorMessage($res, $packageInfo);
+        if ($statusArray[1]) {
+            return $statusArray[0];
         }
-
-        if (property_exists($res->ShippingDeliveryVO->shippingDeliveryDetailVO, 'errCode')) {
-            $packageInfo->setErrorCode($res->ShippingDeliveryVO->shippingDeliveryDetailVO->errCode);
-            $packageInfo->setErrorMessage($res->ShippingDeliveryVO->shippingDeliveryDetailVO->errMessage);
+        $packageInfo = $statusArray[0];
+        if (!property_exists($res->ShippingDeliveryVO->shippingDeliveryDetailVO, 'shippingDeliveryItemDetailVO')) {
             return $packageInfo;
-        }
-        // Then the cargo is successfull
-        if ($res->ShippingDeliveryVO->shippingDeliveryDetailVO->operationCode == 0) {
-            // Kargo islem gormemis eklenecek veri de yok
-            return $packageInfo;
-        }
-        // after this check if fields exist then fill the respective area at PackageInfo if it exists
-        if (property_exists($res->ShippingDeliveryVO->shippingDeliveryDetailVO->shippingDeliveryItemDetailVO, 'trackingUrl')) {
-            $trackingUrl = $res->ShippingDeliveryVO->shippingDeliveryDetailVO->shippingDeliveryItemDetailVO->trackingUrl;
-            $no = explode("code=", $trackingUrl)[1];
-            $packageInfo->setTrackingNumber($no);
         }
         if (property_exists($res->ShippingDeliveryVO->shippingDeliveryDetailVO->shippingDeliveryItemDetailVO, 'totalPrice')) {
             // price
@@ -131,24 +126,24 @@ class Service extends ServiceAbstract implements ServiceInterface
     {
         $shipmentStatus = new ShipmentStatus();
         $shipmentStatus->setReferenceNumber($referenceNumber);
-        $res = $this->YKClient->querryShipment($referenceNumber);
-        print_r($res);
-        if ($res->ShippingDeliveryVO->outResult != "Başarılı") {
-            // error
-            $shipmentStatus->setErrorMessage($res->ShippingDeliveryVO->outResult);
-            $shipmentStatus->setErrorCode($res->ShippingDeliveryVO->errCode);
-            return $shipmentStatus;
+        $res = $this->YKClient->queryShipment($referenceNumber);
+        $statusArray = $this->isErrorMessage($res, $shipmentStatus);
+        if ($statusArray[1]) {
+            return $statusArray[0];
         }
-        if (property_exists($res->ShippingDeliveryVO->shippingDeliveryDetailVO, 'errCode')) {
-            $shipmentStatus->setErrorCode($res->ShippingDeliveryVO->shippingDeliveryDetailVO->errCode);
-            $shipmentStatus->setErrorMessage($res->ShippingDeliveryVO->shippingDeliveryDetailVO->errMessage);
-            return $shipmentStatus;
+        $shipmentStatus = $statusArray[0];
+        // set the status code
+        if (property_exists($res->ShippingDeliveryVO->shippingDeliveryDetailVO, 'operationCode')) {
+            $opCode = $res->ShippingDeliveryVO->shippingDeliveryDetailVO->operationCode;
+            $opMsg = $res->ShippingDeliveryVO->shippingDeliveryDetailVO->operationMessage;
+            $shipmentStatus->setStatusDetails($opMsg);
+            print($opMsg . "ABCD");
+            $shipmentStatus->setOriginalStatus($opCode);
+            $shipmentStatus->setStatusCode($this->mapStatus($opCode));
         }
-        // now that we have checked for errors, we can carry on filling the $shipmentStatus
-        if (property_exists($res->ShippingDeliveryVO->shippingDeliveryDetailVO->shippingDeliveryItemDetailVO, 'trackingUrl')) {
-            $trackingUrl = $res->ShippingDeliveryVO->shippingDeliveryDetailVO->shippingDeliveryItemDetailVO->trackingUrl;
-            $no = explode("code=", $trackingUrl)[1];
-            $shipmentStatus->setTrackingNumber($no);
+        // makes sure there is such a field
+        if (!property_exists($res->ShippingDeliveryVO->shippingDeliveryDetailVO, 'shippingDeliveryItemDetailVO')) {
+            return $shipmentStatus;
         }
         // Update Time from document Date and Document Time
         if (property_exists($res->ShippingDeliveryVO->shippingDeliveryDetailVO->shippingDeliveryItemDetailVO, 'documentDate')) {
@@ -156,37 +151,7 @@ class Service extends ServiceAbstract implements ServiceInterface
             $time = $res->ShippingDeliveryVO->shippingDeliveryDetailVO->shippingDeliveryItemDetailVO->documentTime;
             $shipmentStatus->setUpdateTime(\DateTime::createFromFormat("YmdGis", $date . $time, new \DateTimeZone('Asia/Istanbul')));
         }
-        // set the status code
-        if (property_exists($res->ShippingDeliveryVO->shippingDeliveryDetailVO, 'operationCode')) {
-            $opCode = $res->ShippingDeliveryVO->shippingDeliveryDetailVO->operationCode;
-            $opMsg = $res->ShippingDeliveryVO->shippingDeliveryDetailVO->operationMessage;
-            $shipmentStatus->setStatusDetails($opMsg);
-            $shipmentStatus->setOriginalStatus($opCode);
-            switch ($opCode) {
-                case '0':
-                    $shipmentStatus->setStatusCode(ShipmentStatus::STATUS_NOT_PROCESSED);
-                    break;
-                case '1':
-                    $shipmentStatus->setStatusCode(ShipmentStatus::STATUS_ON_DISTRIBUTION);
-                    break;
-                case '2':
-                    $shipmentStatus->setStatusCode(ShipmentStatus::STATUS_PACKAGE_SCANNED);
-                    break;
-                case '3':
-                    $shipmentStatus->setStatusCode(ShipmentStatus::STATUS_EXCEPTION);
-                    break;
-                case '4':
-                    $shipmentStatus->setStatusCode(ShipmentStatus::STATUS_RETURN_BACK);
-                    break;
-                case '5':
-                    $shipmentStatus->setStatusCode(ShipmentStatus::STATUS_DELIVERED);
-                    break;
-                default:
-                    $shipmentStatus->setStatusCode(ShipmentStatus::STATUS_NOT_FOUND);
-                    $shipmentStatus->setStatusDetails("Operation Code Alani YK API dönütünde belirtilmemiş");
-                    break;
-            }
-        }
+
         return $shipmentStatus;
     }
 
@@ -203,5 +168,58 @@ class Service extends ServiceAbstract implements ServiceInterface
             $shipmentStatusList[] = $shipmentStatus;
         }
         return $shipmentStatusList;
+    }
+
+
+    /**
+     * Takes the soap client response and processes it until TrackingNumber fullfilment
+     * for both ShipmentStatis and PackageInfo types
+     * 
+     * @param object $res takes the soap client response as $res
+     * @param ShipmentStatus,PackageInfo $package it takes ShipmentStatus
+     * or PackageInfo as parameter
+     * @return array 
+     * the first index is the processed item
+     * the second index is a flag for package to be processed more
+     */
+    private function isErrorMessage($res, $packageInfo)
+    {
+        print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+        print_r($res);
+        if ($res->ShippingDeliveryVO->outResult != "Başarılı") {
+            // error
+            $packageInfo->setErrorMessage($res->ShippingDeliveryVO->outResult);
+            $packageInfo->setErrorCode($res->ShippingDeliveryVO->errCode);
+            return [$packageInfo, true];
+        }
+
+        if (property_exists($res->ShippingDeliveryVO->shippingDeliveryDetailVO, 'errCode')) {
+            $packageInfo->setErrorCode($res->ShippingDeliveryVO->shippingDeliveryDetailVO->errCode);
+            $packageInfo->setErrorMessage($res->ShippingDeliveryVO->shippingDeliveryDetailVO->errMessage);
+            return [$packageInfo, true];
+        }
+        // Then the cargo is successfull
+        if ($res->ShippingDeliveryVO->shippingDeliveryDetailVO->operationCode == 0) {
+            // Kargo islem gormemis eklenecek veri de yok
+            return [$packageInfo, false];
+        }
+        // now that we have checked for errors, we can carry on filling the $shipmentStatus
+        if (property_exists($res->ShippingDeliveryVO->shippingDeliveryDetailVO->shippingDeliveryItemDetailVO, 'trackingUrl')) {
+            $trackingUrl = $res->ShippingDeliveryVO->shippingDeliveryDetailVO->shippingDeliveryItemDetailVO->trackingUrl;
+            $no = explode("code=", $trackingUrl)[1];
+            return [$packageInfo->setTrackingNumber($no), false];
+        }
+        return [$packageInfo, false];
+    }
+
+    // Overriding the original meth
+    // it is done to not bother with try-catch loop
+    // 'cause the parent method was throwing an error 
+    public function mapStatus(string $originalStatus): string
+    {
+        if (!isset($this->statusMapping[$originalStatus])) {
+            return ShipmentStatus::STATUS_NOT_FOUND;
+        }
+        return $this->statusMapping[$originalStatus];
     }
 }

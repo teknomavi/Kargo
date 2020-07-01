@@ -1,6 +1,7 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
 
+use PHPUnit\Framework\Test;
 use Teknomavi\Kargo\CargoFactory;
 use Teknomavi\Kargo\Model\Package;
 
@@ -69,5 +70,9 @@ class TestFunctions
     }
 }
 
-TestFunctions::TestGetShipmentStatusByReferenceNumber("");
-TestFunctions::TestGetShipmentStatusByReferenceNumberList(["", ""]);
+
+
+TestFunctions::TestCreateShipment();
+TestFunctions::TestGetShipmentStatusByReferenceNumber("9999XXXXXX");
+TestFunctions::TestGetPackageInfoByReferenceNumber("9999XXXXXX");
+//TestFunctions::TestGetShipmentStatusByReferenceNumberList(["", ""]);
