@@ -45,7 +45,7 @@ class TestFunctions
         $package->setConsigneeMobilPhone("05555555555");
         $package->setConsigneePostalCode("76543");
         $package->setInvoiceNo("TESTTES");
-        $package->setReferenceNo("9999XXXXXXY"); // cargo Key I suppose
+        $package->setReferenceNo("9999XXXaaXY"); // cargo Key I suppose
         $package->setPackageType(Package::PACKAGE_TYPE_BOX);
         $package->setShipmentType(Package::SHIPMENT_TYPE_PREPAID);
         $provider->addPackage($package);
@@ -61,7 +61,7 @@ class TestFunctions
         $package2->setConsigneeMobilPhone("05555555555");
         $package2->setConsigneePostalCode("76543");
         $package2->setInvoiceNo("TESTTES");
-        $package2->setReferenceNo("9999XXXXXX"); // cargo Key I suppose
+        $package2->setReferenceNo("9999XadfXXXXX"); // cargo Key I suppose
         $package2->setPackageType(Package::PACKAGE_TYPE_BOX);
         $package2->setShipmentType(Package::SHIPMENT_TYPE_PREPAID);
         $provider->addPackage($package2);
@@ -72,7 +72,7 @@ class TestFunctions
 
 
 
-TestFunctions::TestCreateShipment();
-TestFunctions::TestGetShipmentStatusByReferenceNumber("9999XXXXXX");
-TestFunctions::TestGetPackageInfoByReferenceNumber("9999XXXXXX");
-//TestFunctions::TestGetShipmentStatusByReferenceNumberList(["", ""]);
+//TestFunctions::TestCreateShipment();
+//TestFunctions::TestGetShipmentStatusByReferenceNumber("9999XadfXXXXX");
+//TestFunctions::TestGetPackageInfoByReferenceNumber("9999XXXXXX");
+//TestFunctions::TestGetShipmentStatusByReferenceNumberList(["9999XadfXXXXX", "9999XXXXXX"]);

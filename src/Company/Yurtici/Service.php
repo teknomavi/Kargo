@@ -137,7 +137,6 @@ class Service extends ServiceAbstract implements ServiceInterface
             $opCode = $res->ShippingDeliveryVO->shippingDeliveryDetailVO->operationCode;
             $opMsg = $res->ShippingDeliveryVO->shippingDeliveryDetailVO->operationMessage;
             $shipmentStatus->setStatusDetails($opMsg);
-            print($opMsg . "ABCD");
             $shipmentStatus->setOriginalStatus($opCode);
             $shipmentStatus->setStatusCode($this->mapStatus($opCode));
         }
@@ -184,8 +183,6 @@ class Service extends ServiceAbstract implements ServiceInterface
      */
     private function isErrorMessage($res, $packageInfo)
     {
-        print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-        print_r($res);
         if ($res->ShippingDeliveryVO->outResult != "Başarılı") {
             // error
             $packageInfo->setErrorMessage($res->ShippingDeliveryVO->outResult);
