@@ -1,5 +1,4 @@
 <?php
-
 namespace Teknomavi\Kargo\Company\Ups\Helper\CreateShipment;
 
 class Login_Type1Response

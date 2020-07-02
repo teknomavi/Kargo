@@ -1,5 +1,4 @@
 <?php
-
 namespace Teknomavi\Kargo\Company;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;

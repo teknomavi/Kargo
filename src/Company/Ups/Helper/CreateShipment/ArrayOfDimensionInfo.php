@@ -1,5 +1,4 @@
 <?php
-
 namespace Teknomavi\Kargo\Company\Ups\Helper\CreateShipment;
 
 class ArrayOfDimensionInfo implements \ArrayAccess, \Iterator, \Countable

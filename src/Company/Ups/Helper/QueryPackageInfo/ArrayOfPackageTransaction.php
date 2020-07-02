@@ -1,5 +1,4 @@
 <?php
-
 namespace Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo;
 
 class ArrayOfPackageTransaction implements \ArrayAccess, \Iterator, \Countable

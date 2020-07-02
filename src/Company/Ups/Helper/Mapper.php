@@ -1,5 +1,4 @@
 <?php
-
 namespace Teknomavi\Kargo\Company\Ups\Helper;
 
 use Teknomavi\Common\Text;
@@ -950,7 +949,7 @@ class Mapper
      */
     public static function getAreaCode(int $cityId, string $areaName): int
     {
-        $cityCode = 'city'.$cityId;
+        $cityCode = 'city' . $cityId;
         if (!array_key_exists($cityCode, self::$townMap)) {
             throw new \InvalidArgumentException("$cityId no'lu şehir mevcut bölge listesinde bulunamadı");
         }

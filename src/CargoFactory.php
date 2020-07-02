@@ -1,5 +1,4 @@
 <?php
-
 namespace Teknomavi\Kargo;
 
 use Teknomavi\Kargo\Company\ServiceInterface;
@@ -24,9 +23,9 @@ class CargoFactory
     public static function initServiceProvider(string $providerName, array $options = []): ServiceInterface
     {
         /** @var ServiceInterface $provider */
-        $provider = 'Teknomavi\\Kargo\\Company\\'.$providerName.'\\Service';
+        $provider = 'Teknomavi\\Kargo\\Company\\' . $providerName . '\\Service';
         if (!class_exists($provider)) {
-            throw new InvalidProvider($providerName.' için kargo entegrasyonu bulunamadı');
+            throw new InvalidProvider($providerName . ' için kargo entegrasyonu bulunamadı');
         }
 
         return new $provider($options);

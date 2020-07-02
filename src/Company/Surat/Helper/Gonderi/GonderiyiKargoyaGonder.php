@@ -1,5 +1,4 @@
 <?php
-
 namespace Teknomavi\Kargo\Company\Surat\Helper\Gonderi;
 
 class GonderiyiKargoyaGonder
