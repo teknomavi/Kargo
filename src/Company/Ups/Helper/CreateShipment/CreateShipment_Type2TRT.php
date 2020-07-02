@@ -5,27 +5,27 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\CreateShipment;
 class CreateShipment_Type2TRT
 {
     /**
-     * @var string $SessionID
+     * @var string
      */
     protected $SessionID = null;
     /**
-     * @var ShipmentInfo_Type2 $ShipmentInfo
+     * @var ShipmentInfo_Type2
      */
     protected $ShipmentInfo = null;
     /**
-     * @var boolean $ReturnLabelLink
+     * @var bool
      */
     protected $ReturnLabelLink = null;
     /**
-     * @var boolean $ReturnLabelImage
+     * @var bool
      */
     protected $ReturnLabelImage = null;
 
     /**
      * @param string             $SessionID
      * @param ShipmentInfo_Type2 $ShipmentInfo
-     * @param boolean            $ReturnLabelLink
-     * @param boolean            $ReturnLabelImage
+     * @param bool               $ReturnLabelLink
+     * @param bool               $ReturnLabelImage
      */
     public function __construct($SessionID, $ShipmentInfo, $ReturnLabelLink, $ReturnLabelImage)
     {
@@ -51,6 +51,7 @@ class CreateShipment_Type2TRT
     public function setSessionID($SessionID)
     {
         $this->SessionID = $SessionID;
+
         return $this;
     }
 
@@ -70,11 +71,12 @@ class CreateShipment_Type2TRT
     public function setShipmentInfo($ShipmentInfo)
     {
         $this->ShipmentInfo = $ShipmentInfo;
+
         return $this;
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function getReturnLabelLink()
     {
@@ -82,18 +84,19 @@ class CreateShipment_Type2TRT
     }
 
     /**
-     * @param boolean $ReturnLabelLink
+     * @param bool $ReturnLabelLink
      *
      * @return \Teknomavi\Kargo\Company\Ups\Helper\CreateShipment\CreateShipment_Type2TRT
      */
     public function setReturnLabelLink($ReturnLabelLink)
     {
         $this->ReturnLabelLink = $ReturnLabelLink;
+
         return $this;
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function getReturnLabelImage()
     {
@@ -101,13 +104,14 @@ class CreateShipment_Type2TRT
     }
 
     /**
-     * @param boolean $ReturnLabelImage
+     * @param bool $ReturnLabelImage
      *
      * @return \Teknomavi\Kargo\Company\Ups\Helper\CreateShipment\CreateShipment_Type2TRT
      */
     public function setReturnLabelImage($ReturnLabelImage)
     {
         $this->ReturnLabelImage = $ReturnLabelImage;
+
         return $this;
     }
 }

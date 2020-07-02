@@ -5,23 +5,23 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\CreateShipment;
 class DimensionInfo
 {
     /**
-     * @var string $DescriptionOfGoods
+     * @var string
      */
     protected $DescriptionOfGoods = null;
     /**
-     * @var float $Length
+     * @var float
      */
     protected $Length = null;
     /**
-     * @var float $Height
+     * @var float
      */
     protected $Height = null;
     /**
-     * @var float $Width
+     * @var float
      */
     protected $Width = null;
     /**
-     * @var float $Weight
+     * @var float
      */
     protected $Weight = null;
 
@@ -55,6 +55,7 @@ class DimensionInfo
     public function setDescriptionOfGoods($DescriptionOfGoods)
     {
         $this->DescriptionOfGoods = $DescriptionOfGoods;
+
         return $this;
     }
 
@@ -74,6 +75,7 @@ class DimensionInfo
     public function setLength($Length)
     {
         $this->Length = $Length;
+
         return $this;
     }
 
@@ -93,6 +95,7 @@ class DimensionInfo
     public function setHeight($Height)
     {
         $this->Height = $Height;
+
         return $this;
     }
 
@@ -112,6 +115,7 @@ class DimensionInfo
     public function setWidth($Width)
     {
         $this->Width = $Width;
+
         return $this;
     }
 
@@ -131,6 +135,7 @@ class DimensionInfo
     public function setWeight($Weight)
     {
         $this->Weight = $Weight;
+
         return $this;
     }
 }

@@ -5,15 +5,15 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\CreateShipment;
 class Login_Type1
 {
     /**
-     * @var string $CustomerNumber
+     * @var string
      */
     protected $CustomerNumber = null;
     /**
-     * @var string $UserName
+     * @var string
      */
     protected $UserName = null;
     /**
-     * @var string $Password
+     * @var string
      */
     protected $Password = null;
 
@@ -45,6 +45,7 @@ class Login_Type1
     public function setCustomerNumber($CustomerNumber)
     {
         $this->CustomerNumber = $CustomerNumber;
+
         return $this;
     }
 
@@ -64,6 +65,7 @@ class Login_Type1
     public function setUserName($UserName)
     {
         $this->UserName = $UserName;
+
         return $this;
     }
 
@@ -83,6 +85,7 @@ class Login_Type1
     public function setPassword($Password)
     {
         $this->Password = $Password;
+
         return $this;
     }
 }

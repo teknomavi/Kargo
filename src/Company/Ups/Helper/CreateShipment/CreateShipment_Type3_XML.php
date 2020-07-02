@@ -5,11 +5,11 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\CreateShipment;
 class CreateShipment_Type3_XML
 {
     /**
-     * @var string $SessionID
+     * @var string
      */
     protected $SessionID = null;
     /**
-     * @var ShipmentInfo_Type3 $ShipmentInfo
+     * @var ShipmentInfo_Type3
      */
     protected $ShipmentInfo = null;
 
@@ -39,6 +39,7 @@ class CreateShipment_Type3_XML
     public function setSessionID($SessionID)
     {
         $this->SessionID = $SessionID;
+
         return $this;
     }
 
@@ -58,6 +59,7 @@ class CreateShipment_Type3_XML
     public function setShipmentInfo($ShipmentInfo)
     {
         $this->ShipmentInfo = $ShipmentInfo;
+
         return $this;
     }
 }

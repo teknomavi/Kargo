@@ -54,63 +54,71 @@ abstract class ServiceAbstract
         ]);
     }
 
-    abstract function sendPackages();
+    abstract public function sendPackages();
 
-    abstract function addPackage(Package $package);
+    abstract public function addPackage(Package $package);
 
     /**
      * @param $originalStatus
      *
-     * @return string
      * @throws InvalidParameterValue
+     *
+     * @return string
      */
     public function mapStatus(string $originalStatus): string
     {
         if (!isset($this->statusMapping[$originalStatus])) {
             throw new InvalidParameterValue("Eşleştirilmemiş Durum Kodu: '{$originalStatus}'");
         }
+
         return $this->statusMapping[$originalStatus];
     }
 
     /**
      * @param $packageType
      *
-     * @return string
      * @throws InvalidParameterValue
+     *
+     * @return string
      */
     public function mapPackageType(string $packageType): string
     {
         if (!isset($this->packageTypeMapping[$packageType])) {
             throw new InvalidParameterValue("Eşleştirilmemiş Paket Tipi: '{$packageType}'");
         }
+
         return $this->packageTypeMapping[$packageType];
     }
 
     /**
      * @param $shipmentType
      *
-     * @return string
      * @throws InvalidParameterValue
+     *
+     * @return string
      */
     public function mapShipmentType(string $shipmentType): string
     {
         if (!isset($this->shipmentTypeMapping[$shipmentType])) {
             throw new InvalidParameterValue("Eşleştirilmemiş Gönderi Tipi: '{$shipmentType}'");
         }
+
         return $this->shipmentTypeMapping[$shipmentType];
     }
 
     /**
      * @param $paymentType
      *
-     * @return string
      * @throws InvalidParameterValue
+     *
+     * @return string
      */
     public function mapPaymentType(string $paymentType): string
     {
         if (!isset($this->paymentTypeMapping[$paymentType])) {
             throw new InvalidParameterValue("Eşleştirilmemiş Ödeme Tipi: '{$paymentType}'");
         }
+
         return $this->paymentTypeMapping[$paymentType];
     }
 
@@ -120,11 +128,13 @@ abstract class ServiceAbstract
     /*
      * Package Management
      */
+
     /**
      * @param string $trackingNumber
      *
-     * @return PackageInfo
      * @throws MethodNotSupported
+     *
+     * @return PackageInfo
      */
     public function getPackageInfoByTrackingNumber(string $trackingNumber): PackageInfo
     {
@@ -134,8 +144,9 @@ abstract class ServiceAbstract
     /**
      * @param string $referenceNumber
      *
-     * @return PackageInfo
      * @throws MethodNotSupported
+     *
+     * @return PackageInfo
      */
     public function getPackageInfoByReferenceNumber(string $referenceNumber): PackageInfo
     {
@@ -145,11 +156,13 @@ abstract class ServiceAbstract
     /*
      * Shipment Status
      */
+
     /**
      * @param string $trackingNumber
      *
-     * @return ShipmentStatus
      * @throws MethodNotSupported
+     *
+     * @return ShipmentStatus
      */
     public function getShipmentStatusByTrackingNumber(string $trackingNumber): ShipmentStatus
     {
@@ -159,8 +172,9 @@ abstract class ServiceAbstract
     /**
      * @param string $referenceNumber
      *
-     * @return ShipmentStatus
      * @throws MethodNotSupported
+     *
+     * @return ShipmentStatus
      */
     public function getShipmentStatusByReferenceNumber(string $referenceNumber): ShipmentStatus
     {
@@ -170,8 +184,9 @@ abstract class ServiceAbstract
     /**
      * @param string[] $list
      *
-     * @return ShipmentStatus[]
      * @throws MethodNotSupported
+     *
+     * @return ShipmentStatus[]
      */
     public function getShipmentStatusByTrackingNumberList(array $list): array
     {
@@ -181,8 +196,9 @@ abstract class ServiceAbstract
     /**
      * @param string[] $list
      *
-     * @return ShipmentStatus[]
      * @throws MethodNotSupported
+     *
+     * @return ShipmentStatus[]
      */
     public function getShipmentStatusByReferenceNumberList(array $list): array
     {
@@ -192,8 +208,9 @@ abstract class ServiceAbstract
     /**
      * @param \DateTime $date
      *
-     * @return ShipmentStatus[]
      * @throws MethodNotSupported
+     *
+     * @return ShipmentStatus[]
      */
     public function getShipmentStatusByPickupDate(\DateTime $date): array
     {
@@ -203,8 +220,9 @@ abstract class ServiceAbstract
     /**
      * @param \DateTime $date
      *
-     * @return ShipmentStatus[]
      * @throws MethodNotSupported
+     *
+     * @return ShipmentStatus[]
      */
     public function getShipmentStatusByDeliveryDate(\DateTime $date): array
     {
@@ -217,6 +235,7 @@ abstract class ServiceAbstract
         $shipmentStatus->setStatusCode(ShipmentStatus::STATUS_NOT_FOUND)
             ->setStatusDetails('Not Found')
             ->setOriginalStatus(0);
+
         return $shipmentStatus;
     }
 }

@@ -5,7 +5,7 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\CreateShipment;
 class TransferShipmentList_Type1Response
 {
     /**
-     * @var ResultTransferShipmentList_Type1 $TransferShipmentList_Type1Result
+     * @var ResultTransferShipmentList_Type1
      */
     protected $TransferShipmentList_Type1Result = null;
 
@@ -33,6 +33,7 @@ class TransferShipmentList_Type1Response
     public function setTransferShipmentList_Type1Result($TransferShipmentList_Type1Result)
     {
         $this->TransferShipmentList_Type1Result = $TransferShipmentList_Type1Result;
+
         return $this;
     }
 }

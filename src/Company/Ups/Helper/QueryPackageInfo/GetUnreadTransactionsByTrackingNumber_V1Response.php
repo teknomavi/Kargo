@@ -5,7 +5,7 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo;
 class GetUnreadTransactionsByTrackingNumber_V1Response
 {
     /**
-     * @var ArrayOfPackageTransaction $GetUnreadTransactionsByTrackingNumber_V1Result
+     * @var ArrayOfPackageTransaction
      */
     protected $GetUnreadTransactionsByTrackingNumber_V1Result = null;
 
@@ -33,6 +33,7 @@ class GetUnreadTransactionsByTrackingNumber_V1Response
     public function setGetUnreadTransactionsByTrackingNumber_V1Result($GetUnreadTransactionsByTrackingNumber_V1Result)
     {
         $this->GetUnreadTransactionsByTrackingNumber_V1Result = $GetUnreadTransactionsByTrackingNumber_V1Result;
+
         return $this;
     }
 }

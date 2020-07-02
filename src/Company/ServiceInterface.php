@@ -8,8 +8,6 @@ use Teknomavi\Kargo\Response\ShipmentStatus;
 
 interface ServiceInterface
 {
-
-
     public function sendPackages();
 
     /**

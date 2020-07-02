@@ -5,11 +5,11 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\CreateShipment;
 class BoxType
 {
     /**
-     * @var int $BoxTypeCode
+     * @var int
      */
     protected $BoxTypeCode = null;
     /**
-     * @var int $BoxCount
+     * @var int
      */
     protected $BoxCount = null;
 
@@ -39,6 +39,7 @@ class BoxType
     public function setBoxTypeCode($BoxTypeCode)
     {
         $this->BoxTypeCode = $BoxTypeCode;
+
         return $this;
     }
 
@@ -58,6 +59,7 @@ class BoxType
     public function setBoxCount($BoxCount)
     {
         $this->BoxCount = $BoxCount;
+
         return $this;
     }
 }

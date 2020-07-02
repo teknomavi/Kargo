@@ -5,15 +5,15 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo;
 class LoginInformation
 {
     /**
-     * @var string $SessionID
+     * @var string
      */
     protected $SessionID = null;
     /**
-     * @var int $ErrorCode
+     * @var int
      */
     protected $ErrorCode = null;
     /**
-     * @var string $ErrorDefinition
+     * @var string
      */
     protected $ErrorDefinition = null;
 
@@ -41,6 +41,7 @@ class LoginInformation
     public function setSessionID($SessionID)
     {
         $this->SessionID = $SessionID;
+
         return $this;
     }
 
@@ -60,6 +61,7 @@ class LoginInformation
     public function setErrorCode($ErrorCode)
     {
         $this->ErrorCode = $ErrorCode;
+
         return $this;
     }
 
@@ -79,6 +81,7 @@ class LoginInformation
     public function setErrorDefinition($ErrorDefinition)
     {
         $this->ErrorDefinition = $ErrorDefinition;
+
         return $this;
     }
 }

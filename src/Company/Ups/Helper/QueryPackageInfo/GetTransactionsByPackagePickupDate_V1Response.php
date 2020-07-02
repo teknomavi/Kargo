@@ -5,7 +5,7 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo;
 class GetTransactionsByPackagePickupDate_V1Response
 {
     /**
-     * @var ArrayOfPackageTransactionwithDeliveryDetail $GetTransactionsByPackagePickupDate_V1Result
+     * @var ArrayOfPackageTransactionwithDeliveryDetail
      */
     protected $GetTransactionsByPackagePickupDate_V1Result = null;
 
@@ -33,6 +33,7 @@ class GetTransactionsByPackagePickupDate_V1Response
     public function setGetTransactionsByPackagePickupDate_V1Result($GetTransactionsByPackagePickupDate_V1Result)
     {
         $this->GetTransactionsByPackagePickupDate_V1Result = $GetTransactionsByPackagePickupDate_V1Result;
+
         return $this;
     }
 }

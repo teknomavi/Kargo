@@ -5,304 +5,304 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo;
 class PackageInformation
 {
     /**
-     * @var string $TrackingNumber
+     * @var string
      */
     protected $TrackingNumber = null;
     /**
-     * @var string $UPSReferance
+     * @var string
      */
     protected $UPSReferance = null;
     /**
-     * @var string $ShippperAccountNumber
+     * @var string
      */
     protected $ShippperAccountNumber = null;
     /**
-     * @var string $ShipperName
+     * @var string
      */
     protected $ShipperName = null;
     /**
-     * @var string $ShipperContactName
+     * @var string
      */
     protected $ShipperContactName = null;
     /**
-     * @var string $ShipperPhoneNumber
+     * @var string
      */
     protected $ShipperPhoneNumber = null;
     /**
-     * @var string $ShipperPhoneExtension
+     * @var string
      */
     protected $ShipperPhoneExtension = null;
     /**
-     * @var string $ShipperMobilePhoneNumber
+     * @var string
      */
     protected $ShipperMobilePhoneNumber = null;
     /**
-     * @var string $ShipperAddress
+     * @var string
      */
     protected $ShipperAddress = null;
     /**
-     * @var string $ShipperEMail
+     * @var string
      */
     protected $ShipperEMail = null;
     /**
-     * @var int $ShipperAreaCode
+     * @var int
      */
     protected $ShipperAreaCode = null;
     /**
-     * @var string $ShipperAreaName
+     * @var string
      */
     protected $ShipperAreaName = null;
     /**
-     * @var int $ShipperCityCode
+     * @var int
      */
     protected $ShipperCityCode = null;
     /**
-     * @var string $ShipperCityName
+     * @var string
      */
     protected $ShipperCityName = null;
     /**
-     * @var string $ShipperPostalCode
+     * @var string
      */
     protected $ShipperPostalCode = null;
     /**
-     * @var string $ShipperCountry
+     * @var string
      */
     protected $ShipperCountry = null;
     /**
-     * @var string $ShipperExpenseCode
+     * @var string
      */
     protected $ShipperExpenseCode = null;
     /**
-     * @var string $ConsigneeAccountNumber
+     * @var string
      */
     protected $ConsigneeAccountNumber = null;
     /**
-     * @var string $ConsigneeName
+     * @var string
      */
     protected $ConsigneeName = null;
     /**
-     * @var string $ConsigneeContactName
+     * @var string
      */
     protected $ConsigneeContactName = null;
     /**
-     * @var string $ConsigneePhoneNumber
+     * @var string
      */
     protected $ConsigneePhoneNumber = null;
     /**
-     * @var string $ConsigneePhoneExtension
+     * @var string
      */
     protected $ConsigneePhoneExtension = null;
     /**
-     * @var string $ConsigneeMobilePhoneNumber
+     * @var string
      */
     protected $ConsigneeMobilePhoneNumber = null;
     /**
-     * @var string $ConsigneeAddress
+     * @var string
      */
     protected $ConsigneeAddress = null;
     /**
-     * @var string $ConsigneeEMail
+     * @var string
      */
     protected $ConsigneeEMail = null;
     /**
-     * @var int $ConsigneeAreaCode
+     * @var int
      */
     protected $ConsigneeAreaCode = null;
     /**
-     * @var string $ConsigneeAreaName
+     * @var string
      */
     protected $ConsigneeAreaName = null;
     /**
-     * @var int $ConsigneeCityCode
+     * @var int
      */
     protected $ConsigneeCityCode = null;
     /**
-     * @var string $ConsigneeCityName
+     * @var string
      */
     protected $ConsigneeCityName = null;
     /**
-     * @var string $ConsigneePostalCode
+     * @var string
      */
     protected $ConsigneePostalCode = null;
     /**
-     * @var string $ConsigneeCountry
+     * @var string
      */
     protected $ConsigneeCountry = null;
     /**
-     * @var string $ConsigneeExpenseCode
+     * @var string
      */
     protected $ConsigneeExpenseCode = null;
     /**
-     * @var string $ThirdPartyAccountNumber
+     * @var string
      */
     protected $ThirdPartyAccountNumber = null;
     /**
-     * @var string $ThirdPartyExpenseCode
+     * @var string
      */
     protected $ThirdPartyExpenseCode = null;
     /**
-     * @var string $ServiceLevel
+     * @var string
      */
     protected $ServiceLevel = null;
     /**
-     * @var string $PackageType
+     * @var string
      */
     protected $PackageType = null;
     /**
-     * @var string $ShipmentType
+     * @var string
      */
     protected $ShipmentType = null;
     /**
-     * @var int $NumberOfPackages
+     * @var int
      */
     protected $NumberOfPackages = null;
     /**
-     * @var string $DescriptionOfGoods
+     * @var string
      */
     protected $DescriptionOfGoods = null;
     /**
-     * @var float $ActualWeight
+     * @var float
      */
     protected $ActualWeight = null;
     /**
-     * @var float $VolumeWeight
+     * @var float
      */
     protected $VolumeWeight = null;
     /**
-     * @var int $Dimension1
+     * @var int
      */
     protected $Dimension1 = null;
     /**
-     * @var int $Dimension2
+     * @var int
      */
     protected $Dimension2 = null;
     /**
-     * @var int $Dimension3
+     * @var int
      */
     protected $Dimension3 = null;
     /**
-     * @var string $PaymentType
+     * @var string
      */
     protected $PaymentType = null;
     /**
-     * @var string $CustomerReferance
+     * @var string
      */
     protected $CustomerReferance = null;
     /**
-     * @var string $CustomerInvoiceNumber
+     * @var string
      */
     protected $CustomerInvoiceNumber = null;
     /**
-     * @var string $ShipmentNo
+     * @var string
      */
     protected $ShipmentNo = null;
     /**
-     * @var float $InsuranceValue
+     * @var float
      */
     protected $InsuranceValue = null;
     /**
-     * @var string $InsuranceValueCurrency
+     * @var string
      */
     protected $InsuranceValueCurrency = null;
     /**
-     * @var float $ValueOfGoods
+     * @var float
      */
     protected $ValueOfGoods = null;
     /**
-     * @var string $ValueOfGoodsCurrency
+     * @var string
      */
     protected $ValueOfGoodsCurrency = null;
     /**
-     * @var float $Freight
+     * @var float
      */
     protected $Freight = null;
     /**
-     * @var string $FreightCurrency
+     * @var string
      */
     protected $FreightCurrency = null;
     /**
-     * @var string $DeliveryNotificationEmail
+     * @var string
      */
     protected $DeliveryNotificationEmail = null;
     /**
-     * @var int $IdControlFlag
+     * @var int
      */
     protected $IdControlFlag = null;
     /**
-     * @var int $PhonePrealertFlag
+     * @var int
      */
     protected $PhonePrealertFlag = null;
     /**
-     * @var int $DeliveryByAppointmentFlag
+     * @var int
      */
     protected $DeliveryByAppointmentFlag = null;
     /**
-     * @var string $AppointmentBeginningTime
+     * @var string
      */
     protected $AppointmentBeginningTime = null;
     /**
-     * @var string $AppointmentEndingTime
+     * @var string
      */
     protected $AppointmentEndingTime = null;
     /**
-     * @var int $InvoiceLabelFlag
+     * @var int
      */
     protected $InvoiceLabelFlag = null;
     /**
-     * @var int $ReturnServiceFlag
+     * @var int
      */
     protected $ReturnServiceFlag = null;
     /**
-     * @var string $ReturnServiceTrackingNumber
+     * @var string
      */
     protected $ReturnServiceTrackingNumber = null;
     /**
-     * @var int $ReturnFlag
+     * @var int
      */
     protected $ReturnFlag = null;
     /**
-     * @var string $ReturnServiceShipmentNumber
+     * @var string
      */
     protected $ReturnServiceShipmentNumber = null;
     /**
-     * @var string $CreationTimeStamp
+     * @var string
      */
     protected $CreationTimeStamp = null;
     /**
-     * @var int $InformationLevel
+     * @var int
      */
     protected $InformationLevel = null;
     /**
-     * @var int $ErrorCode
+     * @var int
      */
     protected $ErrorCode = null;
     /**
-     * @var string $ErrorDefinition
+     * @var string
      */
     protected $ErrorDefinition = null;
 
     /**
-     * @param int $ShipperAreaCode
-     * @param int $ShipperCityCode
-     * @param int $ConsigneeAreaCode
-     * @param int $ConsigneeCityCode
-     * @param int $NumberOfPackages
+     * @param int   $ShipperAreaCode
+     * @param int   $ShipperCityCode
+     * @param int   $ConsigneeAreaCode
+     * @param int   $ConsigneeCityCode
+     * @param int   $NumberOfPackages
      * @param float $ActualWeight
      * @param float $VolumeWeight
-     * @param int $Dimension1
-     * @param int $Dimension2
-     * @param int $Dimension3
+     * @param int   $Dimension1
+     * @param int   $Dimension2
+     * @param int   $Dimension3
      * @param float $InsuranceValue
      * @param float $ValueOfGoods
      * @param float $Freight
-     * @param int $IdControlFlag
-     * @param int $PhonePrealertFlag
-     * @param int $DeliveryByAppointmentFlag
-     * @param int $InvoiceLabelFlag
-     * @param int $ReturnServiceFlag
-     * @param int $ReturnFlag
-     * @param int $InformationLevel
-     * @param int $ErrorCode
+     * @param int   $IdControlFlag
+     * @param int   $PhonePrealertFlag
+     * @param int   $DeliveryByAppointmentFlag
+     * @param int   $InvoiceLabelFlag
+     * @param int   $ReturnServiceFlag
+     * @param int   $ReturnFlag
+     * @param int   $InformationLevel
+     * @param int   $ErrorCode
      */
     public function __construct(
         $ShipperAreaCode,
@@ -366,6 +366,7 @@ class PackageInformation
     public function setTrackingNumber($TrackingNumber)
     {
         $this->TrackingNumber = $TrackingNumber;
+
         return $this;
     }
 
@@ -385,6 +386,7 @@ class PackageInformation
     public function setUPSReferance($UPSReferance)
     {
         $this->UPSReferance = $UPSReferance;
+
         return $this;
     }
 
@@ -404,6 +406,7 @@ class PackageInformation
     public function setShippperAccountNumber($ShippperAccountNumber)
     {
         $this->ShippperAccountNumber = $ShippperAccountNumber;
+
         return $this;
     }
 
@@ -423,6 +426,7 @@ class PackageInformation
     public function setShipperName($ShipperName)
     {
         $this->ShipperName = $ShipperName;
+
         return $this;
     }
 
@@ -442,6 +446,7 @@ class PackageInformation
     public function setShipperContactName($ShipperContactName)
     {
         $this->ShipperContactName = $ShipperContactName;
+
         return $this;
     }
 
@@ -461,6 +466,7 @@ class PackageInformation
     public function setShipperPhoneNumber($ShipperPhoneNumber)
     {
         $this->ShipperPhoneNumber = $ShipperPhoneNumber;
+
         return $this;
     }
 
@@ -480,6 +486,7 @@ class PackageInformation
     public function setShipperPhoneExtension($ShipperPhoneExtension)
     {
         $this->ShipperPhoneExtension = $ShipperPhoneExtension;
+
         return $this;
     }
 
@@ -499,6 +506,7 @@ class PackageInformation
     public function setShipperMobilePhoneNumber($ShipperMobilePhoneNumber)
     {
         $this->ShipperMobilePhoneNumber = $ShipperMobilePhoneNumber;
+
         return $this;
     }
 
@@ -518,6 +526,7 @@ class PackageInformation
     public function setShipperAddress($ShipperAddress)
     {
         $this->ShipperAddress = $ShipperAddress;
+
         return $this;
     }
 
@@ -537,6 +546,7 @@ class PackageInformation
     public function setShipperEMail($ShipperEMail)
     {
         $this->ShipperEMail = $ShipperEMail;
+
         return $this;
     }
 
@@ -556,6 +566,7 @@ class PackageInformation
     public function setShipperAreaCode($ShipperAreaCode)
     {
         $this->ShipperAreaCode = $ShipperAreaCode;
+
         return $this;
     }
 
@@ -575,6 +586,7 @@ class PackageInformation
     public function setShipperAreaName($ShipperAreaName)
     {
         $this->ShipperAreaName = $ShipperAreaName;
+
         return $this;
     }
 
@@ -594,6 +606,7 @@ class PackageInformation
     public function setShipperCityCode($ShipperCityCode)
     {
         $this->ShipperCityCode = $ShipperCityCode;
+
         return $this;
     }
 
@@ -613,6 +626,7 @@ class PackageInformation
     public function setShipperCityName($ShipperCityName)
     {
         $this->ShipperCityName = $ShipperCityName;
+
         return $this;
     }
 
@@ -632,6 +646,7 @@ class PackageInformation
     public function setShipperPostalCode($ShipperPostalCode)
     {
         $this->ShipperPostalCode = $ShipperPostalCode;
+
         return $this;
     }
 
@@ -651,6 +666,7 @@ class PackageInformation
     public function setShipperCountry($ShipperCountry)
     {
         $this->ShipperCountry = $ShipperCountry;
+
         return $this;
     }
 
@@ -670,6 +686,7 @@ class PackageInformation
     public function setShipperExpenseCode($ShipperExpenseCode)
     {
         $this->ShipperExpenseCode = $ShipperExpenseCode;
+
         return $this;
     }
 
@@ -689,6 +706,7 @@ class PackageInformation
     public function setConsigneeAccountNumber($ConsigneeAccountNumber)
     {
         $this->ConsigneeAccountNumber = $ConsigneeAccountNumber;
+
         return $this;
     }
 
@@ -708,6 +726,7 @@ class PackageInformation
     public function setConsigneeName($ConsigneeName)
     {
         $this->ConsigneeName = $ConsigneeName;
+
         return $this;
     }
 
@@ -727,6 +746,7 @@ class PackageInformation
     public function setConsigneeContactName($ConsigneeContactName)
     {
         $this->ConsigneeContactName = $ConsigneeContactName;
+
         return $this;
     }
 
@@ -746,6 +766,7 @@ class PackageInformation
     public function setConsigneePhoneNumber($ConsigneePhoneNumber)
     {
         $this->ConsigneePhoneNumber = $ConsigneePhoneNumber;
+
         return $this;
     }
 
@@ -765,6 +786,7 @@ class PackageInformation
     public function setConsigneePhoneExtension($ConsigneePhoneExtension)
     {
         $this->ConsigneePhoneExtension = $ConsigneePhoneExtension;
+
         return $this;
     }
 
@@ -784,6 +806,7 @@ class PackageInformation
     public function setConsigneeMobilePhoneNumber($ConsigneeMobilePhoneNumber)
     {
         $this->ConsigneeMobilePhoneNumber = $ConsigneeMobilePhoneNumber;
+
         return $this;
     }
 
@@ -803,6 +826,7 @@ class PackageInformation
     public function setConsigneeAddress($ConsigneeAddress)
     {
         $this->ConsigneeAddress = $ConsigneeAddress;
+
         return $this;
     }
 
@@ -822,6 +846,7 @@ class PackageInformation
     public function setConsigneeEMail($ConsigneeEMail)
     {
         $this->ConsigneeEMail = $ConsigneeEMail;
+
         return $this;
     }
 
@@ -841,6 +866,7 @@ class PackageInformation
     public function setConsigneeAreaCode($ConsigneeAreaCode)
     {
         $this->ConsigneeAreaCode = $ConsigneeAreaCode;
+
         return $this;
     }
 
@@ -860,6 +886,7 @@ class PackageInformation
     public function setConsigneeAreaName($ConsigneeAreaName)
     {
         $this->ConsigneeAreaName = $ConsigneeAreaName;
+
         return $this;
     }
 
@@ -879,6 +906,7 @@ class PackageInformation
     public function setConsigneeCityCode($ConsigneeCityCode)
     {
         $this->ConsigneeCityCode = $ConsigneeCityCode;
+
         return $this;
     }
 
@@ -898,6 +926,7 @@ class PackageInformation
     public function setConsigneeCityName($ConsigneeCityName)
     {
         $this->ConsigneeCityName = $ConsigneeCityName;
+
         return $this;
     }
 
@@ -917,6 +946,7 @@ class PackageInformation
     public function setConsigneePostalCode($ConsigneePostalCode)
     {
         $this->ConsigneePostalCode = $ConsigneePostalCode;
+
         return $this;
     }
 
@@ -936,6 +966,7 @@ class PackageInformation
     public function setConsigneeCountry($ConsigneeCountry)
     {
         $this->ConsigneeCountry = $ConsigneeCountry;
+
         return $this;
     }
 
@@ -955,6 +986,7 @@ class PackageInformation
     public function setConsigneeExpenseCode($ConsigneeExpenseCode)
     {
         $this->ConsigneeExpenseCode = $ConsigneeExpenseCode;
+
         return $this;
     }
 
@@ -974,6 +1006,7 @@ class PackageInformation
     public function setThirdPartyAccountNumber($ThirdPartyAccountNumber)
     {
         $this->ThirdPartyAccountNumber = $ThirdPartyAccountNumber;
+
         return $this;
     }
 
@@ -993,6 +1026,7 @@ class PackageInformation
     public function setThirdPartyExpenseCode($ThirdPartyExpenseCode)
     {
         $this->ThirdPartyExpenseCode = $ThirdPartyExpenseCode;
+
         return $this;
     }
 
@@ -1012,6 +1046,7 @@ class PackageInformation
     public function setServiceLevel($ServiceLevel)
     {
         $this->ServiceLevel = $ServiceLevel;
+
         return $this;
     }
 
@@ -1031,6 +1066,7 @@ class PackageInformation
     public function setPackageType($PackageType)
     {
         $this->PackageType = $PackageType;
+
         return $this;
     }
 
@@ -1050,6 +1086,7 @@ class PackageInformation
     public function setShipmentType($ShipmentType)
     {
         $this->ShipmentType = $ShipmentType;
+
         return $this;
     }
 
@@ -1069,6 +1106,7 @@ class PackageInformation
     public function setNumberOfPackages($NumberOfPackages)
     {
         $this->NumberOfPackages = $NumberOfPackages;
+
         return $this;
     }
 
@@ -1088,6 +1126,7 @@ class PackageInformation
     public function setDescriptionOfGoods($DescriptionOfGoods)
     {
         $this->DescriptionOfGoods = $DescriptionOfGoods;
+
         return $this;
     }
 
@@ -1107,6 +1146,7 @@ class PackageInformation
     public function setActualWeight($ActualWeight)
     {
         $this->ActualWeight = $ActualWeight;
+
         return $this;
     }
 
@@ -1126,6 +1166,7 @@ class PackageInformation
     public function setVolumeWeight($VolumeWeight)
     {
         $this->VolumeWeight = $VolumeWeight;
+
         return $this;
     }
 
@@ -1145,6 +1186,7 @@ class PackageInformation
     public function setDimension1($Dimension1)
     {
         $this->Dimension1 = $Dimension1;
+
         return $this;
     }
 
@@ -1164,6 +1206,7 @@ class PackageInformation
     public function setDimension2($Dimension2)
     {
         $this->Dimension2 = $Dimension2;
+
         return $this;
     }
 
@@ -1183,6 +1226,7 @@ class PackageInformation
     public function setDimension3($Dimension3)
     {
         $this->Dimension3 = $Dimension3;
+
         return $this;
     }
 
@@ -1202,6 +1246,7 @@ class PackageInformation
     public function setPaymentType($PaymentType)
     {
         $this->PaymentType = $PaymentType;
+
         return $this;
     }
 
@@ -1221,6 +1266,7 @@ class PackageInformation
     public function setCustomerReferance($CustomerReferance)
     {
         $this->CustomerReferance = $CustomerReferance;
+
         return $this;
     }
 
@@ -1240,6 +1286,7 @@ class PackageInformation
     public function setCustomerInvoiceNumber($CustomerInvoiceNumber)
     {
         $this->CustomerInvoiceNumber = $CustomerInvoiceNumber;
+
         return $this;
     }
 
@@ -1259,6 +1306,7 @@ class PackageInformation
     public function setShipmentNo($ShipmentNo)
     {
         $this->ShipmentNo = $ShipmentNo;
+
         return $this;
     }
 
@@ -1278,6 +1326,7 @@ class PackageInformation
     public function setInsuranceValue($InsuranceValue)
     {
         $this->InsuranceValue = $InsuranceValue;
+
         return $this;
     }
 
@@ -1297,6 +1346,7 @@ class PackageInformation
     public function setInsuranceValueCurrency($InsuranceValueCurrency)
     {
         $this->InsuranceValueCurrency = $InsuranceValueCurrency;
+
         return $this;
     }
 
@@ -1316,6 +1366,7 @@ class PackageInformation
     public function setValueOfGoods($ValueOfGoods)
     {
         $this->ValueOfGoods = $ValueOfGoods;
+
         return $this;
     }
 
@@ -1335,6 +1386,7 @@ class PackageInformation
     public function setValueOfGoodsCurrency($ValueOfGoodsCurrency)
     {
         $this->ValueOfGoodsCurrency = $ValueOfGoodsCurrency;
+
         return $this;
     }
 
@@ -1354,6 +1406,7 @@ class PackageInformation
     public function setFreight($Freight)
     {
         $this->Freight = $Freight;
+
         return $this;
     }
 
@@ -1373,6 +1426,7 @@ class PackageInformation
     public function setFreightCurrency($FreightCurrency)
     {
         $this->FreightCurrency = $FreightCurrency;
+
         return $this;
     }
 
@@ -1392,6 +1446,7 @@ class PackageInformation
     public function setDeliveryNotificationEmail($DeliveryNotificationEmail)
     {
         $this->DeliveryNotificationEmail = $DeliveryNotificationEmail;
+
         return $this;
     }
 
@@ -1411,6 +1466,7 @@ class PackageInformation
     public function setIdControlFlag($IdControlFlag)
     {
         $this->IdControlFlag = $IdControlFlag;
+
         return $this;
     }
 
@@ -1430,6 +1486,7 @@ class PackageInformation
     public function setPhonePrealertFlag($PhonePrealertFlag)
     {
         $this->PhonePrealertFlag = $PhonePrealertFlag;
+
         return $this;
     }
 
@@ -1449,6 +1506,7 @@ class PackageInformation
     public function setDeliveryByAppointmentFlag($DeliveryByAppointmentFlag)
     {
         $this->DeliveryByAppointmentFlag = $DeliveryByAppointmentFlag;
+
         return $this;
     }
 
@@ -1468,6 +1526,7 @@ class PackageInformation
     public function setAppointmentBeginningTime($AppointmentBeginningTime)
     {
         $this->AppointmentBeginningTime = $AppointmentBeginningTime;
+
         return $this;
     }
 
@@ -1487,6 +1546,7 @@ class PackageInformation
     public function setAppointmentEndingTime($AppointmentEndingTime)
     {
         $this->AppointmentEndingTime = $AppointmentEndingTime;
+
         return $this;
     }
 
@@ -1506,6 +1566,7 @@ class PackageInformation
     public function setInvoiceLabelFlag($InvoiceLabelFlag)
     {
         $this->InvoiceLabelFlag = $InvoiceLabelFlag;
+
         return $this;
     }
 
@@ -1525,6 +1586,7 @@ class PackageInformation
     public function setReturnServiceFlag($ReturnServiceFlag)
     {
         $this->ReturnServiceFlag = $ReturnServiceFlag;
+
         return $this;
     }
 
@@ -1544,6 +1606,7 @@ class PackageInformation
     public function setReturnServiceTrackingNumber($ReturnServiceTrackingNumber)
     {
         $this->ReturnServiceTrackingNumber = $ReturnServiceTrackingNumber;
+
         return $this;
     }
 
@@ -1563,6 +1626,7 @@ class PackageInformation
     public function setReturnFlag($ReturnFlag)
     {
         $this->ReturnFlag = $ReturnFlag;
+
         return $this;
     }
 
@@ -1582,6 +1646,7 @@ class PackageInformation
     public function setReturnServiceShipmentNumber($ReturnServiceShipmentNumber)
     {
         $this->ReturnServiceShipmentNumber = $ReturnServiceShipmentNumber;
+
         return $this;
     }
 
@@ -1601,6 +1666,7 @@ class PackageInformation
     public function setCreationTimeStamp($CreationTimeStamp)
     {
         $this->CreationTimeStamp = $CreationTimeStamp;
+
         return $this;
     }
 
@@ -1620,6 +1686,7 @@ class PackageInformation
     public function setInformationLevel($InformationLevel)
     {
         $this->InformationLevel = $InformationLevel;
+
         return $this;
     }
 
@@ -1639,6 +1706,7 @@ class PackageInformation
     public function setErrorCode($ErrorCode)
     {
         $this->ErrorCode = $ErrorCode;
+
         return $this;
     }
 
@@ -1658,6 +1726,7 @@ class PackageInformation
     public function setErrorDefinition($ErrorDefinition)
     {
         $this->ErrorDefinition = $ErrorDefinition;
+
         return $this;
     }
 }

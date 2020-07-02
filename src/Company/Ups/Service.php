@@ -33,28 +33,28 @@ class Service extends ServiceAbstract implements ServiceInterface
      * @var array
      */
     protected $statusMapping = [
-        1 => ShipmentStatus::STATUS_PACKAGE_SCANNED, #GİRİŞ SCAN EDİLDİ
-        2 => ShipmentStatus::STATUS_DELIVERED, #ALICIYA TESLİM EDİLDİ
-        3 => ShipmentStatus::STATUS_EXCEPTION, #ÖZEL DURUM OLUŞTU
-        4 => ShipmentStatus::STATUS_ON_DISTRIBUTION, #KURYE DAĞITMAK ÜZERE ÇIKARDI
-        5 => ShipmentStatus::STATUS_ON_BRANCH, #KURYE GERİ GETİRDİ
-        6 => ShipmentStatus::STATUS_ON_BRANCH, #ŞUBEYE GÖNDERİLDİ
-        7 => ShipmentStatus::STATUS_ON_BRANCH, #ŞUBEDEN GELDİ
-        12 => ShipmentStatus::STATUS_ON_BRANCH, #K. KONTEYNERE KONDU
-        15 => ShipmentStatus::STATUS_ON_BRANCH, #MANİFESTO FAZLASI
-        16 => ShipmentStatus::STATUS_ON_BRANCH, #K. KONTEYNERDEN ÇIKTI
-        17 => ShipmentStatus::STATUS_RETURN_BACK, #GÖNDERENE İADE AMAÇLI ÇIKIŞ
-        18 => ShipmentStatus::STATUS_PACKAGE_SCANNED, #MÜŞTERİ TOPLU GİRİŞ
-        19 => ShipmentStatus::STATUS_ON_BRANCH, #ŞUBEDE BEKLEYEN
-        30 => ShipmentStatus::STATUS_ON_BRANCH, #KONSOLOSLUKTAN TESLİM ALINDI
-        31 => ShipmentStatus::STATUS_PACKAGE_SCANNED, #ÇAĞRI SONUCU ALINDI
-        32 => ShipmentStatus::STATUS_ON_BRANCH, #DEPOYA GİRDİ
-        33 => ShipmentStatus::STATUS_ON_BRANCH, #DEPODAN ÇIKTI
-        34 => ShipmentStatus::STATUS_ON_BRANCH, #EDI BİLGİ TRANSFER
-        35 => ShipmentStatus::STATUS_PACKAGE_SCANNED, #MÜŞTERİ DEPODA OKUNDU
-        36 => ShipmentStatus::STATUS_ON_DISTRIBUTION, #TOPLU DAĞITIMA ÇIKIŞ
-        37 => ShipmentStatus::STATUS_ON_BRANCH, #TRANSİT KARŞILAMA
-        38 => ShipmentStatus::STATUS_ON_BRANCH, #TRANSİT ÇIKIŞ
+        1  => ShipmentStatus::STATUS_PACKAGE_SCANNED, //GİRİŞ SCAN EDİLDİ
+        2  => ShipmentStatus::STATUS_DELIVERED, //ALICIYA TESLİM EDİLDİ
+        3  => ShipmentStatus::STATUS_EXCEPTION, //ÖZEL DURUM OLUŞTU
+        4  => ShipmentStatus::STATUS_ON_DISTRIBUTION, //KURYE DAĞITMAK ÜZERE ÇIKARDI
+        5  => ShipmentStatus::STATUS_ON_BRANCH, //KURYE GERİ GETİRDİ
+        6  => ShipmentStatus::STATUS_ON_BRANCH, //ŞUBEYE GÖNDERİLDİ
+        7  => ShipmentStatus::STATUS_ON_BRANCH, //ŞUBEDEN GELDİ
+        12 => ShipmentStatus::STATUS_ON_BRANCH, //K. KONTEYNERE KONDU
+        15 => ShipmentStatus::STATUS_ON_BRANCH, //MANİFESTO FAZLASI
+        16 => ShipmentStatus::STATUS_ON_BRANCH, //K. KONTEYNERDEN ÇIKTI
+        17 => ShipmentStatus::STATUS_RETURN_BACK, //GÖNDERENE İADE AMAÇLI ÇIKIŞ
+        18 => ShipmentStatus::STATUS_PACKAGE_SCANNED, //MÜŞTERİ TOPLU GİRİŞ
+        19 => ShipmentStatus::STATUS_ON_BRANCH, //ŞUBEDE BEKLEYEN
+        30 => ShipmentStatus::STATUS_ON_BRANCH, //KONSOLOSLUKTAN TESLİM ALINDI
+        31 => ShipmentStatus::STATUS_PACKAGE_SCANNED, //ÇAĞRI SONUCU ALINDI
+        32 => ShipmentStatus::STATUS_ON_BRANCH, //DEPOYA GİRDİ
+        33 => ShipmentStatus::STATUS_ON_BRANCH, //DEPODAN ÇIKTI
+        34 => ShipmentStatus::STATUS_ON_BRANCH, //EDI BİLGİ TRANSFER
+        35 => ShipmentStatus::STATUS_PACKAGE_SCANNED, //MÜŞTERİ DEPODA OKUNDU
+        36 => ShipmentStatus::STATUS_ON_DISTRIBUTION, //TOPLU DAĞITIMA ÇIKIŞ
+        37 => ShipmentStatus::STATUS_ON_BRANCH, //TRANSİT KARŞILAMA
+        38 => ShipmentStatus::STATUS_ON_BRANCH, //TRANSİT ÇIKIŞ
     ];
     /**
      * @var array
@@ -67,7 +67,7 @@ class Service extends ServiceAbstract implements ServiceInterface
      * @var array
      */
     protected $shipmentTypeMapping = [
-        'NORMAL' => PackageInfo::SHIPMENT_TYPE_NORMAL,
+        'NORMAL'  => PackageInfo::SHIPMENT_TYPE_NORMAL,
         'EXPRESS' => PackageInfo::SHIPMENT_TYPE_EXPRESS,
     ];
     /**
@@ -93,7 +93,6 @@ class Service extends ServiceAbstract implements ServiceInterface
     {
         $shipperCityCode = Mapper::getCityCode($package->getShipperCity());
         $shipperTownCode = Mapper::getAreaCode($shipperCityCode, $package->getShipperTown());
-
 
         $consigneeCityCode = Mapper::getCityCode($package->getConsigneeCity());
         $consigneeTownCode = Mapper::getAreaCode($consigneeCityCode, $package->getConsigneeTown());
@@ -156,7 +155,7 @@ class Service extends ServiceAbstract implements ServiceInterface
         $this->packages[] = $shipmentType;
     }
 
-    function sendPackages()
+    public function sendPackages()
     {
         $response = [];
         $service = $this->initShipmentService();
@@ -165,6 +164,7 @@ class Service extends ServiceAbstract implements ServiceInterface
             $createShipmentResponse->setReferenceNumber($package->getCustomerReferance());
             /** @var ShipmentInfo_Type2 $package */
             $obj = new CreateShipment_Type2($this->getSessionId(), $package, true, true);
+
             try {
                 $result = $service->CreateShipment_Type2($obj)->getCreateShipment_Type2Result();
                 $trackingNumber = $result->getShipmentNo();
@@ -182,20 +182,22 @@ class Service extends ServiceAbstract implements ServiceInterface
                 }
             } catch (\Exception $exception) {
                 $createShipmentResponse
-                    ->setErrorCode('SOAP' . $exception->getCode())
+                    ->setErrorCode('SOAP'.$exception->getCode())
                     ->setErrorDescription($exception->getMessage())
                     ->setSuccess(false);
             }
             $response[$package->getCustomerReferance()] = $createShipmentResponse;
         }
+
         return $response;
     }
 
     /**
      * @param string $trackingNumber
      *
-     * @return PackageInfo
      * @throws \Exception
+     *
+     * @return PackageInfo
      */
     public function getPackageInfoByTrackingNumber(string $trackingNumber): PackageInfo
     {
@@ -214,6 +216,7 @@ class Service extends ServiceAbstract implements ServiceInterface
                 $response[$packageInfo->getTrackingNumber()] = $packageInfo;
             }
         }
+
         return current($response);
     }
 
@@ -221,19 +224,20 @@ class Service extends ServiceAbstract implements ServiceInterface
     {
         if (!$this->queryService) {
             $this->queryService = new QueryPackageInfo([
-                "features" => SOAP_SINGLE_ELEMENT_ARRAYS,
+                'features' => SOAP_SINGLE_ELEMENT_ARRAYS,
             ]);
         }
+
         return $this->queryService;
     }
 
     /**
-     * @return string
      * @throws \Exception
+     *
+     * @return string
      */
     private function getSessionId()
     {
-
         if (is_null($this->sessionId)) {
             $result = $this->initShipmentService()->Login_Type1(
                 new Login_Type1($this->options['customerCode'], $this->options['username'], $this->options['password'])
@@ -241,11 +245,12 @@ class Service extends ServiceAbstract implements ServiceInterface
             if ($result->getLogin_Type1Result()->getErrorCode() != 0) {
                 throw new \Exception(
                     $result->getLogin_Type1Result()->getErrorDefinition(),
-                    'UPS-' . $result->getLogin_Type1Result()->getErrorCode()
+                    'UPS-'.$result->getLogin_Type1Result()->getErrorCode()
                 );
             }
             $this->sessionId = $result->getLogin_Type1Result()->getSessionID();
         }
+
         return $this->sessionId;
     }
 
@@ -253,11 +258,12 @@ class Service extends ServiceAbstract implements ServiceInterface
     {
         if (!$this->shipmentService) {
             $this->shipmentService = new CreateShipment([
-                'trace' => 1,
+                'trace'              => 1,
                 'connection_timeout' => 60,
-                "features" => SOAP_SINGLE_ELEMENT_ARRAYS,
+                'features'           => SOAP_SINGLE_ELEMENT_ARRAYS,
             ]);
         }
+
         return $this->shipmentService;
     }
 
@@ -271,8 +277,9 @@ class Service extends ServiceAbstract implements ServiceInterface
     /**
      * @param PackageInformation $item
      *
-     * @return PackageInfo
      * @throws \Teknomavi\Kargo\Exception\InvalidParameterValue
+     *
+     * @return PackageInfo
      */
     private function populatePackageInfoFromItem($item): PackageInfo
     {
@@ -294,14 +301,16 @@ class Service extends ServiceAbstract implements ServiceInterface
             ->setCreateTime(\DateTime::createFromFormat('Ymd-His', $item->getCreationTimeStamp()))
             ->setErrorCode($item->getErrorCode())
             ->setErrorMessage($item->getErrorDefinition());
+
         return $packageInfo;
     }
 
     /**
      * @param string $referenceNumber
      *
-     * @return PackageInfo
      * @throws \Exception
+     *
+     * @return PackageInfo
      */
     public function getPackageInfoByReferenceNumber(string $referenceNumber): PackageInfo
     {
@@ -320,17 +329,20 @@ class Service extends ServiceAbstract implements ServiceInterface
                 $response[$packageInfo->getTrackingNumber()] = $packageInfo;
             }
         }
+
         return current($response);
     }
 
     /*
      * Shipment Status
      */
+
     /**
      * @param string $trackingNumber
      *
-     * @return ShipmentStatus
      * @throws \Teknomavi\Kargo\Exception\InvalidParameterValue
+     *
+     * @return ShipmentStatus
      */
     public function getShipmentStatusByTrackingNumber(string $trackingNumber): ShipmentStatus
     {
@@ -338,14 +350,16 @@ class Service extends ServiceAbstract implements ServiceInterface
         if (count($response)) {
             return current($response);
         }
+
         return $this->shipmentStatusNotFound()->setTrackingNumber($trackingNumber);
     }
 
     /**
      * @param string[] $list
      *
-     * @return ShipmentStatus[]
      * @throws \Teknomavi\Kargo\Exception\InvalidParameterValue
+     *
+     * @return ShipmentStatus[]
      */
     public function getShipmentStatusByTrackingNumberList(array $list): array
     {
@@ -363,23 +377,26 @@ class Service extends ServiceAbstract implements ServiceInterface
                 $this->getSessionId(),
                 1,
                 $referenceList,
-                $trnType)
+                $trnType
+            )
         );
         $response = [];
-        foreach ((array)$resultWebService->getGetTransactionsByList_V1Result()->getPackageTransactionwithDeliveryDetail() as $item) {
+        foreach ((array) $resultWebService->getGetTransactionsByList_V1Result()->getPackageTransactionwithDeliveryDetail() as $item) {
             if ($item instanceof PackageTransactionwithDeliveryDetail) {
                 $shipmentStatus = $this->populateShipmentStatusFromItem($item);
                 $response[$shipmentStatus->getTrackingNumber()] = $shipmentStatus;
             }
         }
+
         return $response;
     }
 
     /**
      * @param PackageTransactionwithDeliveryDetail|PackageTransaction $item
      *
-     * @return ShipmentStatus
      * @throws \Teknomavi\Kargo\Exception\InvalidParameterValue
+     *
+     * @return ShipmentStatus
      */
     private function populateShipmentStatusFromItem($item): ShipmentStatus
     {
@@ -394,14 +411,16 @@ class Service extends ServiceAbstract implements ServiceInterface
         if ($item instanceof PackageTransactionwithDeliveryDetail) {
             $shipmentStatus->setReferenceNumber($item->getCustomerReferanceNumber());
         }
+
         return $shipmentStatus;
     }
 
     /**
      * @param string $referenceNumber
      *
-     * @return ShipmentStatus
      * @throws \Exception
+     *
+     * @return ShipmentStatus
      */
     public function getShipmentStatusByReferenceNumber(string $referenceNumber): ShipmentStatus
     {
@@ -409,14 +428,16 @@ class Service extends ServiceAbstract implements ServiceInterface
         if (count($response)) {
             return current($response);
         }
+
         return $this->shipmentStatusNotFound()->setReferenceNumber($referenceNumber);
     }
 
     /**
      * @param string[] $list
      *
-     * @return ShipmentStatus[]
      * @throws \Exception
+     *
+     * @return ShipmentStatus[]
      */
     public function getShipmentStatusByReferenceNumberList(array $list): array
     {
@@ -438,20 +459,22 @@ class Service extends ServiceAbstract implements ServiceInterface
             )
         );
         $response = [];
-        foreach ((array)$resultWebService->getGetTransactionsByList_V1Result()->getPackageTransactionwithDeliveryDetail() as $item) {
+        foreach ((array) $resultWebService->getGetTransactionsByList_V1Result()->getPackageTransactionwithDeliveryDetail() as $item) {
             if ($item instanceof PackageTransactionwithDeliveryDetail) {
                 $shipmentStatus = $this->populateShipmentStatusFromItem($item);
                 $response[$shipmentStatus->getReferenceNumber()] = $shipmentStatus;
             }
         }
+
         return $response;
     }
 
     /**
      * @param \DateTime $date
      *
-     * @return ShipmentStatus[]
      * @throws \Exception
+     *
+     * @return ShipmentStatus[]
      */
     public function getShipmentStatusByPickupDate(\DateTime $date): array
     {
@@ -474,14 +497,16 @@ class Service extends ServiceAbstract implements ServiceInterface
                 $response[$shipmentStatus->getTrackingNumber()] = $shipmentStatus;
             }
         }
+
         return $response;
     }
 
     /**
      * @param \DateTime $date
      *
-     * @return array|ShipmentStatus[]
      * @throws MethodNotSupported
+     *
+     * @return array|ShipmentStatus[]
      */
     public function getShipmentStatusByDeliveryDate(\DateTime $date): array
     {
@@ -492,9 +517,8 @@ class Service extends ServiceAbstract implements ServiceInterface
     {
         $resolver->setDefaults([
             'customerCode' => '',
-            'username' => '',
-            'password' => '',
+            'username'     => '',
+            'password'     => '',
         ]);
     }
-
 }

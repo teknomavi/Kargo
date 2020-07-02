@@ -5,7 +5,7 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo;
 class GetPackageInfoByDatePeriod_V1Response
 {
     /**
-     * @var ArrayOfPackageInformation $GetPackageInfoByDatePeriod_V1Result
+     * @var ArrayOfPackageInformation
      */
     protected $GetPackageInfoByDatePeriod_V1Result = null;
 
@@ -33,6 +33,7 @@ class GetPackageInfoByDatePeriod_V1Response
     public function setGetPackageInfoByDatePeriod_V1Result($GetPackageInfoByDatePeriod_V1Result)
     {
         $this->GetPackageInfoByDatePeriod_V1Result = $GetPackageInfoByDatePeriod_V1Result;
+
         return $this;
     }
 }

@@ -2,7 +2,6 @@
 
 namespace Teknomavi\Kargo\Model;
 
-
 class Package
 {
     const PAYMENT_TYPE_CONSIGNEE_PAY = 1;
@@ -11,7 +10,6 @@ class Package
     const SHIPMENT_TYPE_PREPAID = 1;
     const SHIPMENT_TYPE_CASH_ON_DELIVERY = 2;  // Kapıda ödeme nakit
     const SHIPMENT_TYPE_CARD_ON_DELIVERY = 3;  // Kapıda ödeme kredi kartı
-
 
     const PACKAGE_TYPE_DOCUMENT = 1;
     const PACKAGE_TYPE_BOX = 2;
@@ -46,29 +44,29 @@ class Package
 
     private $packageContent;
     /**
-     * @var float $ActualWeight
+     * @var float
      */
     private $actualWeight;
 
     /**
-     * @var float $VolumeWeight
+     * @var float
      */
     private $volumeWeight;
 
     /**
-     * @var float $InsuranceValue
+     * @var float
      */
     private $insuranceValue = null;
     /**
-     * @var string $InsuranceValueCurrency
+     * @var string
      */
     private $insuranceValueCurrency = null;
     /**
-     * @var float $ValueOfGoods
+     * @var float
      */
     private $valueOfGoods = null;
     /**
-     * @var string $ValueOfGoodsCurrency
+     * @var string
      */
     private $valueOfGoodsCurrency = null;
 
@@ -88,6 +86,7 @@ class Package
     public function setReferenceNo($referenceNo)
     {
         $this->referenceNo = $referenceNo;
+
         return $this;
     }
 
@@ -107,6 +106,7 @@ class Package
     public function setInvoiceNo($invoiceNo)
     {
         $this->invoiceNo = $invoiceNo;
+
         return $this;
     }
 
@@ -126,6 +126,7 @@ class Package
     public function setShipperCountry($shipperCountry)
     {
         $this->shipperCountry = $shipperCountry;
+
         return $this;
     }
 
@@ -145,6 +146,7 @@ class Package
     public function setShipperCity($shipperCity)
     {
         $this->shipperCity = $shipperCity;
+
         return $this;
     }
 
@@ -164,6 +166,7 @@ class Package
     public function setShipperTown($shipperTown)
     {
         $this->shipperTown = $shipperTown;
+
         return $this;
     }
 
@@ -183,6 +186,7 @@ class Package
     public function setShipperAddress($shipperAddress)
     {
         $this->shipperAddress = $shipperAddress;
+
         return $this;
     }
 
@@ -202,6 +206,7 @@ class Package
     public function setShipperMobilPhone($shipperMobilPhone)
     {
         $this->shipperMobilPhone = $shipperMobilPhone;
+
         return $this;
     }
 
@@ -221,6 +226,7 @@ class Package
     public function setShipperEmail($shipperEmail)
     {
         $this->shipperEmail = $shipperEmail;
+
         return $this;
     }
 
@@ -240,6 +246,7 @@ class Package
     public function setShipperIdentificationNo($shipperIdentificationNo)
     {
         $this->shipperIdentificationNo = $shipperIdentificationNo;
+
         return $this;
     }
 
@@ -259,6 +266,7 @@ class Package
     public function setShipperAccountNumber($shipperAccountNumber)
     {
         $this->shipperAccountNumber = $shipperAccountNumber;
+
         return $this;
     }
 
@@ -278,6 +286,7 @@ class Package
     public function setShipperName($shipperName)
     {
         $this->shipperName = $shipperName;
+
         return $this;
     }
 
@@ -297,9 +306,9 @@ class Package
     public function setShipperPostalCode($shipperPostalCode)
     {
         $this->shipperPostalCode = $shipperPostalCode;
+
         return $this;
     }
-
 
     /**
      * @return mixed
@@ -317,6 +326,7 @@ class Package
     public function setConsigneeCountry($consigneeCountry)
     {
         $this->consigneeCountry = $consigneeCountry;
+
         return $this;
     }
 
@@ -336,6 +346,7 @@ class Package
     public function setConsigneeCity($consigneeCity)
     {
         $this->consigneeCity = $consigneeCity;
+
         return $this;
     }
 
@@ -355,6 +366,7 @@ class Package
     public function setConsigneeTown($consigneeTown)
     {
         $this->consigneeTown = $consigneeTown;
+
         return $this;
     }
 
@@ -374,6 +386,7 @@ class Package
     public function setConsigneeAddress($consigneeAddress)
     {
         $this->consigneeAddress = $consigneeAddress;
+
         return $this;
     }
 
@@ -393,6 +406,7 @@ class Package
     public function setConsigneeMobilPhone($consigneeMobilPhone)
     {
         $this->consigneeMobilPhone = $consigneeMobilPhone;
+
         return $this;
     }
 
@@ -412,6 +426,7 @@ class Package
     public function setConsigneeEmail($consigneeEmail)
     {
         $this->consigneeEmail = $consigneeEmail;
+
         return $this;
     }
 
@@ -431,6 +446,7 @@ class Package
     public function setConsigneeIdentificationNo($consigneeIdentificationNo)
     {
         $this->consigneeIdentificationNo = $consigneeIdentificationNo;
+
         return $this;
     }
 
@@ -450,6 +466,7 @@ class Package
     public function setConsigneeAccountNumber($consigneeAccountNumber)
     {
         $this->consigneeAccountNumber = $consigneeAccountNumber;
+
         return $this;
     }
 
@@ -469,6 +486,7 @@ class Package
     public function setConsigneeName($consigneeName)
     {
         $this->consigneeName = $consigneeName;
+
         return $this;
     }
 
@@ -488,6 +506,7 @@ class Package
     public function setConsigneePostalCode($consigneePostalCode)
     {
         $this->consigneePostalCode = $consigneePostalCode;
+
         return $this;
     }
 
@@ -507,6 +526,7 @@ class Package
     public function setPackageType($packageType)
     {
         $this->packageType = $packageType;
+
         return $this;
     }
 
@@ -526,6 +546,7 @@ class Package
     public function setPaymentType($paymentType)
     {
         $this->paymentType = $paymentType;
+
         return $this;
     }
 
@@ -545,6 +566,7 @@ class Package
     public function setShipmentType($shipmentType)
     {
         $this->shipmentType = $shipmentType;
+
         return $this;
     }
 
@@ -564,6 +586,7 @@ class Package
     public function setNumberOfPackages($numberOfPackages)
     {
         $this->numberOfPackages = $numberOfPackages;
+
         return $this;
     }
 
@@ -583,6 +606,7 @@ class Package
     public function setPackageContent($packageContent)
     {
         $this->packageContent = $packageContent;
+
         return $this;
     }
 
@@ -599,9 +623,10 @@ class Package
      *
      * @return Package
      */
-    public function setActualWeight(float $actualWeight): Package
+    public function setActualWeight(float $actualWeight): self
     {
         $this->actualWeight = $actualWeight;
+
         return $this;
     }
 
@@ -618,9 +643,10 @@ class Package
      *
      * @return Package
      */
-    public function setVolumeWeight(float $volumeWeight): Package
+    public function setVolumeWeight(float $volumeWeight): self
     {
         $this->volumeWeight = $volumeWeight;
+
         return $this;
     }
 
@@ -637,9 +663,10 @@ class Package
      *
      * @return Package
      */
-    public function setInsuranceValue(float $insuranceValue): Package
+    public function setInsuranceValue(float $insuranceValue): self
     {
         $this->insuranceValue = $insuranceValue;
+
         return $this;
     }
 
@@ -656,9 +683,10 @@ class Package
      *
      * @return Package
      */
-    public function setInsuranceValueCurrency(string $insuranceValueCurrency): Package
+    public function setInsuranceValueCurrency(string $insuranceValueCurrency): self
     {
         $this->insuranceValueCurrency = $insuranceValueCurrency;
+
         return $this;
     }
 
@@ -675,9 +703,10 @@ class Package
      *
      * @return Package
      */
-    public function setValueOfGoods(float $valueOfGoods): Package
+    public function setValueOfGoods(float $valueOfGoods): self
     {
         $this->valueOfGoods = $valueOfGoods;
+
         return $this;
     }
 
@@ -694,10 +723,10 @@ class Package
      *
      * @return Package
      */
-    public function setValueOfGoodsCurrency(string $valueOfGoodsCurrency): Package
+    public function setValueOfGoodsCurrency(string $valueOfGoodsCurrency): self
     {
         $this->valueOfGoodsCurrency = $valueOfGoodsCurrency;
+
         return $this;
     }
-
 }

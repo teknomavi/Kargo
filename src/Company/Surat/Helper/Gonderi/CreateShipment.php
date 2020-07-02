@@ -4,19 +4,18 @@ namespace Teknomavi\Kargo\Company\Surat\Helper\Gonderi;
 
 class CreateShipment extends \SoapClient
 {
-
     /**
-     * @var array $classmap The defined classes
+     * @var array The defined classes
      */
     private static $classmap = [
-        'GonderiyiKargoyaGonder' => 'Teknomavi\\Kargo\\Company\\Surat\\Helper\\Gonderi\\GonderiyiKargoyaGonder',
-        'Gonderi' => 'Teknomavi\\Kargo\\Company\\Surat\\Helper\\Gonderi\\Gonderi',
+        'GonderiyiKargoyaGonder'         => 'Teknomavi\\Kargo\\Company\\Surat\\Helper\\Gonderi\\GonderiyiKargoyaGonder',
+        'Gonderi'                        => 'Teknomavi\\Kargo\\Company\\Surat\\Helper\\Gonderi\\Gonderi',
         'GonderiyiKargoyaGonderResponse' => 'Teknomavi\\Kargo\\Company\\Surat\\Helper\\Gonderi\\GonderiyiKargoyaGonderResponse',
     ];
 
     /**
-     * @param array $options A array of config values
-     * @param string $wsdl The wsdl file to use
+     * @param array  $options A array of config values
+     * @param string $wsdl    The wsdl file to use
      */
     public function __construct(array $options = [], $wsdl = null)
     {
@@ -43,5 +42,4 @@ class CreateShipment extends \SoapClient
     {
         return $this->__soapCall('GonderiyiKargoyaGonder', [$parameters]);
     }
-
 }

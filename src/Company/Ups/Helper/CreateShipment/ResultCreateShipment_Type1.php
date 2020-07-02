@@ -5,23 +5,23 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\CreateShipment;
 class ResultCreateShipment_Type1
 {
     /**
-     * @var string $ShipmentNo
+     * @var string
      */
     protected $ShipmentNo = null;
     /**
-     * @var string $LinkForLabelPrinting
+     * @var string
      */
     protected $LinkForLabelPrinting = null;
     /**
-     * @var ArrayOfString $BarkodArrayPng
+     * @var ArrayOfString
      */
     protected $BarkodArrayPng = null;
     /**
-     * @var int $ErrorCode
+     * @var int
      */
     protected $ErrorCode = null;
     /**
-     * @var string $ErrorDefinition
+     * @var string
      */
     protected $ErrorDefinition = null;
 
@@ -49,6 +49,7 @@ class ResultCreateShipment_Type1
     public function setShipmentNo($ShipmentNo)
     {
         $this->ShipmentNo = $ShipmentNo;
+
         return $this;
     }
 
@@ -68,6 +69,7 @@ class ResultCreateShipment_Type1
     public function setLinkForLabelPrinting($LinkForLabelPrinting)
     {
         $this->LinkForLabelPrinting = $LinkForLabelPrinting;
+
         return $this;
     }
 
@@ -87,6 +89,7 @@ class ResultCreateShipment_Type1
     public function setBarkodArrayPng($BarkodArrayPng)
     {
         $this->BarkodArrayPng = $BarkodArrayPng;
+
         return $this;
     }
 
@@ -106,6 +109,7 @@ class ResultCreateShipment_Type1
     public function setErrorCode($ErrorCode)
     {
         $this->ErrorCode = $ErrorCode;
+
         return $this;
     }
 
@@ -125,6 +129,7 @@ class ResultCreateShipment_Type1
     public function setErrorDefinition($ErrorDefinition)
     {
         $this->ErrorDefinition = $ErrorDefinition;
+
         return $this;
     }
 }

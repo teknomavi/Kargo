@@ -5,35 +5,35 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo;
 class TiNTInformation
 {
     /**
-     * @var string $TrackingNumber
+     * @var string
      */
     protected $TrackingNumber = null;
     /**
-     * @var string $TiNTDate
+     * @var string
      */
     protected $TiNTDate = null;
     /**
-     * @var string $TiNTStartTime
+     * @var string
      */
     protected $TiNTStartTime = null;
     /**
-     * @var string $TiNTEndTime
+     * @var string
      */
     protected $TiNTEndTime = null;
     /**
-     * @var string $PickupDate
+     * @var string
      */
     protected $PickupDate = null;
     /**
-     * @var int $InformationLevel
+     * @var int
      */
     protected $InformationLevel = null;
     /**
-     * @var int $ErrorCode
+     * @var int
      */
     protected $ErrorCode = null;
     /**
-     * @var string $ErrorDefinition
+     * @var string
      */
     protected $ErrorDefinition = null;
 
@@ -63,6 +63,7 @@ class TiNTInformation
     public function setTrackingNumber($TrackingNumber)
     {
         $this->TrackingNumber = $TrackingNumber;
+
         return $this;
     }
 
@@ -82,6 +83,7 @@ class TiNTInformation
     public function setTiNTDate($TiNTDate)
     {
         $this->TiNTDate = $TiNTDate;
+
         return $this;
     }
 
@@ -101,6 +103,7 @@ class TiNTInformation
     public function setTiNTStartTime($TiNTStartTime)
     {
         $this->TiNTStartTime = $TiNTStartTime;
+
         return $this;
     }
 
@@ -120,6 +123,7 @@ class TiNTInformation
     public function setTiNTEndTime($TiNTEndTime)
     {
         $this->TiNTEndTime = $TiNTEndTime;
+
         return $this;
     }
 
@@ -139,6 +143,7 @@ class TiNTInformation
     public function setPickupDate($PickupDate)
     {
         $this->PickupDate = $PickupDate;
+
         return $this;
     }
 
@@ -158,6 +163,7 @@ class TiNTInformation
     public function setInformationLevel($InformationLevel)
     {
         $this->InformationLevel = $InformationLevel;
+
         return $this;
     }
 
@@ -177,6 +183,7 @@ class TiNTInformation
     public function setErrorCode($ErrorCode)
     {
         $this->ErrorCode = $ErrorCode;
+
         return $this;
     }
 
@@ -196,6 +203,7 @@ class TiNTInformation
     public function setErrorDefinition($ErrorDefinition)
     {
         $this->ErrorDefinition = $ErrorDefinition;
+
         return $this;
     }
 }

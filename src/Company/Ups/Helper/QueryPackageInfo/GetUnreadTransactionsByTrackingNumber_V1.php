@@ -5,19 +5,19 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo;
 class GetUnreadTransactionsByTrackingNumber_V1
 {
     /**
-     * @var string $SessionID
+     * @var string
      */
     protected $SessionID = null;
     /**
-     * @var int $InformationLevel
+     * @var int
      */
     protected $InformationLevel = null;
     /**
-     * @var string $TrackingNumber
+     * @var string
      */
     protected $TrackingNumber = null;
     /**
-     * @var int $RecordId
+     * @var int
      */
     protected $RecordId = null;
 
@@ -51,6 +51,7 @@ class GetUnreadTransactionsByTrackingNumber_V1
     public function setSessionID($SessionID)
     {
         $this->SessionID = $SessionID;
+
         return $this;
     }
 
@@ -70,6 +71,7 @@ class GetUnreadTransactionsByTrackingNumber_V1
     public function setInformationLevel($InformationLevel)
     {
         $this->InformationLevel = $InformationLevel;
+
         return $this;
     }
 
@@ -89,6 +91,7 @@ class GetUnreadTransactionsByTrackingNumber_V1
     public function setTrackingNumber($TrackingNumber)
     {
         $this->TrackingNumber = $TrackingNumber;
+
         return $this;
     }
 
@@ -108,6 +111,7 @@ class GetUnreadTransactionsByTrackingNumber_V1
     public function setRecordId($RecordId)
     {
         $this->RecordId = $RecordId;
+
         return $this;
     }
 }

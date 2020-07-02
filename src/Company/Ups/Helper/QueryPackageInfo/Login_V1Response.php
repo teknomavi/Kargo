@@ -5,7 +5,7 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo;
 class Login_V1Response
 {
     /**
-     * @var LoginInformation $Login_V1Result
+     * @var LoginInformation
      */
     protected $Login_V1Result = null;
 
@@ -33,6 +33,7 @@ class Login_V1Response
     public function setLogin_V1Result($Login_V1Result)
     {
         $this->Login_V1Result = $Login_V1Result;
+
         return $this;
     }
 }

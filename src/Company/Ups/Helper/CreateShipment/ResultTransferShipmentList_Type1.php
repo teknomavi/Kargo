@@ -5,19 +5,19 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\CreateShipment;
 class ResultTransferShipmentList_Type1
 {
     /**
-     * @var string $ShipmentNo
+     * @var string
      */
     protected $ShipmentNo = null;
     /**
-     * @var int $ErrorCode
+     * @var int
      */
     protected $ErrorCode = null;
     /**
-     * @var string $ErrorDefinition
+     * @var string
      */
     protected $ErrorDefinition = null;
     /**
-     * @var ArrayOfString $WaybillList
+     * @var ArrayOfString
      */
     protected $WaybillList = null;
 
@@ -45,6 +45,7 @@ class ResultTransferShipmentList_Type1
     public function setShipmentNo($ShipmentNo)
     {
         $this->ShipmentNo = $ShipmentNo;
+
         return $this;
     }
 
@@ -64,6 +65,7 @@ class ResultTransferShipmentList_Type1
     public function setErrorCode($ErrorCode)
     {
         $this->ErrorCode = $ErrorCode;
+
         return $this;
     }
 
@@ -83,6 +85,7 @@ class ResultTransferShipmentList_Type1
     public function setErrorDefinition($ErrorDefinition)
     {
         $this->ErrorDefinition = $ErrorDefinition;
+
         return $this;
     }
 
@@ -102,6 +105,7 @@ class ResultTransferShipmentList_Type1
     public function setWaybillList($WaybillList)
     {
         $this->WaybillList = $WaybillList;
+
         return $this;
     }
 }

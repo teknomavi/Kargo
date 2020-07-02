@@ -5,19 +5,19 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo;
 class GetTransactionsByList_V1
 {
     /**
-     * @var string $SessionID
+     * @var string
      */
     protected $SessionID = null;
     /**
-     * @var int $InformationLevel
+     * @var int
      */
     protected $InformationLevel = null;
     /**
-     * @var ParamReferansList $refList
+     * @var ParamReferansList
      */
     protected $refList = null;
     /**
-     * @var TransactionTypes $trnType
+     * @var TransactionTypes
      */
     protected $trnType = null;
 
@@ -51,6 +51,7 @@ class GetTransactionsByList_V1
     public function setSessionID($SessionID)
     {
         $this->SessionID = $SessionID;
+
         return $this;
     }
 
@@ -70,6 +71,7 @@ class GetTransactionsByList_V1
     public function setInformationLevel($InformationLevel)
     {
         $this->InformationLevel = $InformationLevel;
+
         return $this;
     }
 
@@ -89,6 +91,7 @@ class GetTransactionsByList_V1
     public function setRefList($refList)
     {
         $this->refList = $refList;
+
         return $this;
     }
 
@@ -108,6 +111,7 @@ class GetTransactionsByList_V1
     public function setTrnType($trnType)
     {
         $this->trnType = $trnType;
+
         return $this;
     }
 }

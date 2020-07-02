@@ -5,67 +5,67 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo;
 class PackageTransactionwithDeliveryDetail
 {
     /**
-     * @var string $TrackingNumber
+     * @var string
      */
     protected $TrackingNumber = null;
     /**
-     * @var string $CustomerReferanceNumber
+     * @var string
      */
     protected $CustomerReferanceNumber = null;
     /**
-     * @var string $ProcessTimeStamp
+     * @var string
      */
     protected $ProcessTimeStamp = null;
     /**
-     * @var string $OperationBranchName
+     * @var string
      */
     protected $OperationBranchName = null;
     /**
-     * @var int $StatusCode
+     * @var int
      */
     protected $StatusCode = null;
     /**
-     * @var string $ExceptionCode
+     * @var string
      */
     protected $ExceptionCode = null;
     /**
-     * @var string $ProcessDescription1
+     * @var string
      */
     protected $ProcessDescription1 = null;
     /**
-     * @var string $ProcessDescription2
+     * @var string
      */
     protected $ProcessDescription2 = null;
     /**
-     * @var string $SignedPersonName
+     * @var string
      */
     protected $SignedPersonName = null;
     /**
-     * @var string $SignedPersonSurname
+     * @var string
      */
     protected $SignedPersonSurname = null;
     /**
-     * @var string $SignedPersonPhoneNumber
+     * @var string
      */
     protected $SignedPersonPhoneNumber = null;
     /**
-     * @var string $SignedPersonRelation
+     * @var string
      */
     protected $SignedPersonRelation = null;
     /**
-     * @var int $RecordId
+     * @var int
      */
     protected $RecordId = null;
     /**
-     * @var int $InformationLevel
+     * @var int
      */
     protected $InformationLevel = null;
     /**
-     * @var int $ErrorCode
+     * @var int
      */
     protected $ErrorCode = null;
     /**
-     * @var string $ErrorDefinition
+     * @var string
      */
     protected $ErrorDefinition = null;
 
@@ -99,6 +99,7 @@ class PackageTransactionwithDeliveryDetail
     public function setTrackingNumber($TrackingNumber)
     {
         $this->TrackingNumber = $TrackingNumber;
+
         return $this;
     }
 
@@ -118,6 +119,7 @@ class PackageTransactionwithDeliveryDetail
     public function setCustomerReferanceNumber($CustomerReferanceNumber)
     {
         $this->CustomerReferanceNumber = $CustomerReferanceNumber;
+
         return $this;
     }
 
@@ -137,6 +139,7 @@ class PackageTransactionwithDeliveryDetail
     public function setProcessTimeStamp($ProcessTimeStamp)
     {
         $this->ProcessTimeStamp = $ProcessTimeStamp;
+
         return $this;
     }
 
@@ -156,6 +159,7 @@ class PackageTransactionwithDeliveryDetail
     public function setOperationBranchName($OperationBranchName)
     {
         $this->OperationBranchName = $OperationBranchName;
+
         return $this;
     }
 
@@ -175,6 +179,7 @@ class PackageTransactionwithDeliveryDetail
     public function setStatusCode($StatusCode)
     {
         $this->StatusCode = $StatusCode;
+
         return $this;
     }
 
@@ -194,6 +199,7 @@ class PackageTransactionwithDeliveryDetail
     public function setExceptionCode($ExceptionCode)
     {
         $this->ExceptionCode = $ExceptionCode;
+
         return $this;
     }
 
@@ -213,6 +219,7 @@ class PackageTransactionwithDeliveryDetail
     public function setProcessDescription1($ProcessDescription1)
     {
         $this->ProcessDescription1 = $ProcessDescription1;
+
         return $this;
     }
 
@@ -232,6 +239,7 @@ class PackageTransactionwithDeliveryDetail
     public function setProcessDescription2($ProcessDescription2)
     {
         $this->ProcessDescription2 = $ProcessDescription2;
+
         return $this;
     }
 
@@ -251,6 +259,7 @@ class PackageTransactionwithDeliveryDetail
     public function setSignedPersonName($SignedPersonName)
     {
         $this->SignedPersonName = $SignedPersonName;
+
         return $this;
     }
 
@@ -270,6 +279,7 @@ class PackageTransactionwithDeliveryDetail
     public function setSignedPersonSurname($SignedPersonSurname)
     {
         $this->SignedPersonSurname = $SignedPersonSurname;
+
         return $this;
     }
 
@@ -289,6 +299,7 @@ class PackageTransactionwithDeliveryDetail
     public function setSignedPersonPhoneNumber($SignedPersonPhoneNumber)
     {
         $this->SignedPersonPhoneNumber = $SignedPersonPhoneNumber;
+
         return $this;
     }
 
@@ -308,6 +319,7 @@ class PackageTransactionwithDeliveryDetail
     public function setSignedPersonRelation($SignedPersonRelation)
     {
         $this->SignedPersonRelation = $SignedPersonRelation;
+
         return $this;
     }
 
@@ -327,6 +339,7 @@ class PackageTransactionwithDeliveryDetail
     public function setRecordId($RecordId)
     {
         $this->RecordId = $RecordId;
+
         return $this;
     }
 
@@ -346,6 +359,7 @@ class PackageTransactionwithDeliveryDetail
     public function setInformationLevel($InformationLevel)
     {
         $this->InformationLevel = $InformationLevel;
+
         return $this;
     }
 
@@ -365,6 +379,7 @@ class PackageTransactionwithDeliveryDetail
     public function setErrorCode($ErrorCode)
     {
         $this->ErrorCode = $ErrorCode;
+
         return $this;
     }
 
@@ -384,6 +399,7 @@ class PackageTransactionwithDeliveryDetail
     public function setErrorDefinition($ErrorDefinition)
     {
         $this->ErrorDefinition = $ErrorDefinition;
+
         return $this;
     }
 }

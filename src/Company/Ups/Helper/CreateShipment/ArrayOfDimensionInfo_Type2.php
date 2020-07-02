@@ -5,7 +5,7 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\CreateShipment;
 class ArrayOfDimensionInfo_Type2 implements \ArrayAccess, \Iterator, \Countable
 {
     /**
-     * @var DimensionInfo_Type2[] $DimensionInfo_Type2
+     * @var DimensionInfo_Type2[]
      */
     protected $DimensionInfo_Type2 = null;
 
@@ -29,15 +29,16 @@ class ArrayOfDimensionInfo_Type2 implements \ArrayAccess, \Iterator, \Countable
     public function setDimensionInfo_Type2(array $DimensionInfo_Type2 = null)
     {
         $this->DimensionInfo_Type2 = $DimensionInfo_Type2;
+
         return $this;
     }
 
     /**
-     * ArrayAccess implementation
+     * ArrayAccess implementation.
      *
      * @param mixed $offset An offset to check for
      *
-     * @return boolean true on success or false on failure
+     * @return bool true on success or false on failure
      */
     public function offsetExists($offset)
     {
@@ -45,7 +46,7 @@ class ArrayOfDimensionInfo_Type2 implements \ArrayAccess, \Iterator, \Countable
     }
 
     /**
-     * ArrayAccess implementation
+     * ArrayAccess implementation.
      *
      * @param mixed $offset The offset to retrieve
      *
@@ -57,7 +58,7 @@ class ArrayOfDimensionInfo_Type2 implements \ArrayAccess, \Iterator, \Countable
     }
 
     /**
-     * ArrayAccess implementation
+     * ArrayAccess implementation.
      *
      * @param mixed               $offset The offset to assign the value to
      * @param DimensionInfo_Type2 $value  The value to set
@@ -74,7 +75,7 @@ class ArrayOfDimensionInfo_Type2 implements \ArrayAccess, \Iterator, \Countable
     }
 
     /**
-     * ArrayAccess implementation
+     * ArrayAccess implementation.
      *
      * @param mixed $offset The offset to unset
      *
@@ -86,7 +87,7 @@ class ArrayOfDimensionInfo_Type2 implements \ArrayAccess, \Iterator, \Countable
     }
 
     /**
-     * Iterator implementation
+     * Iterator implementation.
      *
      * @return DimensionInfo_Type2 Return the current element
      */
@@ -97,7 +98,7 @@ class ArrayOfDimensionInfo_Type2 implements \ArrayAccess, \Iterator, \Countable
 
     /**
      * Iterator implementation
-     * Move forward to next element
+     * Move forward to next element.
      *
      * @return void
      */
@@ -107,9 +108,9 @@ class ArrayOfDimensionInfo_Type2 implements \ArrayAccess, \Iterator, \Countable
     }
 
     /**
-     * Iterator implementation
+     * Iterator implementation.
      *
-     * @return boolean Return the validity of the current position
+     * @return bool Return the validity of the current position
      */
     public function valid()
     {
@@ -117,7 +118,7 @@ class ArrayOfDimensionInfo_Type2 implements \ArrayAccess, \Iterator, \Countable
     }
 
     /**
-     * Iterator implementation
+     * Iterator implementation.
      *
      * @return string|null Return the key of the current element or null
      */
@@ -128,7 +129,7 @@ class ArrayOfDimensionInfo_Type2 implements \ArrayAccess, \Iterator, \Countable
 
     /**
      * Iterator implementation
-     * Rewind the Iterator to the first element
+     * Rewind the Iterator to the first element.
      *
      * @return void
      */
@@ -138,7 +139,7 @@ class ArrayOfDimensionInfo_Type2 implements \ArrayAccess, \Iterator, \Countable
     }
 
     /**
-     * Countable implementation
+     * Countable implementation.
      *
      * @return DimensionInfo_Type2 Return count of elements
      */

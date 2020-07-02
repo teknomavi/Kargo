@@ -5,11 +5,11 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo;
 class ParamReferansList
 {
     /**
-     * @var ReferansTypes $referansType
+     * @var ReferansTypes
      */
     protected $referansType = null;
     /**
-     * @var ArrayOfString $referansList
+     * @var ArrayOfString
      */
     protected $referansList = null;
 
@@ -37,6 +37,7 @@ class ParamReferansList
     public function setReferansType($referansType)
     {
         $this->referansType = $referansType;
+
         return $this;
     }
 
@@ -56,6 +57,7 @@ class ParamReferansList
     public function setReferansList($referansList)
     {
         $this->referansList = $referansList;
+
         return $this;
     }
 }

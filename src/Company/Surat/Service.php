@@ -11,13 +11,12 @@ use Teknomavi\Kargo\Company\Surat\Helper\Gonderi\GonderiyiKargoyaGonder;
 use Teknomavi\Kargo\Model\Package;
 
 /**
- * Class Service
- * @package Teknomavi\Kargo\Company\Surat
+ * Class Service.
  */
 class Service extends ServiceAbstract implements ServiceInterface
 {
     /**
-     * @var  CreateShipment
+     * @var CreateShipment
      */
     private $shipmentService;
 
@@ -28,11 +27,12 @@ class Service extends ServiceAbstract implements ServiceInterface
     {
         if (!$this->shipmentService) {
             $this->shipmentService = new CreateShipment([
-                'trace' => 1,
+                'trace'              => 1,
                 'connection_timeout' => 60,
-                "features" => SOAP_SINGLE_ELEMENT_ARRAYS,
+                'features'           => SOAP_SINGLE_ELEMENT_ARRAYS,
             ]);
         }
+
         return $this->shipmentService;
     }
 
@@ -41,7 +41,7 @@ class Service extends ServiceAbstract implements ServiceInterface
      *
      * @return mixed|void
      */
-    function addPackage(Package $package)
+    public function addPackage(Package $package)
     {
         $gonderi = new Gonderi();
         $gonderi
@@ -89,7 +89,7 @@ class Service extends ServiceAbstract implements ServiceInterface
     /**
      * @return array
      */
-    function sendPackages()
+    public function sendPackages()
     {
         $response = [];
         $service = $this->initShipmentService();
@@ -97,18 +97,17 @@ class Service extends ServiceAbstract implements ServiceInterface
             /**
              * @var Gonderi $package
              */
-
             $createShipmentResponse = new \Teknomavi\Kargo\Response\CreateShipment();
             $createShipmentResponse->setReferenceNumber($package->getOzelKargoTakipNo());
 
             $gonder = new GonderiyiKargoyaGonder($this->options['KullaniciAdi'], $this->options['Sifre'], $package);
+
             try {
                 $result = $service->GonderiyiKargoyaGonder($gonder);
                 if ($result->getGonderiyiKargoyaGonderResult() == 'Tamam') {
-
                     $generator = new \Picqer\Barcode\BarcodeGeneratorPNG();
                     $png = $generator->getBarcode($package->getOzelKargoTakipNo(), $generator::TYPE_CODE_128, 2, 90);
-                    $base64 =  base64_encode($png);
+                    $base64 = base64_encode($png);
                     $createShipmentResponse->setSuccess(true);
                     $createShipmentResponse->setLabelStrings([$base64]);
                 } else {
@@ -119,13 +118,14 @@ class Service extends ServiceAbstract implements ServiceInterface
                 }
             } catch (\Exception $exception) {
                 $createShipmentResponse
-                    ->setErrorCode('SOAP' . $exception->getCode())
+                    ->setErrorCode('SOAP'.$exception->getCode())
                     ->setErrorDescription($exception->getMessage())
                     ->setSuccess(false);
             }
 
             $response[$package->getOzelKargoTakipNo()] = $createShipmentResponse;
         }
+
         return $response;
     }
 
@@ -136,7 +136,7 @@ class Service extends ServiceAbstract implements ServiceInterface
     {
         $resolver->setDefaults([
             'KullaniciAdi' => '',
-            'Sifre' => '',
+            'Sifre'        => '',
         ]);
     }
 }
