@@ -1,0 +1,15 @@
+preset: recommended
+
+risky: false
+
+linting: true
+
+enabled:
+  - concat_with_spaces
+  - linebreak_after_opening_tag
+  - no_blank_lines_before_namespace
+
+disabled:
+  - concat_without_spaces
+  - blank_line_after_opening_tag
+  - single_blank_line_before_namespace
