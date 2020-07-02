@@ -5,7 +5,7 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\CreateShipment;
 class OnDemandPickupRequest_Type1Response
 {
     /**
-     * @var ResultOnDemandPickupRequest_Type1 $OnDemandPickupRequest_Type1Result
+     * @var ResultOnDemandPickupRequest_Type1
      */
     protected $OnDemandPickupRequest_Type1Result = null;
 
@@ -33,6 +33,7 @@ class OnDemandPickupRequest_Type1Response
     public function setOnDemandPickupRequest_Type1Result($OnDemandPickupRequest_Type1Result)
     {
         $this->OnDemandPickupRequest_Type1Result = $OnDemandPickupRequest_Type1Result;
+
         return $this;
     }
 }

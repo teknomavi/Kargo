@@ -5,7 +5,7 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo;
 class GetTransactionsByList_V1Response
 {
     /**
-     * @var ArrayOfPackageTransactionwithDeliveryDetail $GetTransactionsByList_V1Result
+     * @var ArrayOfPackageTransactionwithDeliveryDetail
      */
     protected $GetTransactionsByList_V1Result = null;
 
@@ -33,6 +33,7 @@ class GetTransactionsByList_V1Response
     public function setGetTransactionsByList_V1Result($GetTransactionsByList_V1Result)
     {
         $this->GetTransactionsByList_V1Result = $GetTransactionsByList_V1Result;
+
         return $this;
     }
 }

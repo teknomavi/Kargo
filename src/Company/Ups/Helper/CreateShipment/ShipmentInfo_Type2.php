@@ -5,175 +5,175 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\CreateShipment;
 class ShipmentInfo_Type2
 {
     /**
-     * @var string $ShipperAccountNumber
+     * @var string
      */
     protected $ShipperAccountNumber = null;
     /**
-     * @var string $ShipperName
+     * @var string
      */
     protected $ShipperName = null;
     /**
-     * @var string $ShipperContactName
+     * @var string
      */
     protected $ShipperContactName = null;
     /**
-     * @var string $ShipperAddress
+     * @var string
      */
     protected $ShipperAddress = null;
     /**
-     * @var int $ShipperCityCode
+     * @var int
      */
     protected $ShipperCityCode = null;
     /**
-     * @var int $ShipperAreaCode
+     * @var int
      */
     protected $ShipperAreaCode = null;
     /**
-     * @var string $ShipperPostalCode
+     * @var string
      */
     protected $ShipperPostalCode = null;
     /**
-     * @var string $ShipperPhoneNumber
+     * @var string
      */
     protected $ShipperPhoneNumber = null;
     /**
-     * @var string $ShipperPhoneExtension
+     * @var string
      */
     protected $ShipperPhoneExtension = null;
     /**
-     * @var string $ShipperMobilePhoneNumber
+     * @var string
      */
     protected $ShipperMobilePhoneNumber = null;
     /**
-     * @var string $ShipperEMail
+     * @var string
      */
     protected $ShipperEMail = null;
     /**
-     * @var string $ShipperExpenseCode
+     * @var string
      */
     protected $ShipperExpenseCode = null;
     /**
-     * @var string $ConsigneeAccountNumber
+     * @var string
      */
     protected $ConsigneeAccountNumber = null;
     /**
-     * @var string $ConsigneeName
+     * @var string
      */
     protected $ConsigneeName = null;
     /**
-     * @var string $ConsigneeContactName
+     * @var string
      */
     protected $ConsigneeContactName = null;
     /**
-     * @var string $ConsigneeAddress
+     * @var string
      */
     protected $ConsigneeAddress = null;
     /**
-     * @var int $ConsigneeCityCode
+     * @var int
      */
     protected $ConsigneeCityCode = null;
     /**
-     * @var int $ConsigneeAreaCode
+     * @var int
      */
     protected $ConsigneeAreaCode = null;
     /**
-     * @var string $ConsigneePostalCode
+     * @var string
      */
     protected $ConsigneePostalCode = null;
     /**
-     * @var string $ConsigneePhoneNumber
+     * @var string
      */
     protected $ConsigneePhoneNumber = null;
     /**
-     * @var string $ConsigneePhoneExtension
+     * @var string
      */
     protected $ConsigneePhoneExtension = null;
     /**
-     * @var string $ConsigneeMobilePhoneNumber
+     * @var string
      */
     protected $ConsigneeMobilePhoneNumber = null;
     /**
-     * @var string $ConsigneeEMail
+     * @var string
      */
     protected $ConsigneeEMail = null;
     /**
-     * @var string $ConsigneeExpenseCode
+     * @var string
      */
     protected $ConsigneeExpenseCode = null;
     /**
-     * @var int $ServiceLevel
+     * @var int
      */
     protected $ServiceLevel = null;
     /**
-     * @var int $PaymentType
+     * @var int
      */
     protected $PaymentType = null;
     /**
-     * @var string $PackageType
+     * @var string
      */
     protected $PackageType = null;
     /**
-     * @var int $NumberOfPackages
+     * @var int
      */
     protected $NumberOfPackages = null;
     /**
-     * @var string $CustomerReferance
+     * @var string
      */
     protected $CustomerReferance = null;
     /**
-     * @var string $CustomerInvoiceNumber
+     * @var string
      */
     protected $CustomerInvoiceNumber = null;
     /**
-     * @var string $DescriptionOfGoods
+     * @var string
      */
     protected $DescriptionOfGoods = null;
     /**
-     * @var string $DeliveryNotificationEmail
+     * @var string
      */
     protected $DeliveryNotificationEmail = null;
     /**
-     * @var int $IdControlFlag
+     * @var int
      */
     protected $IdControlFlag = null;
     /**
-     * @var int $PhonePrealertFlag
+     * @var int
      */
     protected $PhonePrealertFlag = null;
     /**
-     * @var int $SmsToShipper
+     * @var int
      */
     protected $SmsToShipper = null;
     /**
-     * @var int $SmsToConsignee
+     * @var int
      */
     protected $SmsToConsignee = null;
     /**
-     * @var float $InsuranceValue
+     * @var float
      */
     protected $InsuranceValue = null;
     /**
-     * @var string $InsuranceValueCurrency
+     * @var string
      */
     protected $InsuranceValueCurrency = null;
     /**
-     * @var float $ValueOfGoods
+     * @var float
      */
     protected $ValueOfGoods = null;
     /**
-     * @var string $ValueOfGoodsCurrency
+     * @var string
      */
     protected $ValueOfGoodsCurrency = null;
     /**
-     * @var int $ValueOfGoodsPaymentType
+     * @var int
      */
     protected $ValueOfGoodsPaymentType = null;
     /**
-     * @var string $ThirdPartyAccountNumber
+     * @var string
      */
     protected $ThirdPartyAccountNumber = null;
     /**
-     * @var string $ThirdPartyExpenseCode
+     * @var string
      */
     protected $ThirdPartyExpenseCode = null;
 
@@ -193,6 +193,7 @@ class ShipmentInfo_Type2
     public function setShipperAccountNumber($ShipperAccountNumber)
     {
         $this->ShipperAccountNumber = $ShipperAccountNumber;
+
         return $this;
     }
 
@@ -212,6 +213,7 @@ class ShipmentInfo_Type2
     public function setShipperName($ShipperName)
     {
         $this->ShipperName = $ShipperName;
+
         return $this;
     }
 
@@ -231,6 +233,7 @@ class ShipmentInfo_Type2
     public function setShipperContactName($ShipperContactName)
     {
         $this->ShipperContactName = $ShipperContactName;
+
         return $this;
     }
 
@@ -250,6 +253,7 @@ class ShipmentInfo_Type2
     public function setShipperAddress($ShipperAddress)
     {
         $this->ShipperAddress = $ShipperAddress;
+
         return $this;
     }
 
@@ -269,6 +273,7 @@ class ShipmentInfo_Type2
     public function setShipperCityCode($ShipperCityCode)
     {
         $this->ShipperCityCode = $ShipperCityCode;
+
         return $this;
     }
 
@@ -288,6 +293,7 @@ class ShipmentInfo_Type2
     public function setShipperAreaCode($ShipperAreaCode)
     {
         $this->ShipperAreaCode = $ShipperAreaCode;
+
         return $this;
     }
 
@@ -307,6 +313,7 @@ class ShipmentInfo_Type2
     public function setShipperPostalCode($ShipperPostalCode)
     {
         $this->ShipperPostalCode = $ShipperPostalCode;
+
         return $this;
     }
 
@@ -326,6 +333,7 @@ class ShipmentInfo_Type2
     public function setShipperPhoneNumber($ShipperPhoneNumber)
     {
         $this->ShipperPhoneNumber = $ShipperPhoneNumber;
+
         return $this;
     }
 
@@ -345,6 +353,7 @@ class ShipmentInfo_Type2
     public function setShipperPhoneExtension($ShipperPhoneExtension)
     {
         $this->ShipperPhoneExtension = $ShipperPhoneExtension;
+
         return $this;
     }
 
@@ -364,6 +373,7 @@ class ShipmentInfo_Type2
     public function setShipperMobilePhoneNumber($ShipperMobilePhoneNumber)
     {
         $this->ShipperMobilePhoneNumber = $ShipperMobilePhoneNumber;
+
         return $this;
     }
 
@@ -383,6 +393,7 @@ class ShipmentInfo_Type2
     public function setShipperEMail($ShipperEMail)
     {
         $this->ShipperEMail = $ShipperEMail;
+
         return $this;
     }
 
@@ -402,6 +413,7 @@ class ShipmentInfo_Type2
     public function setShipperExpenseCode($ShipperExpenseCode)
     {
         $this->ShipperExpenseCode = $ShipperExpenseCode;
+
         return $this;
     }
 
@@ -421,6 +433,7 @@ class ShipmentInfo_Type2
     public function setConsigneeAccountNumber($ConsigneeAccountNumber)
     {
         $this->ConsigneeAccountNumber = $ConsigneeAccountNumber;
+
         return $this;
     }
 
@@ -440,6 +453,7 @@ class ShipmentInfo_Type2
     public function setConsigneeName($ConsigneeName)
     {
         $this->ConsigneeName = $ConsigneeName;
+
         return $this;
     }
 
@@ -459,6 +473,7 @@ class ShipmentInfo_Type2
     public function setConsigneeContactName($ConsigneeContactName)
     {
         $this->ConsigneeContactName = $ConsigneeContactName;
+
         return $this;
     }
 
@@ -478,6 +493,7 @@ class ShipmentInfo_Type2
     public function setConsigneeAddress($ConsigneeAddress)
     {
         $this->ConsigneeAddress = $ConsigneeAddress;
+
         return $this;
     }
 
@@ -497,6 +513,7 @@ class ShipmentInfo_Type2
     public function setConsigneeCityCode($ConsigneeCityCode)
     {
         $this->ConsigneeCityCode = $ConsigneeCityCode;
+
         return $this;
     }
 
@@ -516,6 +533,7 @@ class ShipmentInfo_Type2
     public function setConsigneeAreaCode($ConsigneeAreaCode)
     {
         $this->ConsigneeAreaCode = $ConsigneeAreaCode;
+
         return $this;
     }
 
@@ -535,6 +553,7 @@ class ShipmentInfo_Type2
     public function setConsigneePostalCode($ConsigneePostalCode)
     {
         $this->ConsigneePostalCode = $ConsigneePostalCode;
+
         return $this;
     }
 
@@ -554,6 +573,7 @@ class ShipmentInfo_Type2
     public function setConsigneePhoneNumber($ConsigneePhoneNumber)
     {
         $this->ConsigneePhoneNumber = $ConsigneePhoneNumber;
+
         return $this;
     }
 
@@ -573,6 +593,7 @@ class ShipmentInfo_Type2
     public function setConsigneePhoneExtension($ConsigneePhoneExtension)
     {
         $this->ConsigneePhoneExtension = $ConsigneePhoneExtension;
+
         return $this;
     }
 
@@ -592,6 +613,7 @@ class ShipmentInfo_Type2
     public function setConsigneeMobilePhoneNumber($ConsigneeMobilePhoneNumber)
     {
         $this->ConsigneeMobilePhoneNumber = $ConsigneeMobilePhoneNumber;
+
         return $this;
     }
 
@@ -611,6 +633,7 @@ class ShipmentInfo_Type2
     public function setConsigneeEMail($ConsigneeEMail)
     {
         $this->ConsigneeEMail = $ConsigneeEMail;
+
         return $this;
     }
 
@@ -630,6 +653,7 @@ class ShipmentInfo_Type2
     public function setConsigneeExpenseCode($ConsigneeExpenseCode)
     {
         $this->ConsigneeExpenseCode = $ConsigneeExpenseCode;
+
         return $this;
     }
 
@@ -649,6 +673,7 @@ class ShipmentInfo_Type2
     public function setServiceLevel($ServiceLevel)
     {
         $this->ServiceLevel = $ServiceLevel;
+
         return $this;
     }
 
@@ -668,6 +693,7 @@ class ShipmentInfo_Type2
     public function setPaymentType($PaymentType)
     {
         $this->PaymentType = $PaymentType;
+
         return $this;
     }
 
@@ -687,6 +713,7 @@ class ShipmentInfo_Type2
     public function setPackageType($PackageType)
     {
         $this->PackageType = $PackageType;
+
         return $this;
     }
 
@@ -706,6 +733,7 @@ class ShipmentInfo_Type2
     public function setNumberOfPackages($NumberOfPackages)
     {
         $this->NumberOfPackages = $NumberOfPackages;
+
         return $this;
     }
 
@@ -725,6 +753,7 @@ class ShipmentInfo_Type2
     public function setCustomerReferance($CustomerReferance)
     {
         $this->CustomerReferance = $CustomerReferance;
+
         return $this;
     }
 
@@ -744,6 +773,7 @@ class ShipmentInfo_Type2
     public function setCustomerInvoiceNumber($CustomerInvoiceNumber)
     {
         $this->CustomerInvoiceNumber = $CustomerInvoiceNumber;
+
         return $this;
     }
 
@@ -763,6 +793,7 @@ class ShipmentInfo_Type2
     public function setDescriptionOfGoods($DescriptionOfGoods)
     {
         $this->DescriptionOfGoods = $DescriptionOfGoods;
+
         return $this;
     }
 
@@ -782,6 +813,7 @@ class ShipmentInfo_Type2
     public function setDeliveryNotificationEmail($DeliveryNotificationEmail)
     {
         $this->DeliveryNotificationEmail = $DeliveryNotificationEmail;
+
         return $this;
     }
 
@@ -801,6 +833,7 @@ class ShipmentInfo_Type2
     public function setIdControlFlag($IdControlFlag)
     {
         $this->IdControlFlag = $IdControlFlag;
+
         return $this;
     }
 
@@ -820,6 +853,7 @@ class ShipmentInfo_Type2
     public function setPhonePrealertFlag($PhonePrealertFlag)
     {
         $this->PhonePrealertFlag = $PhonePrealertFlag;
+
         return $this;
     }
 
@@ -839,6 +873,7 @@ class ShipmentInfo_Type2
     public function setSmsToShipper($SmsToShipper)
     {
         $this->SmsToShipper = $SmsToShipper;
+
         return $this;
     }
 
@@ -858,6 +893,7 @@ class ShipmentInfo_Type2
     public function setSmsToConsignee($SmsToConsignee)
     {
         $this->SmsToConsignee = $SmsToConsignee;
+
         return $this;
     }
 
@@ -877,6 +913,7 @@ class ShipmentInfo_Type2
     public function setInsuranceValue($InsuranceValue)
     {
         $this->InsuranceValue = $InsuranceValue;
+
         return $this;
     }
 
@@ -896,6 +933,7 @@ class ShipmentInfo_Type2
     public function setInsuranceValueCurrency($InsuranceValueCurrency)
     {
         $this->InsuranceValueCurrency = $InsuranceValueCurrency;
+
         return $this;
     }
 
@@ -915,6 +953,7 @@ class ShipmentInfo_Type2
     public function setValueOfGoods($ValueOfGoods)
     {
         $this->ValueOfGoods = $ValueOfGoods;
+
         return $this;
     }
 
@@ -934,6 +973,7 @@ class ShipmentInfo_Type2
     public function setValueOfGoodsCurrency($ValueOfGoodsCurrency)
     {
         $this->ValueOfGoodsCurrency = $ValueOfGoodsCurrency;
+
         return $this;
     }
 
@@ -953,6 +993,7 @@ class ShipmentInfo_Type2
     public function setValueOfGoodsPaymentType($ValueOfGoodsPaymentType)
     {
         $this->ValueOfGoodsPaymentType = $ValueOfGoodsPaymentType;
+
         return $this;
     }
 
@@ -972,6 +1013,7 @@ class ShipmentInfo_Type2
     public function setThirdPartyAccountNumber($ThirdPartyAccountNumber)
     {
         $this->ThirdPartyAccountNumber = $ThirdPartyAccountNumber;
+
         return $this;
     }
 
@@ -991,6 +1033,7 @@ class ShipmentInfo_Type2
     public function setThirdPartyExpenseCode($ThirdPartyExpenseCode)
     {
         $this->ThirdPartyExpenseCode = $ThirdPartyExpenseCode;
+
         return $this;
     }
 }

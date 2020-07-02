@@ -5,23 +5,23 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo;
 class GetTransactionsByPackagePickupDate_V1
 {
     /**
-     * @var string $SessionID
+     * @var string
      */
     protected $SessionID = null;
     /**
-     * @var int $InformationLevel
+     * @var int
      */
     protected $InformationLevel = null;
     /**
-     * @var string $StartDate
+     * @var string
      */
     protected $StartDate = null;
     /**
-     * @var string $EndDate
+     * @var string
      */
     protected $EndDate = null;
     /**
-     * @var TransactionTypes $trnType
+     * @var TransactionTypes
      */
     protected $trnType = null;
 
@@ -57,6 +57,7 @@ class GetTransactionsByPackagePickupDate_V1
     public function setSessionID($SessionID)
     {
         $this->SessionID = $SessionID;
+
         return $this;
     }
 
@@ -76,6 +77,7 @@ class GetTransactionsByPackagePickupDate_V1
     public function setInformationLevel($InformationLevel)
     {
         $this->InformationLevel = $InformationLevel;
+
         return $this;
     }
 
@@ -95,6 +97,7 @@ class GetTransactionsByPackagePickupDate_V1
     public function setStartDate($StartDate)
     {
         $this->StartDate = $StartDate;
+
         return $this;
     }
 
@@ -114,6 +117,7 @@ class GetTransactionsByPackagePickupDate_V1
     public function setEndDate($EndDate)
     {
         $this->EndDate = $EndDate;
+
         return $this;
     }
 
@@ -133,6 +137,7 @@ class GetTransactionsByPackagePickupDate_V1
     public function setTrnType($trnType)
     {
         $this->trnType = $trnType;
+
         return $this;
     }
 }

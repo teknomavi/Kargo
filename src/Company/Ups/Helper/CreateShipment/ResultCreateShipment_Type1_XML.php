@@ -5,31 +5,31 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\CreateShipment;
 class ResultCreateShipment_Type1_XML
 {
     /**
-     * @var string $ShipmentNo
+     * @var string
      */
     protected $ShipmentNo = null;
     /**
-     * @var int $ErrorCode
+     * @var int
      */
     protected $ErrorCode = null;
     /**
-     * @var string $ErrorDefinition
+     * @var string
      */
     protected $ErrorDefinition = null;
     /**
-     * @var ShipmentInfo_TypeAll $ShipmentInfo
+     * @var ShipmentInfo_TypeAll
      */
     protected $ShipmentInfo = null;
     /**
-     * @var string $MinistryofFinanceNumber
+     * @var string
      */
     protected $MinistryofFinanceNumber = null;
     /**
-     * @var string $SlicCode
+     * @var string
      */
     protected $SlicCode = null;
     /**
-     * @var ArrayOfString $WaybillList
+     * @var ArrayOfString
      */
     protected $WaybillList = null;
 
@@ -57,6 +57,7 @@ class ResultCreateShipment_Type1_XML
     public function setShipmentNo($ShipmentNo)
     {
         $this->ShipmentNo = $ShipmentNo;
+
         return $this;
     }
 
@@ -76,6 +77,7 @@ class ResultCreateShipment_Type1_XML
     public function setErrorCode($ErrorCode)
     {
         $this->ErrorCode = $ErrorCode;
+
         return $this;
     }
 
@@ -95,6 +97,7 @@ class ResultCreateShipment_Type1_XML
     public function setErrorDefinition($ErrorDefinition)
     {
         $this->ErrorDefinition = $ErrorDefinition;
+
         return $this;
     }
 
@@ -114,6 +117,7 @@ class ResultCreateShipment_Type1_XML
     public function setShipmentInfo($ShipmentInfo)
     {
         $this->ShipmentInfo = $ShipmentInfo;
+
         return $this;
     }
 
@@ -133,6 +137,7 @@ class ResultCreateShipment_Type1_XML
     public function setMinistryofFinanceNumber($MinistryofFinanceNumber)
     {
         $this->MinistryofFinanceNumber = $MinistryofFinanceNumber;
+
         return $this;
     }
 
@@ -152,6 +157,7 @@ class ResultCreateShipment_Type1_XML
     public function setSlicCode($SlicCode)
     {
         $this->SlicCode = $SlicCode;
+
         return $this;
     }
 
@@ -171,6 +177,7 @@ class ResultCreateShipment_Type1_XML
     public function setWaybillList($WaybillList)
     {
         $this->WaybillList = $WaybillList;
+
         return $this;
     }
 }

@@ -4,149 +4,148 @@ namespace Teknomavi\Kargo\Company\Surat\Helper\Gonderi;
 
 class Gonderi
 {
-
     /**
-     * @var string $KisiKurum
+     * @var string
      */
     protected $KisiKurum = null;
 
     /**
-     * @var string $SahisBirim
+     * @var string
      */
     protected $SahisBirim = null;
 
     /**
-     * @var string $AliciAdresi
+     * @var string
      */
     protected $AliciAdresi = null;
 
     /**
-     * @var string $Il
+     * @var string
      */
     protected $Il = null;
 
     /**
-     * @var string $Ilce
+     * @var string
      */
     protected $Ilce = null;
 
     /**
-     * @var string $TelefonEv
+     * @var string
      */
     protected $TelefonEv = null;
 
     /**
-     * @var string $TelefonIs
+     * @var string
      */
     protected $TelefonIs = null;
 
     /**
-     * @var string $TelefonCep
+     * @var string
      */
     protected $TelefonCep = null;
 
     /**
-     * @var string $Email
+     * @var string
      */
     protected $Email = null;
 
     /**
-     * @var string $AliciKodu
+     * @var string
      */
     protected $AliciKodu = null;
 
     /**
-     * @var int $KargoTuru
+     * @var int
      */
     protected $KargoTuru = null;
 
     /**
-     * @var int $Odemetipi
+     * @var int
      */
     protected $Odemetipi = null;
 
     /**
-     * @var string $IrsaliyeSeriNo
+     * @var string
      */
     protected $IrsaliyeSeriNo = null;
 
     /**
-     * @var string $IrsaliyeSiraNo
+     * @var string
      */
     protected $IrsaliyeSiraNo = null;
 
     /**
-     * @var string $ReferansNo
+     * @var string
      */
     protected $ReferansNo = null;
 
     /**
-     * @var string $OzelKargoTakipNo
+     * @var string
      */
     protected $OzelKargoTakipNo = null;
 
     /**
-     * @var int $Adet
+     * @var int
      */
     protected $Adet = null;
 
     /**
-     * @var float $BirimDesi
+     * @var float
      */
     protected $BirimDesi = 0;
 
     /**
-     * @var float $BirimKg
+     * @var float
      */
     protected $BirimKg = 0;
 
     /**
-     * @var string $KargoIcerigi
+     * @var string
      */
     protected $KargoIcerigi = null;
 
     /**
-     * @var int $KapidanOdemeTahsilatTipi
+     * @var int
      */
     protected $KapidanOdemeTahsilatTipi = 0;
 
     /**
-     * @var float $KapidanOdemeTutari
+     * @var float
      */
     protected $KapidanOdemeTutari = 0;
 
     /**
-     * @var string $EkHizmetler
+     * @var string
      */
     protected $EkHizmetler = null;
 
     /**
-     * @var string $SevkAdresiAdi
+     * @var string
      */
     protected $SevkAdresiAdi = null;
 
     /**
-     * @var int $TeslimSekli
+     * @var int
      */
     protected $TeslimSekli = 1;
 
     /**
-     * @var int $TasimaSekli
+     * @var int
      */
     protected $TasimaSekli = 1; // 1: Adrese Teslim, 2: Şubeden Teslim
 
     /**
-     * @var string $BayiNo
+     * @var string
      */
     protected $BayiNo = null;
 
     /**
-     * @var string $EntegrasyonId
+     * @var string
      */
     protected $EntegrasyonId = null;
 
     /**
-     * @var string $EntegrasyonHesaplamaTuru
+     * @var string
      */
     protected $EntegrasyonHesaplamaTuru = null;
 
@@ -166,6 +165,7 @@ class Gonderi
     public function setKisiKurum($KisiKurum)
     {
         $this->KisiKurum = $KisiKurum;
+
         return $this;
     }
 
@@ -185,6 +185,7 @@ class Gonderi
     public function setSahisBirim($SahisBirim)
     {
         $this->SahisBirim = $SahisBirim;
+
         return $this;
     }
 
@@ -204,6 +205,7 @@ class Gonderi
     public function setAliciAdresi($AliciAdresi)
     {
         $this->AliciAdresi = $AliciAdresi;
+
         return $this;
     }
 
@@ -223,6 +225,7 @@ class Gonderi
     public function setIl($Il)
     {
         $this->Il = $Il;
+
         return $this;
     }
 
@@ -242,6 +245,7 @@ class Gonderi
     public function setIlce($Ilce)
     {
         $this->Ilce = $Ilce;
+
         return $this;
     }
 
@@ -261,6 +265,7 @@ class Gonderi
     public function setTelefonEv($TelefonEv)
     {
         $this->TelefonEv = $TelefonEv;
+
         return $this;
     }
 
@@ -280,6 +285,7 @@ class Gonderi
     public function setTelefonIs($TelefonIs)
     {
         $this->TelefonIs = $TelefonIs;
+
         return $this;
     }
 
@@ -299,6 +305,7 @@ class Gonderi
     public function setTelefonCep($TelefonCep)
     {
         $this->TelefonCep = $TelefonCep;
+
         return $this;
     }
 
@@ -318,6 +325,7 @@ class Gonderi
     public function setEmail($Email)
     {
         $this->Email = $Email;
+
         return $this;
     }
 
@@ -337,6 +345,7 @@ class Gonderi
     public function setAliciKodu($AliciKodu)
     {
         $this->AliciKodu = $AliciKodu;
+
         return $this;
     }
 
@@ -356,6 +365,7 @@ class Gonderi
     public function setKargoTuru($KargoTuru)
     {
         $this->KargoTuru = $KargoTuru;
+
         return $this;
     }
 
@@ -375,6 +385,7 @@ class Gonderi
     public function setOdemetipi($Odemetipi)
     {
         $this->Odemetipi = $Odemetipi;
+
         return $this;
     }
 
@@ -394,6 +405,7 @@ class Gonderi
     public function setIrsaliyeSeriNo($IrsaliyeSeriNo)
     {
         $this->IrsaliyeSeriNo = $IrsaliyeSeriNo;
+
         return $this;
     }
 
@@ -413,6 +425,7 @@ class Gonderi
     public function setIrsaliyeSiraNo($IrsaliyeSiraNo)
     {
         $this->IrsaliyeSiraNo = $IrsaliyeSiraNo;
+
         return $this;
     }
 
@@ -432,6 +445,7 @@ class Gonderi
     public function setReferansNo($ReferansNo)
     {
         $this->ReferansNo = $ReferansNo;
+
         return $this;
     }
 
@@ -451,6 +465,7 @@ class Gonderi
     public function setOzelKargoTakipNo($OzelKargoTakipNo)
     {
         $this->OzelKargoTakipNo = $OzelKargoTakipNo;
+
         return $this;
     }
 
@@ -470,6 +485,7 @@ class Gonderi
     public function setAdet($Adet)
     {
         $this->Adet = $Adet;
+
         return $this;
     }
 
@@ -489,6 +505,7 @@ class Gonderi
     public function setBirimDesi($BirimDesi)
     {
         $this->BirimDesi = $BirimDesi;
+
         return $this;
     }
 
@@ -508,6 +525,7 @@ class Gonderi
     public function setBirimKg($BirimKg)
     {
         $this->BirimKg = $BirimKg;
+
         return $this;
     }
 
@@ -527,6 +545,7 @@ class Gonderi
     public function setKargoIcerigi($KargoIcerigi)
     {
         $this->KargoIcerigi = $KargoIcerigi;
+
         return $this;
     }
 
@@ -546,6 +565,7 @@ class Gonderi
     public function setKapidanOdemeTahsilatTipi($KapidanOdemeTahsilatTipi)
     {
         $this->KapidanOdemeTahsilatTipi = $KapidanOdemeTahsilatTipi;
+
         return $this;
     }
 
@@ -565,6 +585,7 @@ class Gonderi
     public function setKapidanOdemeTutari($KapidanOdemeTutari)
     {
         $this->KapidanOdemeTutari = $KapidanOdemeTutari;
+
         return $this;
     }
 
@@ -584,6 +605,7 @@ class Gonderi
     public function setEkHizmetler($EkHizmetler)
     {
         $this->EkHizmetler = $EkHizmetler;
+
         return $this;
     }
 
@@ -603,6 +625,7 @@ class Gonderi
     public function setSevkAdresiAdi($SevkAdresiAdi)
     {
         $this->SevkAdresiAdi = $SevkAdresiAdi;
+
         return $this;
     }
 
@@ -622,6 +645,7 @@ class Gonderi
     public function setTeslimSekli($TeslimSekli)
     {
         $this->TeslimSekli = $TeslimSekli;
+
         return $this;
     }
 
@@ -641,6 +665,7 @@ class Gonderi
     public function setTasimaSekli($TasimaSekli)
     {
         $this->TasimaSekli = $TasimaSekli;
+
         return $this;
     }
 
@@ -660,6 +685,7 @@ class Gonderi
     public function setBayiNo($BayiNo)
     {
         $this->BayiNo = $BayiNo;
+
         return $this;
     }
 
@@ -679,6 +705,7 @@ class Gonderi
     public function setEntegrasyonId($EntegrasyonId)
     {
         $this->EntegrasyonId = $EntegrasyonId;
+
         return $this;
     }
 
@@ -698,7 +725,7 @@ class Gonderi
     public function setEntegrasyonHesaplamaTuru($EntegrasyonHesaplamaTuru)
     {
         $this->EntegrasyonHesaplamaTuru = $EntegrasyonHesaplamaTuru;
+
         return $this;
     }
-
 }

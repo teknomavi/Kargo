@@ -95,9 +95,10 @@ class PackageInfo
      *
      * @return PackageInfo
      */
-    public function setTrackingNumber(string $trackingNumber): PackageInfo
+    public function setTrackingNumber(string $trackingNumber): self
     {
         $this->trackingNumber = trim($trackingNumber);
+
         return $this;
     }
 
@@ -114,9 +115,10 @@ class PackageInfo
      *
      * @return PackageInfo
      */
-    public function setReferenceNumber(string $referenceNumber): PackageInfo
+    public function setReferenceNumber(string $referenceNumber): self
     {
         $this->referenceNumber = trim($referenceNumber);
+
         return $this;
     }
 
@@ -131,17 +133,19 @@ class PackageInfo
     /**
      * @param string $packageType
      *
-     * @return PackageInfo
      * @throws InvalidParameterValue
+     *
+     * @return PackageInfo
      */
-    public function setPackageType(string $packageType): PackageInfo
+    public function setPackageType(string $packageType): self
     {
         if (!in_array($packageType, [self::PACKAGE_TYPE_BOX, self::PACKAGE_TYPE_ENVELOPE])) {
-            throw new InvalidParameterValue("Package Type parametresi "
-                . implode(',', [self::PACKAGE_TYPE_BOX, self::PACKAGE_TYPE_ENVELOPE])
-                . " değerlerini alabilir. '$packageType' geldi.");
+            throw new InvalidParameterValue('Package Type parametresi '
+                .implode(',', [self::PACKAGE_TYPE_BOX, self::PACKAGE_TYPE_ENVELOPE])
+                ." değerlerini alabilir. '$packageType' geldi.");
         }
         $this->packageType = $packageType;
+
         return $this;
     }
 
@@ -156,17 +160,19 @@ class PackageInfo
     /**
      * @param string $shipmentType
      *
-     * @return PackageInfo
      * @throws InvalidParameterValue
+     *
+     * @return PackageInfo
      */
-    public function setShipmentType(string $shipmentType): PackageInfo
+    public function setShipmentType(string $shipmentType): self
     {
         if (!in_array($shipmentType, [self::SHIPMENT_TYPE_NORMAL, self::SHIPMENT_TYPE_EXPRESS])) {
-            throw new InvalidParameterValue("Shipment Type parametresi "
-                . implode(',', [self::SHIPMENT_TYPE_NORMAL, self::SHIPMENT_TYPE_EXPRESS])
-                . " değerlerini alabilir. '$shipmentType' geldi.");
+            throw new InvalidParameterValue('Shipment Type parametresi '
+                .implode(',', [self::SHIPMENT_TYPE_NORMAL, self::SHIPMENT_TYPE_EXPRESS])
+                ." değerlerini alabilir. '$shipmentType' geldi.");
         }
         $this->shipmentType = $shipmentType;
+
         return $this;
     }
 
@@ -183,9 +189,10 @@ class PackageInfo
      *
      * @return PackageInfo
      */
-    public function setNumberOfPackages(int $numberOfPackages): PackageInfo
+    public function setNumberOfPackages(int $numberOfPackages): self
     {
         $this->numberOfPackages = intval($numberOfPackages);
+
         return $this;
     }
 
@@ -202,9 +209,10 @@ class PackageInfo
      *
      * @return PackageInfo
      */
-    public function setWeight(float $weight): PackageInfo
+    public function setWeight(float $weight): self
     {
         $this->weight = round(floatval($weight), 3);
+
         return $this;
     }
 
@@ -221,9 +229,10 @@ class PackageInfo
      *
      * @return PackageInfo
      */
-    public function setDesi(float $desi): PackageInfo
+    public function setDesi(float $desi): self
     {
         $this->desi = round(floatval($desi), 3);
+
         return $this;
     }
 
@@ -238,17 +247,19 @@ class PackageInfo
     /**
      * @param string $paymentType
      *
-     * @return PackageInfo
      * @throws InvalidParameterValue
+     *
+     * @return PackageInfo
      */
-    public function setPaymentType(string $paymentType): PackageInfo
+    public function setPaymentType(string $paymentType): self
     {
         if (!in_array($paymentType, [self::PAYMENT_TYPE_SENDER, self::PAYMENT_TYPE_RECIPIENT, self::PAYMENT_TYPE_3RD_PARTY])) {
-            throw new InvalidParameterValue("Payment Type parametresi "
-                . implode(',', [self::PAYMENT_TYPE_SENDER, self::PAYMENT_TYPE_RECIPIENT, self::PAYMENT_TYPE_3RD_PARTY])
-                . " değerlerini alabilir. '$paymentType' geldi.");
+            throw new InvalidParameterValue('Payment Type parametresi '
+                .implode(',', [self::PAYMENT_TYPE_SENDER, self::PAYMENT_TYPE_RECIPIENT, self::PAYMENT_TYPE_3RD_PARTY])
+                ." değerlerini alabilir. '$paymentType' geldi.");
         }
         $this->paymentType = $paymentType;
+
         return $this;
     }
 
@@ -265,9 +276,10 @@ class PackageInfo
      *
      * @return PackageInfo
      */
-    public function setShipmentCost(float $shipmentCost): PackageInfo
+    public function setShipmentCost(float $shipmentCost): self
     {
         $this->shipmentCost = round(floatval($shipmentCost), 2);
+
         return $this;
     }
 
@@ -284,9 +296,10 @@ class PackageInfo
      *
      * @return PackageInfo
      */
-    public function setShipmentCostCurrency(string $shipmentCostCurrency): PackageInfo
+    public function setShipmentCostCurrency(string $shipmentCostCurrency): self
     {
         $this->shipmentCostCurrency = trim($shipmentCostCurrency);
+
         return $this;
     }
 
@@ -303,9 +316,10 @@ class PackageInfo
      *
      * @return PackageInfo
      */
-    public function setInsuranceValue(float $insuranceValue): PackageInfo
+    public function setInsuranceValue(float $insuranceValue): self
     {
         $this->insuranceValue = round(floatval($insuranceValue), 2);
+
         return $this;
     }
 
@@ -322,9 +336,10 @@ class PackageInfo
      *
      * @return PackageInfo
      */
-    public function setInsuranceValueCurrency(string $insuranceValueCurrency): PackageInfo
+    public function setInsuranceValueCurrency(string $insuranceValueCurrency): self
     {
         $this->insuranceValueCurrency = $insuranceValueCurrency;
+
         return $this;
     }
 
@@ -341,9 +356,10 @@ class PackageInfo
      *
      * @return PackageInfo
      */
-    public function setValueOfGoods(float $valueOfGoods): PackageInfo
+    public function setValueOfGoods(float $valueOfGoods): self
     {
         $this->valueOfGoods = round(floatval($valueOfGoods), 2);
+
         return $this;
     }
 
@@ -360,9 +376,10 @@ class PackageInfo
      *
      * @return PackageInfo
      */
-    public function setValueOfGoodsCurrency(string $valueOfGoodsCurrency): PackageInfo
+    public function setValueOfGoodsCurrency(string $valueOfGoodsCurrency): self
     {
         $this->valueOfGoodsCurrency = $valueOfGoodsCurrency;
+
         return $this;
     }
 
@@ -379,9 +396,10 @@ class PackageInfo
      *
      * @return PackageInfo
      */
-    public function setErrorCode(string $errorCode): PackageInfo
+    public function setErrorCode(string $errorCode): self
     {
         $this->errorCode = trim($errorCode);
+
         return $this;
     }
 
@@ -398,9 +416,10 @@ class PackageInfo
      *
      * @return PackageInfo
      */
-    public function setErrorMessage(string $errorMessage): PackageInfo
+    public function setErrorMessage(string $errorMessage): self
     {
         $this->errorMessage = trim($errorMessage);
+
         return $this;
     }
 
@@ -417,9 +436,10 @@ class PackageInfo
      *
      * @return PackageInfo
      */
-    public function setCreateTime(\DateTime $createTime): PackageInfo
+    public function setCreateTime(\DateTime $createTime): self
     {
         $this->createTime = $createTime;
+
         return $this;
     }
 }

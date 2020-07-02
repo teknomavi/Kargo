@@ -5,35 +5,35 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\CreateShipment;
 class ResultOnDemandPickupRequest_Type1
 {
     /**
-     * @var string $ShipmentNo
+     * @var string
      */
     protected $ShipmentNo = null;
     /**
-     * @var int $ErrorCode
+     * @var int
      */
     protected $ErrorCode = null;
     /**
-     * @var string $ErrorDefinition
+     * @var string
      */
     protected $ErrorDefinition = null;
     /**
-     * @var ShipmentInfo_TypeAll $ShipmentInfo
+     * @var ShipmentInfo_TypeAll
      */
     protected $ShipmentInfo = null;
     /**
-     * @var string $MinistryofFinanceNumber
+     * @var string
      */
     protected $MinistryofFinanceNumber = null;
     /**
-     * @var string $SlicCode
+     * @var string
      */
     protected $SlicCode = null;
     /**
-     * @var ArrayOfString $WaybillList
+     * @var ArrayOfString
      */
     protected $WaybillList = null;
     /**
-     * @var ArrayOfString $BarkodArrayPng
+     * @var ArrayOfString
      */
     protected $BarkodArrayPng = null;
 
@@ -61,6 +61,7 @@ class ResultOnDemandPickupRequest_Type1
     public function setShipmentNo($ShipmentNo)
     {
         $this->ShipmentNo = $ShipmentNo;
+
         return $this;
     }
 
@@ -80,6 +81,7 @@ class ResultOnDemandPickupRequest_Type1
     public function setErrorCode($ErrorCode)
     {
         $this->ErrorCode = $ErrorCode;
+
         return $this;
     }
 
@@ -99,6 +101,7 @@ class ResultOnDemandPickupRequest_Type1
     public function setErrorDefinition($ErrorDefinition)
     {
         $this->ErrorDefinition = $ErrorDefinition;
+
         return $this;
     }
 
@@ -118,6 +121,7 @@ class ResultOnDemandPickupRequest_Type1
     public function setShipmentInfo($ShipmentInfo)
     {
         $this->ShipmentInfo = $ShipmentInfo;
+
         return $this;
     }
 
@@ -137,6 +141,7 @@ class ResultOnDemandPickupRequest_Type1
     public function setMinistryofFinanceNumber($MinistryofFinanceNumber)
     {
         $this->MinistryofFinanceNumber = $MinistryofFinanceNumber;
+
         return $this;
     }
 
@@ -156,6 +161,7 @@ class ResultOnDemandPickupRequest_Type1
     public function setSlicCode($SlicCode)
     {
         $this->SlicCode = $SlicCode;
+
         return $this;
     }
 
@@ -175,6 +181,7 @@ class ResultOnDemandPickupRequest_Type1
     public function setWaybillList($WaybillList)
     {
         $this->WaybillList = $WaybillList;
+
         return $this;
     }
 
@@ -194,6 +201,7 @@ class ResultOnDemandPickupRequest_Type1
     public function setBarkodArrayPng($BarkodArrayPng)
     {
         $this->BarkodArrayPng = $BarkodArrayPng;
+
         return $this;
     }
 }

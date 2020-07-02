@@ -5,15 +5,15 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo;
 class GetPackageInfoByReferance_V1
 {
     /**
-     * @var string $SessionID
+     * @var string
      */
     protected $SessionID = null;
     /**
-     * @var int $InformationLevel
+     * @var int
      */
     protected $InformationLevel = null;
     /**
-     * @var string $Referance
+     * @var string
      */
     protected $Referance = null;
 
@@ -45,6 +45,7 @@ class GetPackageInfoByReferance_V1
     public function setSessionID($SessionID)
     {
         $this->SessionID = $SessionID;
+
         return $this;
     }
 
@@ -64,6 +65,7 @@ class GetPackageInfoByReferance_V1
     public function setInformationLevel($InformationLevel)
     {
         $this->InformationLevel = $InformationLevel;
+
         return $this;
     }
 
@@ -83,6 +85,7 @@ class GetPackageInfoByReferance_V1
     public function setReferance($Referance)
     {
         $this->Referance = $Referance;
+
         return $this;
     }
 }

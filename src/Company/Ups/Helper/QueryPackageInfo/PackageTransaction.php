@@ -5,47 +5,47 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo;
 class PackageTransaction
 {
     /**
-     * @var string $TrackingNumber
+     * @var string
      */
     protected $TrackingNumber = null;
     /**
-     * @var string $ProcessTimeStamp
+     * @var string
      */
     protected $ProcessTimeStamp = null;
     /**
-     * @var string $OperationBranchName
+     * @var string
      */
     protected $OperationBranchName = null;
     /**
-     * @var int $StatusCode
+     * @var int
      */
     protected $StatusCode = null;
     /**
-     * @var string $ExceptionCode
+     * @var string
      */
     protected $ExceptionCode = null;
     /**
-     * @var string $ProcessDescription1
+     * @var string
      */
     protected $ProcessDescription1 = null;
     /**
-     * @var string $ProcessDescription2
+     * @var string
      */
     protected $ProcessDescription2 = null;
     /**
-     * @var int $RecordId
+     * @var int
      */
     protected $RecordId = null;
     /**
-     * @var int $InformationLevel
+     * @var int
      */
     protected $InformationLevel = null;
     /**
-     * @var int $ErrorCode
+     * @var int
      */
     protected $ErrorCode = null;
     /**
-     * @var string $ErrorDefinition
+     * @var string
      */
     protected $ErrorDefinition = null;
 
@@ -79,6 +79,7 @@ class PackageTransaction
     public function setTrackingNumber($TrackingNumber)
     {
         $this->TrackingNumber = $TrackingNumber;
+
         return $this;
     }
 
@@ -98,6 +99,7 @@ class PackageTransaction
     public function setProcessTimeStamp($ProcessTimeStamp)
     {
         $this->ProcessTimeStamp = $ProcessTimeStamp;
+
         return $this;
     }
 
@@ -117,6 +119,7 @@ class PackageTransaction
     public function setOperationBranchName($OperationBranchName)
     {
         $this->OperationBranchName = $OperationBranchName;
+
         return $this;
     }
 
@@ -136,6 +139,7 @@ class PackageTransaction
     public function setStatusCode($StatusCode)
     {
         $this->StatusCode = $StatusCode;
+
         return $this;
     }
 
@@ -155,6 +159,7 @@ class PackageTransaction
     public function setExceptionCode($ExceptionCode)
     {
         $this->ExceptionCode = $ExceptionCode;
+
         return $this;
     }
 
@@ -174,6 +179,7 @@ class PackageTransaction
     public function setProcessDescription1($ProcessDescription1)
     {
         $this->ProcessDescription1 = $ProcessDescription1;
+
         return $this;
     }
 
@@ -193,6 +199,7 @@ class PackageTransaction
     public function setProcessDescription2($ProcessDescription2)
     {
         $this->ProcessDescription2 = $ProcessDescription2;
+
         return $this;
     }
 
@@ -212,6 +219,7 @@ class PackageTransaction
     public function setRecordId($RecordId)
     {
         $this->RecordId = $RecordId;
+
         return $this;
     }
 
@@ -231,6 +239,7 @@ class PackageTransaction
     public function setInformationLevel($InformationLevel)
     {
         $this->InformationLevel = $InformationLevel;
+
         return $this;
     }
 
@@ -250,6 +259,7 @@ class PackageTransaction
     public function setErrorCode($ErrorCode)
     {
         $this->ErrorCode = $ErrorCode;
+
         return $this;
     }
 
@@ -269,6 +279,7 @@ class PackageTransaction
     public function setErrorDefinition($ErrorDefinition)
     {
         $this->ErrorDefinition = $ErrorDefinition;
+
         return $this;
     }
 }

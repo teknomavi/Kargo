@@ -5,7 +5,7 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo;
 class GetTiNTInformationByTrackingNumber_V1Response
 {
     /**
-     * @var TiNTInformation $GetTiNTInformationByTrackingNumber_V1Result
+     * @var TiNTInformation
      */
     protected $GetTiNTInformationByTrackingNumber_V1Result = null;
 
@@ -33,6 +33,7 @@ class GetTiNTInformationByTrackingNumber_V1Response
     public function setGetTiNTInformationByTrackingNumber_V1Result($GetTiNTInformationByTrackingNumber_V1Result)
     {
         $this->GetTiNTInformationByTrackingNumber_V1Result = $GetTiNTInformationByTrackingNumber_V1Result;
+
         return $this;
     }
 }

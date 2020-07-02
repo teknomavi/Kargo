@@ -5,63 +5,63 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\CreateShipment;
 class ReturnShipment
 {
     /**
-     * @var string $RTSWaybill
+     * @var string
      */
     protected $RTSWaybill = null;
     /**
-     * @var string $RTSAccountNumber
+     * @var string
      */
     protected $RTSAccountNumber = null;
     /**
-     * @var string $RTSName
+     * @var string
      */
     protected $RTSName = null;
     /**
-     * @var string $RTSContactName
+     * @var string
      */
     protected $RTSContactName = null;
     /**
-     * @var string $RTSAddress
+     * @var string
      */
     protected $RTSAddress = null;
     /**
-     * @var int $RTSCityCode
+     * @var int
      */
     protected $RTSCityCode = null;
     /**
-     * @var int $RTSAreaCode
+     * @var int
      */
     protected $RTSAreaCode = null;
     /**
-     * @var string $RTSPostalCode
+     * @var string
      */
     protected $RTSPostalCode = null;
     /**
-     * @var string $RTSPhoneNumber
+     * @var string
      */
     protected $RTSPhoneNumber = null;
     /**
-     * @var string $RTSPhoneExtension
+     * @var string
      */
     protected $RTSPhoneExtension = null;
     /**
-     * @var string $RTSMobilePhoneNumber
+     * @var string
      */
     protected $RTSMobilePhoneNumber = null;
     /**
-     * @var string $RTSEMail
+     * @var string
      */
     protected $RTSEMail = null;
     /**
-     * @var string $RTSExpenseCode
+     * @var string
      */
     protected $RTSExpenseCode = null;
     /**
-     * @var int $RTSServiceLevel
+     * @var int
      */
     protected $RTSServiceLevel = null;
     /**
-     * @var string $RTSPackageType
+     * @var string
      */
     protected $RTSPackageType = null;
 
@@ -93,6 +93,7 @@ class ReturnShipment
     public function setRTSWaybill($RTSWaybill)
     {
         $this->RTSWaybill = $RTSWaybill;
+
         return $this;
     }
 
@@ -112,6 +113,7 @@ class ReturnShipment
     public function setRTSAccountNumber($RTSAccountNumber)
     {
         $this->RTSAccountNumber = $RTSAccountNumber;
+
         return $this;
     }
 
@@ -131,6 +133,7 @@ class ReturnShipment
     public function setRTSName($RTSName)
     {
         $this->RTSName = $RTSName;
+
         return $this;
     }
 
@@ -150,6 +153,7 @@ class ReturnShipment
     public function setRTSContactName($RTSContactName)
     {
         $this->RTSContactName = $RTSContactName;
+
         return $this;
     }
 
@@ -169,6 +173,7 @@ class ReturnShipment
     public function setRTSAddress($RTSAddress)
     {
         $this->RTSAddress = $RTSAddress;
+
         return $this;
     }
 
@@ -188,6 +193,7 @@ class ReturnShipment
     public function setRTSCityCode($RTSCityCode)
     {
         $this->RTSCityCode = $RTSCityCode;
+
         return $this;
     }
 
@@ -207,6 +213,7 @@ class ReturnShipment
     public function setRTSAreaCode($RTSAreaCode)
     {
         $this->RTSAreaCode = $RTSAreaCode;
+
         return $this;
     }
 
@@ -226,6 +233,7 @@ class ReturnShipment
     public function setRTSPostalCode($RTSPostalCode)
     {
         $this->RTSPostalCode = $RTSPostalCode;
+
         return $this;
     }
 
@@ -245,6 +253,7 @@ class ReturnShipment
     public function setRTSPhoneNumber($RTSPhoneNumber)
     {
         $this->RTSPhoneNumber = $RTSPhoneNumber;
+
         return $this;
     }
 
@@ -264,6 +273,7 @@ class ReturnShipment
     public function setRTSPhoneExtension($RTSPhoneExtension)
     {
         $this->RTSPhoneExtension = $RTSPhoneExtension;
+
         return $this;
     }
 
@@ -283,6 +293,7 @@ class ReturnShipment
     public function setRTSMobilePhoneNumber($RTSMobilePhoneNumber)
     {
         $this->RTSMobilePhoneNumber = $RTSMobilePhoneNumber;
+
         return $this;
     }
 
@@ -302,6 +313,7 @@ class ReturnShipment
     public function setRTSEMail($RTSEMail)
     {
         $this->RTSEMail = $RTSEMail;
+
         return $this;
     }
 
@@ -321,6 +333,7 @@ class ReturnShipment
     public function setRTSExpenseCode($RTSExpenseCode)
     {
         $this->RTSExpenseCode = $RTSExpenseCode;
+
         return $this;
     }
 
@@ -340,6 +353,7 @@ class ReturnShipment
     public function setRTSServiceLevel($RTSServiceLevel)
     {
         $this->RTSServiceLevel = $RTSServiceLevel;
+
         return $this;
     }
 
@@ -359,6 +373,7 @@ class ReturnShipment
     public function setRTSPackageType($RTSPackageType)
     {
         $this->RTSPackageType = $RTSPackageType;
+
         return $this;
     }
 }

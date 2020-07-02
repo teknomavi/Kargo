@@ -5,7 +5,7 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo;
 class GetPackageInfoByReferance_V1Response
 {
     /**
-     * @var ArrayOfPackageInformation $GetPackageInfoByReferance_V1Result
+     * @var ArrayOfPackageInformation
      */
     protected $GetPackageInfoByReferance_V1Result = null;
 
@@ -33,6 +33,7 @@ class GetPackageInfoByReferance_V1Response
     public function setGetPackageInfoByReferance_V1Result($GetPackageInfoByReferance_V1Result)
     {
         $this->GetPackageInfoByReferance_V1Result = $GetPackageInfoByReferance_V1Result;
+
         return $this;
     }
 }

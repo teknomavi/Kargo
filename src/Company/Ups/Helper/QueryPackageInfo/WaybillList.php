@@ -5,7 +5,7 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo;
 class WaybillList
 {
     /**
-     * @var string $Waybill
+     * @var string
      */
     protected $Waybill = null;
 
@@ -29,6 +29,7 @@ class WaybillList
     public function setWaybill($Waybill)
     {
         $this->Waybill = $Waybill;
+
         return $this;
     }
 }

@@ -2,14 +2,11 @@
 
 namespace Teknomavi\Kargo\Response;
 
-
 /**
- * Class CreateShipment
- * @package Teknomavi\Kargo\Response
+ * Class CreateShipment.
  */
 class CreateShipment
 {
-
     /**
      * @var bool
      */
@@ -52,9 +49,10 @@ class CreateShipment
      *
      * @return CreateShipment
      */
-    public function setSuccess(bool $success): CreateShipment
+    public function setSuccess(bool $success): self
     {
         $this->success = $success;
+
         return $this;
     }
 
@@ -71,9 +69,10 @@ class CreateShipment
      *
      * @return CreateShipment
      */
-    public function setErrorCode(string $errorCode): CreateShipment
+    public function setErrorCode(string $errorCode): self
     {
         $this->errorCode = $errorCode;
+
         return $this;
     }
 
@@ -90,9 +89,10 @@ class CreateShipment
      *
      * @return CreateShipment
      */
-    public function setErrorDescription(string $errorDescription): CreateShipment
+    public function setErrorDescription(string $errorDescription): self
     {
         $this->errorDescription = $errorDescription;
+
         return $this;
     }
 
@@ -109,9 +109,10 @@ class CreateShipment
      *
      * @return CreateShipment
      */
-    public function setTrackingNumber(string $trackingNumber): CreateShipment
+    public function setTrackingNumber(string $trackingNumber): self
     {
         $this->trackingNumber = $trackingNumber;
+
         return $this;
     }
 
@@ -128,9 +129,10 @@ class CreateShipment
      *
      * @return CreateShipment
      */
-    public function setReferenceNumber(string $referenceNumber): CreateShipment
+    public function setReferenceNumber(string $referenceNumber): self
     {
         $this->referenceNumber = $referenceNumber;
+
         return $this;
     }
 
@@ -147,9 +149,10 @@ class CreateShipment
      *
      * @return CreateShipment
      */
-    public function setLabelLinks(array $labelLinks): CreateShipment
+    public function setLabelLinks(array $labelLinks): self
     {
         $this->labelLinks = $labelLinks;
+
         return $this;
     }
 
@@ -166,11 +169,10 @@ class CreateShipment
      *
      * @return CreateShipment
      */
-    public function setLabelStrings(array $labelStrings): CreateShipment
+    public function setLabelStrings(array $labelStrings): self
     {
         $this->labelStrings = $labelStrings;
+
         return $this;
     }
-
-
 }

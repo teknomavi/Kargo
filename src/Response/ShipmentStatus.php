@@ -58,9 +58,10 @@ class ShipmentStatus
      *
      * @return ShipmentStatus
      */
-    public function setTrackingNumber(string $trackingNumber): ShipmentStatus
+    public function setTrackingNumber(string $trackingNumber): self
     {
         $this->trackingNumber = trim($trackingNumber);
+
         return $this;
     }
 
@@ -77,9 +78,10 @@ class ShipmentStatus
      *
      * @return ShipmentStatus
      */
-    public function setReferenceNumber(string $referenceNumber): ShipmentStatus
+    public function setReferenceNumber(string $referenceNumber): self
     {
         $this->referenceNumber = trim($referenceNumber);
+
         return $this;
     }
 
@@ -96,9 +98,10 @@ class ShipmentStatus
      *
      * @return ShipmentStatus
      */
-    public function setStatusCode(string $statusCode): ShipmentStatus
+    public function setStatusCode(string $statusCode): self
     {
         $this->statusCode = $statusCode;
+
         return $this;
     }
 
@@ -115,9 +118,10 @@ class ShipmentStatus
      *
      * @return ShipmentStatus
      */
-    public function setOriginalStatus(string $originalStatus): ShipmentStatus
+    public function setOriginalStatus(string $originalStatus): self
     {
         $this->originalStatus = trim($originalStatus);
+
         return $this;
     }
 
@@ -134,9 +138,10 @@ class ShipmentStatus
      *
      * @return ShipmentStatus
      */
-    public function setStatusDetails(string $statusDetails): ShipmentStatus
+    public function setStatusDetails(string $statusDetails): self
     {
         $this->statusDetails = trim($statusDetails);
+
         return $this;
     }
 
@@ -153,9 +158,10 @@ class ShipmentStatus
      *
      * @return ShipmentStatus
      */
-    public function setErrorCode(string $errorCode): ShipmentStatus
+    public function setErrorCode(string $errorCode): self
     {
         $this->errorCode = trim($errorCode);
+
         return $this;
     }
 
@@ -172,9 +178,10 @@ class ShipmentStatus
      *
      * @return ShipmentStatus
      */
-    public function setErrorMessage(string $errorMessage): ShipmentStatus
+    public function setErrorMessage(string $errorMessage): self
     {
         $this->errorMessage = trim($errorMessage);
+
         return $this;
     }
 
@@ -191,9 +198,10 @@ class ShipmentStatus
      *
      * @return ShipmentStatus
      */
-    public function setUpdateTime(\DateTime $updateTime): ShipmentStatus
+    public function setUpdateTime(\DateTime $updateTime): self
     {
         $this->updateTime = $updateTime;
+
         return $this;
     }
 }

@@ -5,7 +5,7 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo;
 class GetLastTransactionByTrackingNumber_V1Response
 {
     /**
-     * @var ArrayOfPackageTransaction $GetLastTransactionByTrackingNumber_V1Result
+     * @var ArrayOfPackageTransaction
      */
     protected $GetLastTransactionByTrackingNumber_V1Result = null;
 
@@ -33,6 +33,7 @@ class GetLastTransactionByTrackingNumber_V1Response
     public function setGetLastTransactionByTrackingNumber_V1Result($GetLastTransactionByTrackingNumber_V1Result)
     {
         $this->GetLastTransactionByTrackingNumber_V1Result = $GetLastTransactionByTrackingNumber_V1Result;
+
         return $this;
     }
 }

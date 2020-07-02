@@ -5,7 +5,7 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo;
 class GetShipmentInfoByTrackingNumber_V1Response
 {
     /**
-     * @var ArrayOfPackageInformation $GetShipmentInfoByTrackingNumber_V1Result
+     * @var ArrayOfPackageInformation
      */
     protected $GetShipmentInfoByTrackingNumber_V1Result = null;
 
@@ -33,6 +33,7 @@ class GetShipmentInfoByTrackingNumber_V1Response
     public function setGetShipmentInfoByTrackingNumber_V1Result($GetShipmentInfoByTrackingNumber_V1Result)
     {
         $this->GetShipmentInfoByTrackingNumber_V1Result = $GetShipmentInfoByTrackingNumber_V1Result;
+
         return $this;
     }
 }

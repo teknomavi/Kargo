@@ -12,20 +12,23 @@ class CargoFactory
     const PROVIDER_UPS = 'Ups';
     const PROVIDER_SURAT = 'Surat';
     const PROVIDER_YURTICI = 'Yurtici';
+
     /**
      * @param string $providerName
      * @param array  $options
      *
-     * @return ServiceInterface
      * @throws InvalidProvider
+     *
+     * @return ServiceInterface
      */
     public static function initServiceProvider(string $providerName, array $options = []): ServiceInterface
     {
         /** @var ServiceInterface $provider */
-        $provider = 'Teknomavi\\Kargo\\Company\\' . $providerName . '\\Service';
+        $provider = 'Teknomavi\\Kargo\\Company\\'.$providerName.'\\Service';
         if (!class_exists($provider)) {
-            throw new InvalidProvider($providerName . ' için kargo entegrasyonu bulunamadı');
+            throw new InvalidProvider($providerName.' için kargo entegrasyonu bulunamadı');
         }
+
         return new $provider($options);
     }
 }

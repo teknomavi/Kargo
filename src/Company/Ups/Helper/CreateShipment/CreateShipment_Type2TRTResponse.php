@@ -5,7 +5,7 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\CreateShipment;
 class CreateShipment_Type2TRTResponse
 {
     /**
-     * @var ResultCreateShipment_Type1 $CreateShipment_Type2TRTResult
+     * @var ResultCreateShipment_Type1
      */
     protected $CreateShipment_Type2TRTResult = null;
 
@@ -33,6 +33,7 @@ class CreateShipment_Type2TRTResponse
     public function setCreateShipment_Type2TRTResult($CreateShipment_Type2TRTResult)
     {
         $this->CreateShipment_Type2TRTResult = $CreateShipment_Type2TRTResult;
+
         return $this;
     }
 }

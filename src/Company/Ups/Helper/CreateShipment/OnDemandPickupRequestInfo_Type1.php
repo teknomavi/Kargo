@@ -5,19 +5,19 @@ namespace Teknomavi\Kargo\Company\Ups\Helper\CreateShipment;
 class OnDemandPickupRequestInfo_Type1
 {
     /**
-     * @var int $LabelSource
+     * @var int
      */
     protected $LabelSource = null;
     /**
-     * @var \DateTime $PickupRequestDay
+     * @var \DateTime
      */
     protected $PickupRequestDay = null;
     /**
-     * @var ArrayOfBoxType $RequestedBoxList
+     * @var ArrayOfBoxType
      */
     protected $RequestedBoxList = null;
     /**
-     * @var ShipmentInfo_Type3 $ShipmentInfo
+     * @var ShipmentInfo_Type3
      */
     protected $ShipmentInfo = null;
 
@@ -47,6 +47,7 @@ class OnDemandPickupRequestInfo_Type1
     public function setLabelSource($LabelSource)
     {
         $this->LabelSource = $LabelSource;
+
         return $this;
     }
 
@@ -74,6 +75,7 @@ class OnDemandPickupRequestInfo_Type1
     public function setPickupRequestDay(\DateTime $PickupRequestDay)
     {
         $this->PickupRequestDay = $PickupRequestDay->format(\DateTime::ATOM);
+
         return $this;
     }
 
@@ -93,6 +95,7 @@ class OnDemandPickupRequestInfo_Type1
     public function setRequestedBoxList($RequestedBoxList)
     {
         $this->RequestedBoxList = $RequestedBoxList;
+
         return $this;
     }
 
@@ -112,6 +115,7 @@ class OnDemandPickupRequestInfo_Type1
     public function setShipmentInfo($ShipmentInfo)
     {
         $this->ShipmentInfo = $ShipmentInfo;
+
         return $this;
     }
 }

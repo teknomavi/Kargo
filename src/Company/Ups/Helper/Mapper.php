@@ -109,7 +109,7 @@ class Mapper
             'yumurtalik' => 11,
             'yuregir'    => 1882,
         ],
-        'city2'  => ['besni' => 14, 'celikhan' => 15, 'gerger' => 16, 'golbasi' => 17, 'kahta' => 18, 'merkez' => 13, 'samsat' => 19, 'sincik' => 20, 'tut' => 21,],
+        'city2'  => ['besni' => 14, 'celikhan' => 15, 'gerger' => 16, 'golbasi' => 17, 'kahta' => 18, 'merkez' => 13, 'samsat' => 19, 'sincik' => 20, 'tut' => 21],
         'city3'  => [
             'basmakci'   => 36,
             'bayat'      => 37,
@@ -130,8 +130,8 @@ class Mapper
             'sultandagi' => 31,
             'iscehisar'  => 35,
         ],
-        'city4'  => ['diyadin' => 43, 'dogubayazit' => 44, 'eleskirt' => 45, 'hamur' => 46, 'merkez' => 42, 'patnos' => 47, 'taslicay' => 48, 'tutak' => 49,],
-        'city5'  => ['goynucek' => 51, 'gumushacikoy' => 52, 'hamamozu' => 56, 'merkez' => 50, 'merzifon' => 53, 'suluova' => 54, 'tasova' => 55,],
+        'city4'  => ['diyadin' => 43, 'dogubayazit' => 44, 'eleskirt' => 45, 'hamur' => 46, 'merkez' => 42, 'patnos' => 47, 'taslicay' => 48, 'tutak' => 49],
+        'city5'  => ['goynucek' => 51, 'gumushacikoy' => 52, 'hamamozu' => 56, 'merkez' => 50, 'merzifon' => 53, 'suluova' => 54, 'tasova' => 55],
         'city6'  => [
             'akyurt'          => 75,
             'altindag'        => 3998,
@@ -180,7 +180,7 @@ class Mapper
             'serik'      => 100,
             'ibradi'     => 90,
         ],
-        'city8'  => ['ardanuc' => 106, 'arhavi' => 105, 'borcka' => 107, 'hopa' => 109, 'merkez' => 104, 'savsat' => 110, 'yusufeli' => 111, 'murgul' => 108,],
+        'city8'  => ['ardanuc' => 106, 'arhavi' => 105, 'borcka' => 107, 'hopa' => 109, 'merkez' => 104, 'savsat' => 110, 'yusufeli' => 111, 'murgul' => 108],
         'city9'  => [
             'bozdogan'    => 116,
             'buharkent'   => 118,
@@ -222,10 +222,10 @@ class Mapper
             'altieylul' => 136,
             'karesi'    => 136,
         ],
-        'city11' => ['bozuyuk' => 163, 'golpazari' => 164, 'inhisar' => 169, 'merkez' => 162, 'osmaneli' => 165, 'pazaryeri' => 166, 'sogut' => 167, 'yenipazar' => 168,],
-        'city12' => ['adakli' => 176, 'genc' => 171, 'karliova' => 172, 'merkez' => 170, 'solhan' => 174, 'yayladere' => 175, 'yedisu' => 177, 'kigi' => 173,],
-        'city13' => ['adilcevaz' => 179, 'ahlat' => 180, 'hizan' => 182, 'merkez' => 178, 'mutki' => 183, 'tatvan' => 184, 'guroymak' => 181,],
-        'city14' => ['dortdivan' => 193, 'gerede' => 186, 'goynuk' => 187, 'kibriscik' => 188, 'mengen' => 189, 'merkez' => 185, 'mudurnu' => 190, 'seben' => 191, 'yenicaga' => 192,],
+        'city11' => ['bozuyuk' => 163, 'golpazari' => 164, 'inhisar' => 169, 'merkez' => 162, 'osmaneli' => 165, 'pazaryeri' => 166, 'sogut' => 167, 'yenipazar' => 168],
+        'city12' => ['adakli' => 176, 'genc' => 171, 'karliova' => 172, 'merkez' => 170, 'solhan' => 174, 'yayladere' => 175, 'yedisu' => 177, 'kigi' => 173],
+        'city13' => ['adilcevaz' => 179, 'ahlat' => 180, 'hizan' => 182, 'merkez' => 178, 'mutki' => 183, 'tatvan' => 184, 'guroymak' => 181],
+        'city14' => ['dortdivan' => 193, 'gerede' => 186, 'goynuk' => 187, 'kibriscik' => 188, 'mengen' => 189, 'merkez' => 185, 'mudurnu' => 190, 'seben' => 191, 'yenicaga' => 192],
         'city15' => [
             'aglasun'    => 196,
             'bucak'      => 197,
@@ -342,7 +342,7 @@ class Mapper
             'sur'       => 4032,
             'yenisehir' => 4033,
         ],
-        'city22' => ['enez' => 298, 'havsa' => 299, 'ipsala' => 300, 'kesan' => 302, 'lalapasa' => 303, 'meric' => 304, 'merkez' => 297, 'uzunkopru' => 306, 'suloglu' => 305,],
+        'city22' => ['enez' => 298, 'havsa' => 299, 'ipsala' => 300, 'kesan' => 302, 'lalapasa' => 303, 'meric' => 304, 'merkez' => 297, 'uzunkopru' => 306, 'suloglu' => 305],
         'city23' => [
             'agin'       => 308,
             'alacakaya'  => 317,
@@ -356,7 +356,7 @@ class Mapper
             'palu'       => 313,
             'sivrice'    => 314,
         ],
-        'city24' => ['cayirli' => 319, 'ilic' => 320, 'kemah' => 321, 'kemaliye' => 322, 'merkez' => 318, 'otlukbeli' => 326, 'refahiye' => 323, 'tercan' => 324, 'uzumlu' => 327,],
+        'city24' => ['cayirli' => 319, 'ilic' => 320, 'kemah' => 321, 'kemaliye' => 322, 'merkez' => 318, 'otlukbeli' => 326, 'refahiye' => 323, 'tercan' => 324, 'uzumlu' => 327],
         'city25' => [
             'askale'     => 331,
             'cat'        => 333,
@@ -395,7 +395,7 @@ class Mapper
             'beylikova'  => 351,
             'mihaliccik' => 355,
         ],
-        'city27' => ['araban' => 363, 'islahiye' => 365, 'karkamis' => 5233, 'nizip' => 366, 'nurdagi' => 369, 'oguzeli' => 367, 'sahinbey' => 4042, 'sehitkamil' => 1911, 'yavuzeli' => 368,],
+        'city27' => ['araban' => 363, 'islahiye' => 365, 'karkamis' => 5233, 'nizip' => 366, 'nurdagi' => 369, 'oguzeli' => 367, 'sahinbey' => 4042, 'sehitkamil' => 1911, 'yavuzeli' => 368],
         'city28' => [
             'alucra'         => 371,
             'bulancak'       => 372,
@@ -414,8 +414,8 @@ class Mapper
             'tirebolu'       => 379,
             'yaglidere'      => 381,
         ],
-        'city29' => ['kelkit' => 387, 'kose' => 390, 'kurtun' => 391, 'merkez' => 386, 'siran' => 388, 'torul' => 389,],
-        'city30' => ['cukurca' => 393, 'merkez' => 392, 'semdinli' => 394, 'yuksekova' => 395,],
+        'city29' => ['kelkit' => 387, 'kose' => 390, 'kurtun' => 391, 'merkez' => 386, 'siran' => 388, 'torul' => 389],
+        'city30' => ['cukurca' => 393, 'merkez' => 392, 'semdinli' => 394, 'yuksekova' => 395],
         'city31' => [
             'altinozu'   => 403,
             'antakya'    => 396,
@@ -536,7 +536,7 @@ class Mapper
             'torbali'     => 489,
             'urla'        => 490,
         ],
-        'city36' => ['akyaka' => 494, 'arpacay' => 495, 'digor' => 496, 'kagizman' => 497, 'merkez' => 493, 'sarikamis' => 498, 'selim' => 499, 'susuz' => 500,],
+        'city36' => ['akyaka' => 494, 'arpacay' => 495, 'digor' => 496, 'kagizman' => 497, 'merkez' => 493, 'sarikamis' => 498, 'selim' => 499, 'susuz' => 500],
         'city37' => [
             'abana'       => 502,
             'agli'        => 518,
@@ -577,8 +577,8 @@ class Mapper
             'yesilhisar' => 531,
             'ozvatan'    => 534,
         ],
-        'city39' => ['babaeski' => 538, 'demirkoy' => 539, 'kofcaz' => 541, 'luleburgaz' => 542, 'merkez' => 536, 'pehlivankoy' => 543, 'pinarhisar' => 544, 'vize' => 545,],
-        'city40' => ['akcakent' => 551, 'akpinar' => 550, 'boztepe' => 552, 'cicekdagi' => 547, 'kaman' => 548, 'merkez' => 546, 'mucur' => 549,],
+        'city39' => ['babaeski' => 538, 'demirkoy' => 539, 'kofcaz' => 541, 'luleburgaz' => 542, 'merkez' => 536, 'pehlivankoy' => 543, 'pinarhisar' => 544, 'vize' => 545],
+        'city40' => ['akcakent' => 551, 'akpinar' => 550, 'boztepe' => 552, 'cicekdagi' => 547, 'kaman' => 548, 'merkez' => 546, 'mucur' => 549],
         'city41' => [
             'basiskele'  => 5818,
             'cayirova'   => 565,
@@ -715,9 +715,9 @@ class Mapper
             'yatagan'     => 678,
             'seydikemer'  => 664,
         ],
-        'city49' => ['bulanik' => 682, 'haskoy' => 683, 'korkut' => 686, 'malazgirt' => 684, 'merkez' => 681, 'varto' => 685,],
-        'city50' => ['acigol' => 698, 'avanos' => 688, 'derinkuyu' => 689, 'gulsehir' => 690, 'hacibektas' => 691, 'kozakli' => 694, 'merkez' => 687, 'urgup' => 696,],
-        'city51' => ['altunhisar' => 702, 'bor' => 703, 'camardi' => 704, 'merkez' => 701, 'ulukisla' => 5232, 'ciftlik' => 706,],
+        'city49' => ['bulanik' => 682, 'haskoy' => 683, 'korkut' => 686, 'malazgirt' => 684, 'merkez' => 681, 'varto' => 685],
+        'city50' => ['acigol' => 698, 'avanos' => 688, 'derinkuyu' => 689, 'gulsehir' => 690, 'hacibektas' => 691, 'kozakli' => 694, 'merkez' => 687, 'urgup' => 696],
+        'city51' => ['altunhisar' => 702, 'bor' => 703, 'camardi' => 704, 'merkez' => 701, 'ulukisla' => 5232, 'ciftlik' => 706],
         'city52' => [
             'akkus'      => 708,
             'aybasti'    => 709,
@@ -790,8 +790,8 @@ class Mapper
             'vezirkopru' => 764,
             'yakakent'   => 768,
         ],
-        'city56' => ['tillo' => 777, 'baykan' => 773, 'eruh' => 776, 'kurtalan' => 774, 'merkez' => 771, 'pervari' => 772, 'sirvan' => 775,],
-        'city57' => ['ayancik' => 779, 'boyabat' => 780, 'dikmen' => 785, 'duragan' => 781, 'erfelek' => 782, 'gerze' => 783, 'merkez' => 778, 'sarayduzu' => 786, 'turkeli' => 784,],
+        'city56' => ['tillo' => 777, 'baykan' => 773, 'eruh' => 776, 'kurtalan' => 774, 'merkez' => 771, 'pervari' => 772, 'sirvan' => 775],
+        'city57' => ['ayancik' => 779, 'boyabat' => 780, 'dikmen' => 785, 'duragan' => 781, 'erfelek' => 782, 'gerze' => 783, 'merkez' => 778, 'sarayduzu' => 786, 'turkeli' => 784],
         'city58' => [
             'akincilar'  => 801,
             'altinyayla' => 802,
@@ -858,7 +858,7 @@ class Mapper
             'yomra'        => 833,
             'ortahisar'    => 828,
         ],
-        'city62' => ['cemisgezek' => 850, 'hozat' => 851, 'mazgirt' => 852, 'merkez' => 849, 'nazimiye' => 853, 'ovacik' => 854, 'pertek' => 856, 'pulumur' => 855,],
+        'city62' => ['cemisgezek' => 850, 'hozat' => 851, 'mazgirt' => 852, 'merkez' => 849, 'nazimiye' => 853, 'ovacik' => 854, 'pertek' => 856, 'pulumur' => 855],
         'city63' => [
             'akcakale'    => 858,
             'birecik'     => 859,
@@ -874,7 +874,7 @@ class Mapper
             'eyyubiye'    => 857,
             'haliliye'    => 857,
         ],
-        'city64' => ['banaz' => 869, 'esme' => 870, 'karahalli' => 871, 'merkez' => 868, 'sivasli' => 872, 'ulubey' => 873,],
+        'city64' => ['banaz' => 869, 'esme' => 870, 'karahalli' => 871, 'merkez' => 868, 'sivasli' => 872, 'ulubey' => 873],
         'city65' => [
             'bahcesaray' => 884,
             'baskale'    => 875,
@@ -906,28 +906,29 @@ class Mapper
             'yenifakili'  => 896,
             'yerkoy'      => 897,
         ],
-        'city67' => ['alapli' => 902, 'caycuma' => 906, 'devrek' => 907, 'eregli' => 4080, 'gokcebey' => 908, 'kilimli' => 913, 'kozlu' => 915, 'merkez' => 901,],
-        'city68' => ['agacoren' => 918, 'eskil' => 923, 'guzelyurt' => 919, 'merkez' => 917, 'ortakoy' => 920, 'sariyahsi' => 921, 'gulagac' => 922,],
-        'city69' => ['aydintepe' => 925, 'demirozu' => 926, 'merkez' => 924,],
-        'city70' => ['ayranci' => 928, 'basyayla' => 931, 'ermenek' => 929, 'kazimkarabekir' => 930, 'merkez' => 927, 'sariveliler' => 932,],
-        'city71' => ['bahsili' => 938, 'baliseyh' => 939, 'celebi' => 940, 'delice' => 935, 'karakecili' => 941, 'keskin' => 936, 'merkez' => 933, 'sulakyurt' => 937, 'yahsihan' => 942,],
-        'city72' => ['besiri' => 944, 'gercus' => 945, 'hasankeyf' => 946, 'kozluk' => 947, 'merkez' => 943, 'sason' => 948,],
-        'city73' => ['beytussebap' => 950, 'cizre' => 951, 'guclukonak' => 953, 'idil' => 954, 'merkez' => 949, 'silopi' => 955, 'uludere' => 956,],
-        'city74' => ['amasra' => 958, 'kurucasile' => 960, 'merkez' => 957, 'ulus' => 961,],
-        'city75' => ['cildir' => 963, 'damal' => 964, 'gole' => 965, 'hanak' => 966, 'merkez' => 962, 'posof' => 967,],
-        'city76' => ['aralik' => 969, 'karakoyunlu' => 970, 'merkez' => 968, 'tuzluca' => 971,],
-        'city77' => ['altinova' => 973, 'armutlu' => 974, 'ciftlikkoy' => 976, 'cinarcik' => 975, 'merkez' => 972, 'termal' => 977,],
-        'city78' => ['eflani' => 979, 'eskipazar' => 980, 'merkez' => 978, 'ovacik' => 981, 'safranbolu' => 982, 'yenice' => 983,],
-        'city79' => ['elbeyli' => 985, 'merkez' => 984, 'musabeyli' => 986, 'polateli' => 987,],
-        'city80' => ['bahce' => 989, 'duzici' => 990, 'hasanbeyli' => 991, 'kadirli' => 992, 'merkez' => 988, 'sumbas' => 993, 'toprakkale' => 994,],
-        'city81' => ['akcakoca' => 996, 'cilimli' => 998, 'cumayeri' => 997, 'golyaka' => 999, 'gumusova' => 5779, 'kaynasli' => 1001, 'merkez' => 995, 'yigilca' => 1002,],
+        'city67' => ['alapli' => 902, 'caycuma' => 906, 'devrek' => 907, 'eregli' => 4080, 'gokcebey' => 908, 'kilimli' => 913, 'kozlu' => 915, 'merkez' => 901],
+        'city68' => ['agacoren' => 918, 'eskil' => 923, 'guzelyurt' => 919, 'merkez' => 917, 'ortakoy' => 920, 'sariyahsi' => 921, 'gulagac' => 922],
+        'city69' => ['aydintepe' => 925, 'demirozu' => 926, 'merkez' => 924],
+        'city70' => ['ayranci' => 928, 'basyayla' => 931, 'ermenek' => 929, 'kazimkarabekir' => 930, 'merkez' => 927, 'sariveliler' => 932],
+        'city71' => ['bahsili' => 938, 'baliseyh' => 939, 'celebi' => 940, 'delice' => 935, 'karakecili' => 941, 'keskin' => 936, 'merkez' => 933, 'sulakyurt' => 937, 'yahsihan' => 942],
+        'city72' => ['besiri' => 944, 'gercus' => 945, 'hasankeyf' => 946, 'kozluk' => 947, 'merkez' => 943, 'sason' => 948],
+        'city73' => ['beytussebap' => 950, 'cizre' => 951, 'guclukonak' => 953, 'idil' => 954, 'merkez' => 949, 'silopi' => 955, 'uludere' => 956],
+        'city74' => ['amasra' => 958, 'kurucasile' => 960, 'merkez' => 957, 'ulus' => 961],
+        'city75' => ['cildir' => 963, 'damal' => 964, 'gole' => 965, 'hanak' => 966, 'merkez' => 962, 'posof' => 967],
+        'city76' => ['aralik' => 969, 'karakoyunlu' => 970, 'merkez' => 968, 'tuzluca' => 971],
+        'city77' => ['altinova' => 973, 'armutlu' => 974, 'ciftlikkoy' => 976, 'cinarcik' => 975, 'merkez' => 972, 'termal' => 977],
+        'city78' => ['eflani' => 979, 'eskipazar' => 980, 'merkez' => 978, 'ovacik' => 981, 'safranbolu' => 982, 'yenice' => 983],
+        'city79' => ['elbeyli' => 985, 'merkez' => 984, 'musabeyli' => 986, 'polateli' => 987],
+        'city80' => ['bahce' => 989, 'duzici' => 990, 'hasanbeyli' => 991, 'kadirli' => 992, 'merkez' => 988, 'sumbas' => 993, 'toprakkale' => 994],
+        'city81' => ['akcakoca' => 996, 'cilimli' => 998, 'cumayeri' => 997, 'golyaka' => 999, 'gumusova' => 5779, 'kaynasli' => 1001, 'merkez' => 995, 'yigilca' => 1002],
     ];
 
     /**
      * @param string $cityName Şehir adı
      *
-     * @return int
      * @throws \InvalidArgumentException
+     *
+     * @return int
      */
     public static function getCityCode(string $cityName): int
     {
@@ -935,6 +936,7 @@ class Mapper
         if (!array_key_exists($slug, self::$cityMap)) {
             throw new \InvalidArgumentException("$cityName mevcut şehir listesinde bulunamadı");
         }
+
         return self::$cityMap[$slug];
     }
 
@@ -942,12 +944,13 @@ class Mapper
      * @param int    $cityId   Bölge'nin bulunduğu şehir kodu
      * @param string $areaName Bölge adı
      *
-     * @return int
      * @throws \InvalidArgumentException
+     *
+     * @return int
      */
     public static function getAreaCode(int $cityId, string $areaName): int
     {
-        $cityCode = 'city' . $cityId;
+        $cityCode = 'city'.$cityId;
         if (!array_key_exists($cityCode, self::$townMap)) {
             throw new \InvalidArgumentException("$cityId no'lu şehir mevcut bölge listesinde bulunamadı");
         }
@@ -955,6 +958,7 @@ class Mapper
         if (!array_key_exists($slug, self::$townMap[$cityCode])) {
             throw new \InvalidArgumentException("$areaName, $cityId no'lu şehire ait mevcut bölge listesinde bulunamadı");
         }
+
         return self::$townMap[$cityCode][$slug];
     }
 }
