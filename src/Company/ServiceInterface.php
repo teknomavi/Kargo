@@ -1,5 +1,4 @@
 <?php
-
 namespace Teknomavi\Kargo\Company;
 
 use Teknomavi\Kargo\Model\Package;

@@ -1,5 +1,4 @@
 <?php
-
 namespace Teknomavi\Kargo\Response;
 
 use Teknomavi\Kargo\Exception\InvalidParameterValue;
@@ -141,8 +140,8 @@ class PackageInfo
     {
         if (!in_array($packageType, [self::PACKAGE_TYPE_BOX, self::PACKAGE_TYPE_ENVELOPE])) {
             throw new InvalidParameterValue('Package Type parametresi '
-                .implode(',', [self::PACKAGE_TYPE_BOX, self::PACKAGE_TYPE_ENVELOPE])
-                ." değerlerini alabilir. '$packageType' geldi.");
+                . implode(',', [self::PACKAGE_TYPE_BOX, self::PACKAGE_TYPE_ENVELOPE])
+                . " değerlerini alabilir. '$packageType' geldi.");
         }
         $this->packageType = $packageType;
 
@@ -168,8 +167,8 @@ class PackageInfo
     {
         if (!in_array($shipmentType, [self::SHIPMENT_TYPE_NORMAL, self::SHIPMENT_TYPE_EXPRESS])) {
             throw new InvalidParameterValue('Shipment Type parametresi '
-                .implode(',', [self::SHIPMENT_TYPE_NORMAL, self::SHIPMENT_TYPE_EXPRESS])
-                ." değerlerini alabilir. '$shipmentType' geldi.");
+                . implode(',', [self::SHIPMENT_TYPE_NORMAL, self::SHIPMENT_TYPE_EXPRESS])
+                . " değerlerini alabilir. '$shipmentType' geldi.");
         }
         $this->shipmentType = $shipmentType;
 
@@ -255,8 +254,8 @@ class PackageInfo
     {
         if (!in_array($paymentType, [self::PAYMENT_TYPE_SENDER, self::PAYMENT_TYPE_RECIPIENT, self::PAYMENT_TYPE_3RD_PARTY])) {
             throw new InvalidParameterValue('Payment Type parametresi '
-                .implode(',', [self::PAYMENT_TYPE_SENDER, self::PAYMENT_TYPE_RECIPIENT, self::PAYMENT_TYPE_3RD_PARTY])
-                ." değerlerini alabilir. '$paymentType' geldi.");
+                . implode(',', [self::PAYMENT_TYPE_SENDER, self::PAYMENT_TYPE_RECIPIENT, self::PAYMENT_TYPE_3RD_PARTY])
+                . " değerlerini alabilir. '$paymentType' geldi.");
         }
         $this->paymentType = $paymentType;
 

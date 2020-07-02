@@ -1,5 +1,4 @@
 <?php
-
 namespace Teknomavi\Kargo\Company\Surat;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -118,7 +117,7 @@ class Service extends ServiceAbstract implements ServiceInterface
                 }
             } catch (\Exception $exception) {
                 $createShipmentResponse
-                    ->setErrorCode('SOAP'.$exception->getCode())
+                    ->setErrorCode('SOAP' . $exception->getCode())
                     ->setErrorDescription($exception->getMessage())
                     ->setSuccess(false);
             }

@@ -1,5 +1,4 @@
 <?php
-
 namespace Teknomavi\Kargo\Exception;
 
 class InvalidProvider extends \Exception

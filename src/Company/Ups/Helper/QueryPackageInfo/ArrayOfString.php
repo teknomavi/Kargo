@@ -1,5 +1,4 @@
 <?php
-
 namespace Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo;
 
 class ArrayOfString implements \ArrayAccess, \Iterator, \Countable

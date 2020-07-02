@@ -1,5 +1,4 @@
 <?php
-
 namespace Teknomavi\Kargo\Company\Ups;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -182,7 +181,7 @@ class Service extends ServiceAbstract implements ServiceInterface
                 }
             } catch (\Exception $exception) {
                 $createShipmentResponse
-                    ->setErrorCode('SOAP'.$exception->getCode())
+                    ->setErrorCode('SOAP' . $exception->getCode())
                     ->setErrorDescription($exception->getMessage())
                     ->setSuccess(false);
             }
@@ -245,7 +244,7 @@ class Service extends ServiceAbstract implements ServiceInterface
             if ($result->getLogin_Type1Result()->getErrorCode() != 0) {
                 throw new \Exception(
                     $result->getLogin_Type1Result()->getErrorDefinition(),
-                    'UPS-'.$result->getLogin_Type1Result()->getErrorCode()
+                    'UPS-' . $result->getLogin_Type1Result()->getErrorCode()
                 );
             }
             $this->sessionId = $result->getLogin_Type1Result()->getSessionID();
