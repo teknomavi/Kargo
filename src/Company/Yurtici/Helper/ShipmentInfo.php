@@ -1,5 +1,4 @@
 <?php
-
 namespace Teknomavi\Kargo\Company\Yurtici\Helper;
 
 use Teknomavi\Kargo\Model\Package;
@@ -32,8 +31,10 @@ class ShipmentInfo
         $package->setConsigneeMobilPhone($sI->consigneeMobilPhone);
         $package->setConsigneeEmail($sI->consigneeEmail);
         $package->setNumberOfPackages($sI->noOfPackages);
+
         return $package;
     }
+
     public static function generateFromPackage(Package $p): ShipmentInfo
     {
         $sI = new ShipmentInfo();
@@ -46,6 +47,7 @@ class ShipmentInfo
         $sI->consigneeMobilPhone = $p->getConsigneeMobilPhone();
         $sI->consigneeEmail = $p->getConsigneeEmail();
         $sI->noOfPackages = $p->getNumberOfPackages();
+
         return $sI;
     }
 }
