@@ -5,12 +5,16 @@ class YKSoapClient
 {
     private $username = '';
     private $password = '';
+    private $url = 'http://webservices.yurticikargo.com:8080/KOPSWebServices/ShippingOrderDispatcherServices?wsdl';
     private static $language = 'TR';
 
     public function __construct($options)
     {
         $this->username = $options['username'];
         $this->password = $options['password'];
+        if(!empty($options['url'])){
+            $this->url = $options['url'];
+        }
     }
 
     /**
@@ -68,7 +72,7 @@ class YKSoapClient
         ];
         $body = ['ShippingOrderVO' => $params];
         $data = array_merge($credentials, $body);
-        $_sclient = new \SoapClient('http://webservices.yurticikargo.com:8080/KOPSWebServices/ShippingOrderDispatcherServices?wsdl');
+        $_sclient = new \SoapClient($this->url);
 
         return $_sclient->createShipment($data);
     }
@@ -84,7 +88,7 @@ class YKSoapClient
             'addHistoricalData' => false,
             'onlyTracking'      => false,
         ];
-        $_sclient = new \SoapClient('http://webservices.yurticikargo.com:8080/KOPSWebServices/ShippingOrderDispatcherServices?wsdl');
+        $_sclient = new \SoapClient($this->url);
 
         return $_sclient->queryShipment($params);
     }
