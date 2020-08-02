@@ -12,7 +12,7 @@ class YKSoapClient
     {
         $this->username = $options['username'];
         $this->password = $options['password'];
-        if(!empty($options['url'])){
+        if (!empty($options['url'])) {
             $this->url = $options['url'];
         }
     }
