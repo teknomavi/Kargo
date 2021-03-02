@@ -1,5 +1,5 @@
 {
-  "name": "mfurkanbabur/kargo",
+  "name": "teknomavi/kargo",
   "type": "library",
   "description": "Türkiye'deki kargo firmaları için merkezi entegrasyon kütüphanesi",
   "minimum-stability": "stable",
@@ -30,10 +30,6 @@
       "name": "GoktugOzturk",
       "email": "goktug.ozturk@teknomavi.com",
       "homepage": "http://www.teknomavi.com"
-    },
-    {
-      "name": "MFurkanBABUR",
-      "email": "m.furkanbab@gmail.com"
     }
   ],
   "autoload": {
