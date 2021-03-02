@@ -20,6 +20,7 @@ class Package
     private $shipperTown;
     private $shipperAddress;
     private $shipperMobilPhone;
+    private $shipperPhoneNumber;
     private $shipperEmail;
     private $shipperAccountNumber;
     private $shipperName;
@@ -727,5 +728,21 @@ class Package
         $this->valueOfGoodsCurrency = $valueOfGoodsCurrency;
 
         return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getShipperPhoneNumber()
+    {
+        return $this->shipperPhoneNumber;
+    }
+
+    /**
+     * @param mixed $shipperPhoneNumber
+     */
+    public function setShipperPhoneNumber($shipperPhoneNumber): void
+    {
+        $this->shipperPhoneNumber = $shipperPhoneNumber;
     }
 }
