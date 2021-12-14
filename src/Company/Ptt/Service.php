@@ -200,7 +200,7 @@ class Service extends ServiceAbstract implements ServiceInterface
                 $status = last($result->return->dongu);
             }
 
-            $date = (new \DateTime($result->return->ITARIH ?? ($date('Ymd-His'))))->format('Ymd-His');
+            $date = (new \DateTime($result->return->ITARIH ?? (date('Ymd-His'))))->format('Ymd-His');
 
             $shipmentStatus
                 ->setTrackingNumber($result->return->BARNO)
