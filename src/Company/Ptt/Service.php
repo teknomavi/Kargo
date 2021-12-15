@@ -195,7 +195,7 @@ class Service extends ServiceAbstract implements ServiceInterface
         $response = [];
         $shipmentStatus = new ShipmentStatus();
 
-        if (isset($result->return)) {
+        if (isset($result->return->dongu[0])) {
 
             if (isset($result->return->dongu[0])) {
                 $status = last($result->return->dongu);
