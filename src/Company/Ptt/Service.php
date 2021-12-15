@@ -3,9 +3,9 @@
 namespace Teknomavi\Kargo\Company\Ptt;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Teknomavi\Kargo\Company\Ptt\Helper\Gonderi\CreateShipment;
-use Teknomavi\Kargo\Company\Ptt\Helper\Gonderi\Gonderi;
-use Teknomavi\Kargo\Company\Ptt\Helper\Gonderi\GonderiyiKargoyaGonder;
+use Teknomavi\Kargo\Company\Ptt\Helper\Shipment\CreateShipment;
+use Teknomavi\Kargo\Company\Ptt\Helper\Shipment\Gonderi;
+use Teknomavi\Kargo\Company\Ptt\Helper\Shipment\GonderiyiKargoyaGonder;
 use Teknomavi\Kargo\Company\Ptt\Helper\Track\GetTrack;
 use Teknomavi\Kargo\Company\Ptt\Helper\Track\QueryTrack;
 use Teknomavi\Kargo\Company\ServiceAbstract;
