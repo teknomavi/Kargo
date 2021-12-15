@@ -25,7 +25,7 @@ class Service extends ServiceAbstract implements ServiceInterface
         2 => ShipmentStatus::STATUS_DELIVERED, //ALICIYA TESLİM EDİLDİ
         100 => ShipmentStatus::STATUS_DELIVERED, //ALICIYA TESLİM EDİLDİ
         657 => ShipmentStatus::STATUS_PACKAGE_SCANNED, //GİRİŞ SCAN EDİLDİ
-        4  => ShipmentStatus::STATUS_ON_DISTRIBUTION, //KURYE DAĞITMAK ÜZERE ÇIKARDI
+        4 => ShipmentStatus::STATUS_ON_DISTRIBUTION, //KURYE DAĞITMAK ÜZERE ÇIKARDI
     ];
 
     private $shipmentService;
@@ -113,7 +113,8 @@ class Service extends ServiceAbstract implements ServiceInterface
 
             try {
                 $result = $service->GonderiyiKargoyaGonder($gonder);
-              
+                $createShipmentResponse->setSuccess(false);
+
                 if ($result->return->aciklama == 'BASARILI') {
                     $generator = new \Picqer\Barcode\BarcodeGeneratorPNG();
                     $png = $generator->getBarcode($package->getMusteriReferansNo(), $generator::TYPE_CODE_128, 2, 90);
