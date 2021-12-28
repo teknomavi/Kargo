@@ -21,6 +21,7 @@ class Service extends ServiceAbstract implements ServiceInterface
 
     protected $statusMapping = [
         1 => ShipmentStatus::STATUS_PACKAGE_SCANNED, //GİRİŞ SCAN EDİLDİ
+        3 => ShipmentStatus::STATUS_ON_BRANCH, // ŞUBEDE / TORBAYA EKLENDİ
         15 => ShipmentStatus::STATUS_RETURN_BACK, //GİRİŞ SCAN EDİLDİ
         2 => ShipmentStatus::STATUS_DELIVERED, //ALICIYA TESLİM EDİLDİ
         100 => ShipmentStatus::STATUS_DELIVERED, //ALICIYA TESLİM EDİLDİ
