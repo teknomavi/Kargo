@@ -27,6 +27,7 @@ class Service extends ServiceAbstract implements ServiceInterface
         100 => ShipmentStatus::STATUS_DELIVERED, //ALICIYA TESLİM EDİLDİ
         657 => ShipmentStatus::STATUS_PACKAGE_SCANNED, //GİRİŞ SCAN EDİLDİ
         4 => ShipmentStatus::STATUS_ON_DISTRIBUTION, //KURYE DAĞITMAK ÜZERE ÇIKARDI
+        7 => ShipmentStatus::STATUS_ON_DISTRIBUTION, //KURYE DAĞITMAK ÜZERE ÇIKARDI
     ];
 
     private $shipmentService;
