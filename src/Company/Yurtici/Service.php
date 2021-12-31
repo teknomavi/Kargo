@@ -183,7 +183,7 @@ class Service extends ServiceAbstract implements ServiceInterface
      * Takes the soap client response and processes it until TrackingNumber fullfilment
      * for both ShipmentStatis and PackageInfo types.
      *
-     * @param object                     $res     takes the soap client response as $res
+     * @param object $res takes the soap client response as $res
      * @param ShipmentStatus,PackageInfo $package it takes ShipmentStatus
      *                                            or PackageInfo as parameter
      *
