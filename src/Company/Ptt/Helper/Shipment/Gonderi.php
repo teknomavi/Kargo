@@ -1,5 +1,4 @@
 <?php
-
 namespace Teknomavi\Kargo\Company\Ptt\Helper\Shipment;
 
 class Gonderi
@@ -449,5 +448,4 @@ class Gonderi
     {
         $this->gonderiTip = $gonderiTip;
     }
-
 }

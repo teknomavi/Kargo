@@ -1,5 +1,4 @@
 <?php
-
 namespace Teknomavi\Kargo\Company\Ptt;
 
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -18,16 +17,15 @@ use Teknomavi\Kargo\Response\ShipmentStatus;
  */
 class Service extends ServiceAbstract implements ServiceInterface
 {
-
     protected $statusMapping = [
-        1 => ShipmentStatus::STATUS_PACKAGE_SCANNED, //GİRİŞ SCAN EDİLDİ
-        3 => ShipmentStatus::STATUS_ON_BRANCH, // ŞUBEDE / TORBAYA EKLENDİ
-        15 => ShipmentStatus::STATUS_RETURN_BACK, // İADE
-        2 => ShipmentStatus::STATUS_DELIVERED, //ALICIYA TESLİM EDİLDİ
+        1   => ShipmentStatus::STATUS_PACKAGE_SCANNED, //GİRİŞ SCAN EDİLDİ
+        3   => ShipmentStatus::STATUS_ON_BRANCH, // ŞUBEDE / TORBAYA EKLENDİ
+        15  => ShipmentStatus::STATUS_RETURN_BACK, // İADE
+        2   => ShipmentStatus::STATUS_DELIVERED, //ALICIYA TESLİM EDİLDİ
         100 => ShipmentStatus::STATUS_DELIVERED, //ALICIYA TESLİM EDİLDİ
         657 => ShipmentStatus::STATUS_PACKAGE_SCANNED, //GİRİŞ SCAN EDİLDİ
-        4 => ShipmentStatus::STATUS_ON_DISTRIBUTION, //KURYE DAĞITMAK ÜZERE ÇIKARDI
-        7 => ShipmentStatus::STATUS_ON_DISTRIBUTION, //KURYE DAĞITMAK ÜZERE ÇIKARDI
+        4   => ShipmentStatus::STATUS_ON_DISTRIBUTION, //KURYE DAĞITMAK ÜZERE ÇIKARDI
+        7   => ShipmentStatus::STATUS_ON_DISTRIBUTION, //KURYE DAĞITMAK ÜZERE ÇIKARDI
     ];
 
     private $shipmentService;
@@ -41,9 +39,9 @@ class Service extends ServiceAbstract implements ServiceInterface
     {
         if (!$this->shipmentService) {
             $this->shipmentService = new CreateShipment([
-                'trace' => 1,
+                'trace'              => 1,
                 'connection_timeout' => 60,
-                'features' => SOAP_SINGLE_ELEMENT_ARRAYS,
+                'features'           => SOAP_SINGLE_ELEMENT_ARRAYS,
             ]);
         }
 
@@ -153,7 +151,6 @@ class Service extends ServiceAbstract implements ServiceInterface
         return $this->queryService;
     }
 
-
     /*
  * Shipment Status
  */
@@ -161,9 +158,9 @@ class Service extends ServiceAbstract implements ServiceInterface
     /**
      * @param string $trackingNumber
      *
-     * @return ShipmentStatus
      * @throws \Teknomavi\Kargo\Exception\InvalidParameterValue
      *
+     * @return ShipmentStatus
      */
     public function getShipmentStatusByTrackingNumber(string $trackingNumber): ShipmentStatus
     {
@@ -178,15 +175,15 @@ class Service extends ServiceAbstract implements ServiceInterface
     /**
      * @param string[] $list
      *
-     * @return ShipmentStatus[]
      * @throws \Teknomavi\Kargo\Exception\InvalidParameterValue
      *
+     * @return ShipmentStatus[]
      */
     public function getShipmentStatusByTrackingNumberList(array $list): array
     {
         $service = $this->initQueryService();
 
-        $refNo = str_replace("-", "", $list[0]);
+        $refNo = str_replace('-', '', $list[0]);
 
         $getTrackParameters = new GetTrack();
         $getTrackParameters->setKullanici($this->options['musteriId']);
@@ -198,7 +195,6 @@ class Service extends ServiceAbstract implements ServiceInterface
         $shipmentStatus = new ShipmentStatus();
 
         if (isset($result->return->dongu[0])) {
-
             if (isset($result->return->dongu[0])) {
                 $status = last($result->return->dongu);
             }
@@ -212,9 +208,9 @@ class Service extends ServiceAbstract implements ServiceInterface
                 ->setStatusDetails($result->return->sonucAciklama)
                 ->setStatusDetails($date)
                 ->setUpdateTime(\DateTime::createFromFormat('Ymd-His', $date))
-                ->setErrorCode("")
+                ->setErrorCode('')
                 ->setReferenceNumber($refNo)
-                ->setErrorMessage("");
+                ->setErrorMessage('');
         } else {
             $shipmentStatus->setReferenceNumber($refNo);
         }
@@ -231,9 +227,7 @@ class Service extends ServiceAbstract implements ServiceInterface
         $resolver->setDefaults([
             'kullanici' => 'PttWs',
             'musteriId' => '',
-            'sifre' => '',
+            'sifre'     => '',
         ]);
     }
-
-
 }

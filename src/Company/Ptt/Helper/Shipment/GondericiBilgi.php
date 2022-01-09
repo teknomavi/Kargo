@@ -62,7 +62,6 @@ class GondericiBilgi
         $this->gonderici_ulke_id = $gonderici_ulke_id;
     }
 
-
     /**
      * @return string
      */
@@ -174,6 +173,4 @@ class GondericiBilgi
     {
         $this->gonderici_telefonu = $gonderici_telefonu;
     }
-
-
 }

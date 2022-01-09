@@ -1,10 +1,8 @@
 <?php
-
 namespace Teknomavi\Kargo\Company\Ptt\Helper\Track;
 
 class GetTrack
 {
-
     /**
      * @var string
      */
@@ -74,10 +72,9 @@ class GetTrack
     public function query()
     {
         return ['input' => [
-            'kullanici' => $this->getKullanici(),
-            'sifre' => $this->getSifre(),
-            'referansNo' => $this->getReferansNo()
+            'kullanici'  => $this->getKullanici(),
+            'sifre'      => $this->getSifre(),
+            'referansNo' => $this->getReferansNo(),
         ]];
     }
-
 }
