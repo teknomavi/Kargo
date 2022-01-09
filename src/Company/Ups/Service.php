@@ -108,6 +108,7 @@ class Service extends ServiceAbstract implements ServiceInterface
             ->setShipperCityCode($shipperCityCode)
             ->setShipperAddress($package->getShipperAddress())
             ->setShipperName($package->getShipperName())
+            ->setShipperPhoneNumber($package->getShipperPhoneNumber())
             ->setShipperAccountNumber($package->getShipperAccountNumber())
             ->setConsigneeName(mb_substr($package->getConsigneeName(), 0, 40))
             ->setConsigneePostalCode($package->getConsigneePostalCode())
