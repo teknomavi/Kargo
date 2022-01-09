@@ -32,6 +32,6 @@ class QueryTrack extends \SoapClient
 
     public function QueryShipment($parameters)
     {
-        return $this->__soapCall("gonderiSorgu_referansNo",[$parameters]);
+        return $this->__soapCall('gonderiSorgu_referansNo', [$parameters]);
     }
 }
