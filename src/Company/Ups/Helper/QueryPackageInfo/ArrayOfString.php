@@ -25,7 +25,7 @@ class ArrayOfString implements \ArrayAccess, \Iterator, \Countable
      *
      * @return \Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo\ArrayOfString
      */
-    public function setString(array $string = null)
+    public function setString(?array $string = null)
     {
         $this->string = $string;
 

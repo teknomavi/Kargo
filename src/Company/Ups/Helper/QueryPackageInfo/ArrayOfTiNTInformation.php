@@ -25,7 +25,7 @@ class ArrayOfTiNTInformation implements \ArrayAccess, \Iterator, \Countable
      *
      * @return \Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo\ArrayOfTiNTInformation
      */
-    public function setTiNTInformation(array $TiNTInformation = null)
+    public function setTiNTInformation(?array $TiNTInformation = null)
     {
         $this->TiNTInformation = $TiNTInformation;
 

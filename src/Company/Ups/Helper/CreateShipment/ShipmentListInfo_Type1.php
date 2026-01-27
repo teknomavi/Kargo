@@ -1121,7 +1121,7 @@ class ShipmentListInfo_Type1
      *
      * @return \Teknomavi\Kargo\Company\Ups\Helper\CreateShipment\ShipmentListInfo_Type1
      */
-    public function setDeliveryStartPeriod(\DateTime $DeliveryStartPeriod = null)
+    public function setDeliveryStartPeriod(?\DateTime $DeliveryStartPeriod = null)
     {
         if ($DeliveryStartPeriod == null) {
             $this->DeliveryStartPeriod = null;
@@ -1153,7 +1153,7 @@ class ShipmentListInfo_Type1
      *
      * @return \Teknomavi\Kargo\Company\Ups\Helper\CreateShipment\ShipmentListInfo_Type1
      */
-    public function setDeliveryFinishPeriod(\DateTime $DeliveryFinishPeriod = null)
+    public function setDeliveryFinishPeriod(?\DateTime $DeliveryFinishPeriod = null)
     {
         if ($DeliveryFinishPeriod == null) {
             $this->DeliveryFinishPeriod = null;

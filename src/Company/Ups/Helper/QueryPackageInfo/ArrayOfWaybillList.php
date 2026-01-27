@@ -25,7 +25,7 @@ class ArrayOfWaybillList implements \ArrayAccess, \Iterator, \Countable
      *
      * @return \Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo\ArrayOfWaybillList
      */
-    public function setWaybillList(array $WaybillList = null)
+    public function setWaybillList(?array $WaybillList = null)
     {
         $this->WaybillList = $WaybillList;
 

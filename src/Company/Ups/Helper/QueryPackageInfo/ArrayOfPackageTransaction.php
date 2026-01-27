@@ -25,7 +25,7 @@ class ArrayOfPackageTransaction implements \ArrayAccess, \Iterator, \Countable
      *
      * @return \Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo\ArrayOfPackageTransaction
      */
-    public function setPackageTransaction(array $PackageTransaction = null)
+    public function setPackageTransaction(?array $PackageTransaction = null)
     {
         $this->PackageTransaction = $PackageTransaction;
 
