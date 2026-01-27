@@ -25,7 +25,7 @@ class ArrayOfBoxType implements \ArrayAccess, \Iterator, \Countable
      *
      * @return \Teknomavi\Kargo\Company\Ups\Helper\CreateShipment\ArrayOfBoxType
      */
-    public function setBoxType(array $BoxType = null)
+    public function setBoxType(?array $BoxType = null)
     {
         $this->BoxType = $BoxType;
 

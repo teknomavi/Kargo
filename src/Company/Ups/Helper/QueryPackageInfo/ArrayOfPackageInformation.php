@@ -25,7 +25,7 @@ class ArrayOfPackageInformation implements \ArrayAccess, \Iterator, \Countable
      *
      * @return \Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo\ArrayOfPackageInformation
      */
-    public function setPackageInformation(array $PackageInformation = null)
+    public function setPackageInformation(?array $PackageInformation = null)
     {
         $this->PackageInformation = $PackageInformation;
 

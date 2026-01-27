@@ -25,7 +25,7 @@ class ArrayOfDimensionInfo_Type2 implements \ArrayAccess, \Iterator, \Countable
      *
      * @return \Teknomavi\Kargo\Company\Ups\Helper\CreateShipment\ArrayOfDimensionInfo_Type2
      */
-    public function setDimensionInfo_Type2(array $DimensionInfo_Type2 = null)
+    public function setDimensionInfo_Type2(?array $DimensionInfo_Type2 = null)
     {
         $this->DimensionInfo_Type2 = $DimensionInfo_Type2;
 
