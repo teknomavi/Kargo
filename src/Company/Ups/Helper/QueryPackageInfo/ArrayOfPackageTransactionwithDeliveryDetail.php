@@ -25,7 +25,7 @@ class ArrayOfPackageTransactionwithDeliveryDetail implements \ArrayAccess, \Iter
      *
      * @return \Teknomavi\Kargo\Company\Ups\Helper\QueryPackageInfo\ArrayOfPackageTransactionwithDeliveryDetail
      */
-    public function setPackageTransactionwithDeliveryDetail(array $PackageTransactionwithDeliveryDetail = null)
+    public function setPackageTransactionwithDeliveryDetail(?array $PackageTransactionwithDeliveryDetail = null)
     {
         $this->PackageTransactionwithDeliveryDetail = $PackageTransactionwithDeliveryDetail;
 

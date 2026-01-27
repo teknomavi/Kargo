@@ -25,7 +25,7 @@ class GondericiBilgi
     /**
      * @param string $gonderici_posta_kodu
      */
-    public function setGondericiPostaKodu(string $gonderici_posta_kodu = null): void
+    public function setGondericiPostaKodu(?string $gonderici_posta_kodu = null): void
     {
         $this->gonderici_posta_kodu = $gonderici_posta_kodu;
     }
